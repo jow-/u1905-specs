@@ -1,5 +1,5 @@
 {
-	"cmdus": {
+	"cmdu": {
 		"0x0000": {
 			"description": "Advertise a device's existence",
 			"name": "Topology discovery",
@@ -91,7 +91,7 @@
 		"0x0007": {
 			"description": "Search for a registrar",
 			"name": "AP-autoconfiguration search",
-			"protocol": "AP_AUTOCONFIGURATION",
+			"protocol": "AP_CONFIGURATION",
 			"relay_indicator": true,
 			"standard": "IEEE1905.1",
 			"tlvs": [
@@ -105,7 +105,7 @@
 		"0x0008": {
 			"description": "Answer to a search message",
 			"name": "AP-autoconfiguration response",
-			"protocol": "AP_AUTOCONFIGURATION",
+			"protocol": "AP_CONFIGURATION",
 			"relay_indicator": false,
 			"standard": "IEEE1905.1",
 			"tlvs": [
@@ -118,7 +118,7 @@
 		"0x0009": {
 			"description": "Carry a WSC registration frame",
 			"name": "AP-autoconfiguration WSC",
-			"protocol": "AP_AUTOCONFIGURATION",
+			"protocol": "AP_CONFIGURATION",
 			"relay_indicator": false,
 			"standard": "IEEE1905.1",
 			"tlvs": [
@@ -130,7 +130,7 @@
 		"0x000a": {
 			"description": "Advertise a renewing registration is required for a specific band",
 			"name": "AP-autoconfiguration renew",
-			"protocol": "AP_AUTOCONFIGURATION",
+			"protocol": "AP_CONFIGURATION",
 			"relay_indicator": true,
 			"standard": "IEEE1905.1",
 			"tlvs": [
@@ -168,7 +168,7 @@
 			"type": 12
 		}
 	},
-	"tlvs": {
+	"tlv": {
 		"0x00": {
 			"fields": [
 			],
@@ -294,9 +294,45 @@
 			"fields": [
 				{ "id": 2, "name": "transmitter_al_mac_address", "size": 6, "subtype": "mac", "type": "string" },
 				{ "id": 3, "name": "neighbor_al_mac_address", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 5, "name": "local_if_mac_address", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 6, "name": "remote_if_mac_address", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 7, "name": "link_metric_information", "size": 17 }
+				{
+					"id": 4,
+					"name": "link_metrics",
+					"numfields": 9,
+					"properties": [
+						{ "id": 5, "name": "local_if_mac_address", "size": 6, "subtype": "mac", "type": "string" },
+						{ "id": 6, "name": "remote_if_mac_address", "size": 6, "subtype": "mac", "type": "string" },
+						{
+							"enum": {
+								"0x0000": "IEEE 802.3u fast Ethernet",
+								"0x0001": "IEEE 802.3ab gigabit Ethernet",
+								"0x0100": "IEEE 802.11b (2.4 GHz)",
+								"0x0101": "IEEE 802.11g (2.4 GHz)",
+								"0x0102": "IEEE 802.11a (5 GHz)",
+								"0x0103": "IEEE 802.11n (2.4 GHz)",
+								"0x0104": "IEEE 802.11n (5 GHz)",
+								"0x0105": "IEEE 802.11ac (5 GHz)",
+								"0x0106": "IEEE 802.11ad (60 GHz)",
+								"0x0107": "IEEE 802.11ax (2.4 GHz)",
+								"0x0108": "IEEE 802.11ax (5 GHz)",
+								"0x0200": "IEEE 1901 wavelet",
+								"0x0201": "IEEE 1901 FFT",
+								"0x0300": "MoCA v1.1",
+								"0xffff": "Unknown Media"
+							},
+							"id": 7,
+							"name": "interface_type",
+							"size": 2,
+							"subtype": "uint16_t",
+							"type": "number"
+						},
+						{ "id": 8, "name": "bridges_present", "size": 1, "subtype": "boolean", "type": "boolean" },
+						{ "id": 9, "name": "packet_errors", "size": 4, "subtype": "uint32_t", "type": "number" },
+						{ "id": 10, "name": "transmitted_packets", "size": 4, "subtype": "uint32_t", "type": "number" },
+						{ "id": 11, "name": "mac_throughput_capacity", "size": 2, "subtype": "uint16_t", "type": "number" },
+						{ "id": 12, "name": "link_availability", "size": 2, "subtype": "uint16_t", "type": "number" },
+						{ "id": 13, "name": "phy_rate", "size": 2, "subtype": "uint16_t", "type": "number" }
+					]
+				}
 			],
 			"name": "1905.1 transmitter link metric",
 			"standard": "IEEE1905.1",
@@ -306,9 +342,42 @@
 			"fields": [
 				{ "id": 2, "name": "transmitter_al_mac_address", "size": 6, "subtype": "mac", "type": "string" },
 				{ "id": 3, "name": "neighbor_neighbor_al_mac_address", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 5, "name": "local_if_mac_address", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 6, "name": "remote_if_mac_address", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 7, "name": "link_metric_information", "size": 11 }
+				{
+					"id": 4,
+					"name": "link_metrics",
+					"numfields": 6,
+					"properties": [
+						{ "id": 5, "name": "local_if_mac_address", "size": 6, "subtype": "mac", "type": "string" },
+						{ "id": 6, "name": "remote_if_mac_address", "size": 6, "subtype": "mac", "type": "string" },
+						{
+							"enum": {
+								"0x0000": "IEEE 802.3u fast Ethernet",
+								"0x0001": "IEEE 802.3ab gigabit Ethernet",
+								"0x0100": "IEEE 802.11b (2.4 GHz)",
+								"0x0101": "IEEE 802.11g (2.4 GHz)",
+								"0x0102": "IEEE 802.11a (5 GHz)",
+								"0x0103": "IEEE 802.11n (2.4 GHz)",
+								"0x0104": "IEEE 802.11n (5 GHz)",
+								"0x0105": "IEEE 802.11ac (5 GHz)",
+								"0x0106": "IEEE 802.11ad (60 GHz)",
+								"0x0107": "IEEE 802.11ax (2.4 GHz)",
+								"0x0108": "IEEE 802.11ax (5 GHz)",
+								"0x0200": "IEEE 1901 wavelet",
+								"0x0201": "IEEE 1901 FFT",
+								"0x0300": "MoCA v1.1",
+								"0xffff": "Unknown Media"
+							},
+							"id": 7,
+							"name": "interface_type",
+							"size": 2,
+							"subtype": "uint16_t",
+							"type": "number"
+						},
+						{ "id": 8, "name": "packet_errors", "size": 4, "subtype": "uint32_t", "type": "number" },
+						{ "id": 9, "name": "received_packets", "size": 4, "subtype": "uint32_t", "type": "number" },
+						{ "id": 10, "name": "rssi", "size": 1, "subtype": "uint8_t", "type": "number" }
+					]
+				}
 			],
 			"name": "1905.1 receiver link metric",
 			"standard": "IEEE1905.1",
@@ -316,7 +385,7 @@
 		},
 		"0x11": {
 			"fields": [
-				{ "id": 2, "name": "vendor_specific_oui", "size": 3 },
+				{ "id": 2, "name": "vendor_specific_oui", "size": 3, "subtype": "string", "type": "string" },
 				{ "id": 3, "name": "vendor_specific_information", "size": 0, "size_ref": -1, "subtype": "string", "type": "string" }
 			],
 			"name": "Vendor specific",
@@ -365,7 +434,7 @@
 		},
 		"0x17": {
 			"fields": [
-				{ "id": 2, "name": "wsc_frame", "subtype": "bitfield", "type": "number" }
+				{ "id": 2, "name": "wsc_frame", "size_ref": -1, "subtype": "string", "type": "string" }
 			],
 			"name": "WSC",
 			"standard": "IEEE1905.1",

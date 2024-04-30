@@ -1,5 +1,5 @@
 {
-	"cmdus": {
+	"cmdu": {
 		"0x0001": {
 			"description": "Notify that a device's 1905 topology entries have changed.",
 			"name": "1905 Topology Notification",
@@ -78,11 +78,10 @@
 			"standard": "Wi-Fi EasyMesh",
 			"tlvs": [
 				{ "name": "AP Radio Basic Capabilities", "profile": 1, "quantity": "1", "type": "0x85" },
-				{ "name": "WSC", "profile": 1, "quantity": "1", "type": "???" },
+				{ "name": "WSC", "profile": 1, "quantity": "+", "type": "0x17" },
 				{ "name": "Profile-2 AP Capability", "profile": 2, "quantity": "1", "type": "0xb4" },
 				{ "name": "AP Radio Advanced Capabilities", "profile": 2, "quantity": "1", "type": "0xbe" },
-				{ "name": "AP Radio Identifier", "profile": 1, "quantity": "1", "type": "0x82" },
-				{ "name": "WSC", "profile": 1, "quantity": "+", "type": "???" },
+				{ "name": "AP Radio Identifier", "profile": 1, "quantity": "?", "type": "0x82" },
 				{ "name": "Default 802.1Q Settings", "profile": 2, "quantity": "?", "type": "0xb5" },
 				{ "name": "Traffic Separation Policy", "profile": 2, "quantity": "?", "type": "0xb6" }
 			],
@@ -360,10 +359,8 @@
 			"standard": "Wi-Fi EasyMesh",
 			"tlvs": [
 				{ "name": "AP Metrics", "profile": 1, "quantity": "1", "type": "0x94" },
-				{ "name": "1905 transmitter link metric", "profile": 1, "quantity": "1", "type": "???" },
-				{ "name": "1905 transmitter link metric", "profile": 1, "quantity": "1", "type": "???" },
-				{ "name": "1905 receiver link metric", "profile": 1, "quantity": "1", "type": "???" },
-				{ "name": "1905 receiver link metric", "profile": 1, "quantity": "1", "type": "???" }
+				{ "name": "1905.1 transmitter link metric", "profile": 1, "quantity": "+", "type": "0x09" },
+				{ "name": "1905.1 receiver link metric", "profile": 1, "quantity": "+", "type": "0x10" }
 			],
 			"transmission_type": "Unicast",
 			"type": 32787
@@ -508,7 +505,7 @@
 			"relay_indicator": false,
 			"standard": "Wi-Fi EasyMesh",
 			"tlvs": [
-				{ "name": "1905 AL MAC Address type", "profile": 3, "quantity": "1", "type": "???" }
+				{ "name": "1905.1 AL MAC Address type", "profile": 3, "quantity": "1", "type": "0x01" }
 			],
 			"transmission_type": "Unicast",
 			"type": 32799
@@ -544,7 +541,7 @@
 			"relay_indicator": false,
 			"standard": "Wi-Fi EasyMesh",
 			"tlvs": [
-				{ "name": "STA MAC Address", "profile": 1, "quantity": "1", "type": "???" },
+				{ "name": "STA MAC Address", "profile": 1, "quantity": "1", "type": "0x95" },
 				{ "name": "Reason Code", "profile": 1, "quantity": "1", "type": "0xca" },
 				{ "name": "Associated STA Traffic Stats", "profile": 1, "quantity": "1", "type": "0xa2" }
 			],
@@ -816,7 +813,7 @@
 			"type": 32824
 		}
 	},
-	"tlvs": {
+	"tlv": {
 		"0x80": {
 			"fields": [
 				{ "id": 2, "name": "services_count", "ref": 4, "size": 1, "subtype": "uint8_t", "type": "number" },
@@ -1356,9 +1353,9 @@
 				{ "id": 3, "name": "channel_utilization", "size": 1, "subtype": "uint8_t", "type": "number" },
 				{ "id": 4, "name": "sta_count", "size": 2, "subtype": "uint16_t", "type": "number" },
 				{ "id": 5, "name": "include_bit", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": "6", "name": "include_esp_bk", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": "7", "name": "include_esp_vo", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": "8", "name": "include_esp_vi", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 6, "name": "include_esp_bk", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 7, "name": "include_esp_vo", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 8, "name": "include_esp_vi", "size": 0.125, "subtype": "boolean", "type": "boolean" },
 				{ "id": 9, "name": "reserved", "size": 0.125, "subtype": "bitfield", "type": "void" },
 				{ "id": 10, "name": "esp_be", "size": 3, "subtype": "string", "type": "string" },
 				{
@@ -2153,7 +2150,7 @@
 				{ "id": 3, "name": "max_prioritization_rules", "size": 1, "subtype": "uint8_t", "type": "number" },
 				{ "id": 4, "name": "reserved", "size": 1, "subtype": "string", "type": "void" },
 				{
-					"enum": { "0b0": "bytes", "0b1": "kibibytes (KiB)", "0b2": "mebibytes (MiB)" },
+					"enum": { "0x0": "bytes", "0x1": "kibibytes (KiB)", "0x2": "mebibytes (MiB)" },
 					"id": 5,
 					"name": "byte_counter_units",
 					"size": 0.25,
@@ -2203,25 +2200,25 @@
 		"0xb7": {
 			"fields": [
 				{ "id": 3, "name": "radios_count", "ref": 18, "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 4, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
 				{
 					"id": 18,
 					"name": "radios",
-					"numfields": 12,
+					"numfields": 14,
 					"properties": [
+						{ "id": 4, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
 						{ "id": 5, "name": "bss_count", "ref": 17, "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 6, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
 						{
 							"id": 17,
 							"name": "bss",
-							"numfields": 10,
+							"numfields": 11,
 							"properties": [
+								{ "id": 6, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
 								{ "id": 7, "name": "backhaul", "size": 0.125, "subtype": "boolean", "type": "boolean" },
 								{ "id": 8, "name": "fronthaul", "size": 0.125, "subtype": "boolean", "type": "boolean" },
 								{ "id": 9, "name": "r1_disallowed_status", "size": 0.125, "subtype": "boolean", "type": "boolean" },
 								{ "id": 10, "name": "r2_disallowed_status", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-								{ "id": 11, "name": "multiple_bssid", "size": 0.125, "subtype": "mac", "type": "string" },
-								{ "id": 12, "name": "transmitted_bssid", "size": 0.125, "subtype": "mac", "type": "string" },
+								{ "id": 11, "name": "multiple_bssid", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+								{ "id": 12, "name": "transmitted_bssid", "size": 0.125, "subtype": "boolean", "type": "boolean" },
 								{ "id": 13, "name": "reserved", "size": 0.25, "subtype": "bitfield", "type": "void" },
 								{ "id": 14, "name": "reserved2", "size": 1, "subtype": "string", "suffix": "2", "type": "void" },
 								{ "id": 15, "name": "ssid_length", "ref": 16, "size": 1, "subtype": "uint8_t", "type": "number" },
@@ -2263,7 +2260,15 @@
 		},
 		"0xba": {
 			"fields": [
-				{ "id": 3, "name": "dscp_pcp_mapping", "size": 64 }
+				{
+					"id": 3,
+					"name": "dscp_pcp_mapping",
+					"numfields": 1,
+					"properties": [
+						{ "id": 4, "name": "pcp_value", "size": 1, "subtype": "uint8_t", "type": "number" }
+					],
+					"repeat": 64
+				}
 			],
 			"name": "DSCP Mapping Table",
 			"standard": "Wi-Fi EasyMesh",
@@ -2292,7 +2297,7 @@
 						"0x0C": "QoS Management DSCP Policy Request rejected",
 						"0x0D": "Agent can not onboard other Agents via DPP over Wi-Fi"
 					},
-					"id": "3",
+					"id": 3,
 					"name": "reason_code",
 					"size": 1,
 					"subtype": "uint8_t",
@@ -2613,8 +2618,8 @@
 			"fields": [
 				{ "id": 3, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
 				{ "id": 4, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 5, "name": "backhaul_sta_address", "size": 6, "subtype": "string", "type": "string" },
-				{ "id": 6, "name": "dpp_uri", "subtype": "bitfield", "type": "number" }
+				{ "id": 5, "name": "backhaul_sta_address", "size": 6, "subtype": "mac", "type": "string" },
+				{ "id": 6, "name": "dpp_uri", "size_ref": -1, "subtype": "uri", "type": "string" }
 			],
 			"name": "DPP Bootstrapping URI Notification",
 			"standard": "Wi-Fi EasyMesh",
