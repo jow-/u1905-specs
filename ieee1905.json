@@ -5,10 +5,10 @@
 			"name": "Topology discovery",
 			"protocol": "TOPOLOGY_DISCOVERY",
 			"relay_indicator": false,
-			"standard": "IEEE1905.1",
+			"standard": "IEEE1905.1-2013",
 			"tlvs": [
-				{ "name": "1905.1 AL MAC address type", "quantity": "1", "type": "0x01" },
-				{ "name": "MAC address type", "quantity": "1", "type": "0x02" }
+				{ "name": "1905.1 AL MAC address", "quantity": "1", "type": "0x01" },
+				{ "name": "MAC address", "quantity": "1", "type": "0x02" }
 			],
 			"transmission_type": "Neighbor multicast",
 			"type": 0
@@ -18,9 +18,9 @@
 			"name": "Topology notification",
 			"protocol": "TOPOLOGY_DISCOVERY",
 			"relay_indicator": true,
-			"standard": "IEEE1905.1",
+			"standard": "IEEE1905.1-2013",
 			"tlvs": [
-				{ "name": "1905.1 AL MAC address type", "quantity": "1", "type": "0x01" }
+				{ "name": "1905.1 AL MAC address", "quantity": "1", "type": "0x01" }
 			],
 			"transmission_type": "Relayed multicast",
 			"type": 1
@@ -30,7 +30,7 @@
 			"name": "Topology query",
 			"protocol": "TOPOLOGY_DISCOVERY",
 			"relay_indicator": false,
-			"standard": "IEEE1905.1",
+			"standard": "IEEE1905.1-2013",
 			"tlvs": null,
 			"transmission_type": "Unicast",
 			"type": 2
@@ -40,9 +40,9 @@
 			"name": "Topology response",
 			"protocol": "TOPOLOGY_DISCOVERY",
 			"relay_indicator": false,
-			"standard": "IEEE1905.1",
+			"standard": "IEEE1905.1-2013",
 			"tlvs": [
-				{ "name": "1905.1 device information type", "quantity": "1", "type": "0x03" },
+				{ "name": "1905.1 device information", "quantity": "1", "type": "0x03" },
 				{ "name": "Device bridging capability", "quantity": "*", "type": "0x04" },
 				{ "name": "Non-1905 neighbor device list", "quantity": "*", "type": "0x06" },
 				{ "name": "1905.1 neighbor device", "quantity": "*", "type": "0x07" }
@@ -55,7 +55,7 @@
 			"name": "Vendor specific",
 			"protocol": "PROPRIETARY",
 			"relay_indicator": false,
-			"standard": "IEEE1905.1",
+			"standard": "IEEE1905.1-2013",
 			"tlvs": [
 				{ "name": "Vendor specific", "quantity": "1", "type": "0x11" }
 			],
@@ -67,7 +67,7 @@
 			"name": "Link metric query",
 			"protocol": "LINK_METRIC_INFORMATION_DISSEMINATION",
 			"relay_indicator": false,
-			"standard": "IEEE1905.1",
+			"standard": "IEEE1905.1-2013",
 			"tlvs": [
 				{ "name": "1905.1 transmitter link metric", "quantity": "1", "type": "0x09" }
 			],
@@ -79,7 +79,7 @@
 			"name": "Link metric response",
 			"protocol": "LINK_METRIC_INFORMATION_DISSEMINATION",
 			"relay_indicator": false,
-			"standard": "IEEE1905.1",
+			"standard": "IEEE1905.1-2013",
 			"tlvs": [
 				{ "name": "1905.1 transmitter link metric", "quantity": "?", "type": "0x09" },
 				{ "name": "1905.1 receiver link metric", "quantity": "?", "type": "0x10" },
@@ -93,11 +93,11 @@
 			"name": "AP-autoconfiguration search",
 			"protocol": "AP_CONFIGURATION",
 			"relay_indicator": true,
-			"standard": "IEEE1905.1",
+			"standard": "IEEE1905.1-2013",
 			"tlvs": [
-				{ "name": "1905.1 AL MAC address type", "quantity": "1", "type": "0x01" },
-				{ "name": "SearchedRole", "quantity": "1", "type": "0x13" },
-				{ "name": "AutoconfigFreqBand", "quantity": "1", "type": "0x14" }
+				{ "name": "1905.1 AL MAC address", "quantity": "1", "type": "0x01" },
+				{ "name": "Searched Role", "quantity": "1", "type": "0x13" },
+				{ "name": "Autoconfig Frequency Band", "quantity": "1", "type": "0x14" }
 			],
 			"transmission_type": "Relayed multicast",
 			"type": 7
@@ -107,10 +107,10 @@
 			"name": "AP-autoconfiguration response",
 			"protocol": "AP_CONFIGURATION",
 			"relay_indicator": false,
-			"standard": "IEEE1905.1",
+			"standard": "IEEE1905.1-2013",
 			"tlvs": [
-				{ "name": "SupportedRole", "quantity": "1", "type": "0x15" },
-				{ "name": "SupportedFreqBand", "quantity": "1", "type": "0x16" }
+				{ "name": "Supported Role", "quantity": "1", "type": "0x15" },
+				{ "name": "Supported Frequency Band", "quantity": "1", "type": "0x16" }
 			],
 			"transmission_type": "Unicast",
 			"type": 8
@@ -120,7 +120,7 @@
 			"name": "AP-autoconfiguration WSC",
 			"protocol": "AP_CONFIGURATION",
 			"relay_indicator": false,
-			"standard": "IEEE1905.1",
+			"standard": "IEEE1905.1-2013",
 			"tlvs": [
 				{ "name": "WSC", "quantity": "1", "type": "0x17" }
 			],
@@ -132,11 +132,11 @@
 			"name": "AP-autoconfiguration renew",
 			"protocol": "AP_CONFIGURATION",
 			"relay_indicator": true,
-			"standard": "IEEE1905.1",
+			"standard": "IEEE1905.1-2013",
 			"tlvs": [
-				{ "name": "1905.1 AL MAC address type", "quantity": "1", "type": "0x01" },
+				{ "name": "1905.1 AL MAC address", "quantity": "1", "type": "0x01" },
 				{ "name": "SupportedRole", "quantity": "1", "type": "0x15" },
-				{ "name": "SupportedFreqBand", "quantity": "1", "type": "0x16" }
+				{ "name": "Supported Frequency Band", "quantity": "1", "type": "0x16" }
 			],
 			"transmission_type": "Relayed multicast",
 			"type": 10
@@ -146,9 +146,9 @@
 			"name": "1905.1 push button event notification",
 			"protocol": "PUSH_BUTTON",
 			"relay_indicator": true,
-			"standard": "IEEE1905.1",
+			"standard": "IEEE1905.1-2013",
 			"tlvs": [
-				{ "name": "1905.1 AL MAC address type", "quantity": "1", "type": "0x01" },
+				{ "name": "1905.1 AL MAC address", "quantity": "1", "type": "0x01" },
 				{ "name": "Push_Button_Event notification", "quantity": "1", "type": "0x18" }
 			],
 			"transmission_type": "Relayed multicast",
@@ -159,13 +159,86 @@
 			"name": "1905.1 push button join notification",
 			"protocol": "PUSH_BUTTON",
 			"relay_indicator": true,
-			"standard": "IEEE1905.1",
+			"standard": "IEEE1905.1-2013",
 			"tlvs": [
-				{ "name": "1905.1 AL MAC address type", "quantity": "1", "type": "0x01" },
+				{ "name": "1905.1 AL MAC address", "quantity": "1", "type": "0x01" },
 				{ "name": "Push_Button_Join notification", "quantity": "1", "type": "0x19" }
 			],
 			"transmission_type": "Relayed multicast",
 			"type": 12
+		},
+		"0x000d": {
+			"description": "A message to query a device's higher layer information",
+			"name": "Higher Layer query",
+			"protocol": "Higher Layer information",
+			"relay_indicator": false,
+			"standard": "IEEE1905.1a-2014",
+			"tlvs": null,
+			"transmission_type": "Unicast",
+			"type": 13
+		},
+		"0x000e": {
+			"description": "A message to carry higher layer information in response to a query",
+			"name": "Higher Layer response",
+			"protocol": "Higher Layer information",
+			"relay_indicator": false,
+			"standard": "IEEE1905.1a-2014",
+			"tlvs": [
+				{ "name": "1905.1 AL MAC address", "quantity": "1", "type": "0x01" },
+				{ "name": "1905 profile version", "quantity": "1", "type": "0x1a" },
+				{ "name": "Device identification", "quantity": "1", "type": "0x15" },
+				{ "name": "Control URL", "quantity": "?", "type": "0x16" },
+				{ "name": "IPv4", "quantity": "?", "type": "0x17" },
+				{ "name": "IPv6", "quantity": "?", "type": "0x18" }
+			],
+			"transmission_type": "Unicast",
+			"type": 14
+		},
+		"0x000f": {
+			"description": "A message to query a device to change power state of an interface",
+			"name": "Interface power change request",
+			"protocol": "Power management",
+			"relay_indicator": false,
+			"standard": "IEEE1905.1a-2014",
+			"tlvs": [
+				{ "name": "Interface power change information", "quantity": "+", "type": "0x1c" }
+			],
+			"transmission_type": "Unicast",
+			"type": 15
+		},
+		"0x0010": {
+			"description": "A message to carry power change status in response to an Interface power change request",
+			"name": "Interface power change response",
+			"protocol": "Power management",
+			"relay_indicator": false,
+			"standard": "IEEE1905.1a-2014",
+			"tlvs": [
+				{ "name": "Interface power change status", "quantity": "+", "type": "0x1d" }
+			],
+			"transmission_type": "Unicast",
+			"type": 16
+		},
+		"0x0011": {
+			"description": "A message to query a device's topology information including Generic Phys",
+			"name": "Generic Phy query",
+			"protocol": "Topology discovery",
+			"relay_indicator": false,
+			"standard": "IEEE1905.1a-2014",
+			"tlvs": null,
+			"transmission_type": "Unicast",
+			"type": 17
+		},
+		"0x0012": {
+			"description": "A message to carry topology information including Generic Phys in response to a Generic Phy query",
+			"name": "Generic Phy response",
+			"protocol": "Topology discovery",
+			"relay_indicator": false,
+			"standard": "IEEE1905.1a-2014",
+			"tlvs": [
+				{ "name": "Generic Phy device information", "quantity": "1", "type": "0x14" }
+			],
+			"transmission_type": "Unicast",
+			"type": 18
 		}
 	},
 	"tlv": {
@@ -173,23 +246,23 @@
 			"fields": [
 			],
 			"name": "End of message",
-			"standard": "IEEE1905.1",
+			"standard": "IEEE1905.1-2013",
 			"type": 0
 		},
 		"0x01": {
 			"fields": [
 				{ "id": 2, "name": "al_mac_address", "size": 6, "subtype": "mac", "type": "string" }
 			],
-			"name": "1905.1 AL MAC address type",
-			"standard": "IEEE1905.1",
+			"name": "1905.1 AL MAC address",
+			"standard": "IEEE1905.1-2013",
 			"type": 1
 		},
 		"0x02": {
 			"fields": [
 				{ "id": 2, "name": "if_mac_address", "size": 6, "subtype": "mac", "type": "string" }
 			],
-			"name": "MAC address type",
-			"standard": "IEEE1905.1",
+			"name": "MAC address",
+			"standard": "IEEE1905.1-2013",
 			"type": 2
 		},
 		"0x03": {
@@ -200,9 +273,32 @@
 					"id": 7.1,
 					"name": "local_interfaces",
 					"numfields": 4,
-					"properties": [
+					"fields": [
 						{ "id": 4, "name": "local_if_mac_address", "size": 6, "subtype": "mac", "type": "string" },
-						{ "id": 5, "name": "media_type", "size": 2, "subtype": "uint16_t", "type": "number" },
+						{
+							"enum": {
+								"0x0000": "IEEE 802.3u fast Ethernet",
+								"0x0001": "IEEE 802.3ab gigabit Ethernet",
+								"0x0100": "IEEE 802.11b (2.4 GHz)",
+								"0x0101": "IEEE 802.11g (2.4 GHz)",
+								"0x0102": "IEEE 802.11a (5 GHz)",
+								"0x0103": "IEEE 802.11n (2.4 GHz)",
+								"0x0104": "IEEE 802.11n (5 GHz)",
+								"0x0105": "IEEE 802.11ac (5 GHz)",
+								"0x0106": "IEEE 802.11ad (60 GHz)",
+								"0x0107": "IEEE 802.11ax (2.4 GHz)",
+								"0x0108": "IEEE 802.11ax (5 GHz)",
+								"0x0200": "IEEE 1901 wavelet",
+								"0x0201": "IEEE 1901 FFT",
+								"0x0300": "MoCA v1.1",
+								"0xffff": "Unknown Media"
+							},
+							"id": 5,
+							"name": "media_type",
+							"size": 2,
+							"subtype": "uint16_t",
+							"type": "number"
+						},
 						{ "id": 6, "name": "octets_count", "ref": 7, "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 7, "name": "media_specific_information", "size": 0, "size_ref": 6, "subtype": "string", "type": "string" }
 					],
@@ -210,8 +306,8 @@
 					"repeat_ref": 3
 				}
 			],
-			"name": "1905.1 device information type",
-			"standard": "IEEE1905.1",
+			"name": "1905.1 device information",
+			"standard": "IEEE1905.1-2013",
 			"type": 3
 		},
 		"0x04": {
@@ -221,13 +317,13 @@
 					"id": 4.2,
 					"name": "bridging_tuples",
 					"numfields": 2,
-					"properties": [
+					"fields": [
 						{ "id": 3, "name": "mac_addresses_count", "ref": 4.1, "size": 1, "subtype": "mac", "type": "string" },
 						{
 							"id": 4.1,
 							"name": "mac_addresses",
 							"numfields": 1,
-							"properties": [
+							"fields": [
 								{ "id": 4, "name": "mac_address", "size": 6, "subtype": "mac", "type": "string" }
 							],
 							"repeat": "k",
@@ -239,7 +335,7 @@
 				}
 			],
 			"name": "Device bridging capability",
-			"standard": "IEEE1905.1",
+			"standard": "IEEE1905.1-2013",
 			"type": 4
 		},
 		"0x06": {
@@ -247,17 +343,17 @@
 				{ "id": 2, "name": "local_if_mac_address", "size": 6, "subtype": "mac", "type": "string" },
 				{
 					"id": 3.1,
-					"name": "non_1905_neighbor_device_list",
+					"name": "non_ieee1905_neighbors",
 					"numfields": 1,
-					"properties": [
+					"fields": [
 						{ "id": 3, "name": "non_1905_neighbor_device_mac_address", "size": 6, "subtype": "mac", "type": "string" }
 					],
 					"repeat": "0 or more",
 					"repeat_ref": -1
 				}
 			],
-			"name": "Non-1905 neighbor device list",
-			"standard": "IEEE1905.1",
+			"name": "Non-1905 neighbor devices",
+			"standard": "IEEE1905.1-2013",
 			"type": 6
 		},
 		"0x07": {
@@ -265,9 +361,9 @@
 				{ "id": 2, "name": "local_if_mac_address", "size": 6, "subtype": "mac", "type": "string" },
 				{
 					"id": 5.1,
-					"name": "neighbor_device",
+					"name": "ieee1905_neighbors",
 					"numfields": 3,
-					"properties": [
+					"fields": [
 						{ "id": 3, "name": "neighbor_al_mac_address", "size": 6, "subtype": "mac", "type": "string" },
 						{ "id": 4, "name": "bridges_present", "size": 0.125, "subtype": "boolean", "type": "boolean" },
 						{ "id": 5, "name": "reserved", "size": 0.875, "subtype": "bitfield", "type": "void" }
@@ -276,18 +372,48 @@
 					"repeat_ref": -1
 				}
 			],
-			"name": "1905.1 neighbor device",
-			"standard": "IEEE1905.1",
+			"name": "1905 neighbor devices",
+			"standard": "IEEE1905.1-2013",
 			"type": 7
 		},
 		"0x08": {
 			"fields": [
-				{ "id": 2, "name": "query_type", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 3, "name": "al_mac_address", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 4, "name": "link_metrics_requested", "size": 1, "subtype": "uint8_t", "type": "number" }
+				{
+					"enum": {
+						"0x00": "All neighbors",
+						"0x01": "Specific neighbor"
+					},
+					"id": 2,
+					"name": "query_type",
+					"size": 1,
+					"subtype": "uint8_t",
+					"type": "number"
+				},
+				{
+					"id": 3,
+					"name": "al_mac_address",
+					"requires": {
+						"2": [ 1 ]
+					},
+					"size": 6,
+					"subtype": "mac",
+					"type": "string"
+				},
+				{
+					"enum": {
+						"0x00": "Tx link metrics only",
+						"0x01": "Rx link metrics only",
+						"0x02": "Both Tx and Rx link metrics"
+					},
+					"id": 4,
+					"name": "link_metrics_requested",
+					"size": 1,
+					"subtype": "uint8_t",
+					"type": "number"
+				}
 			],
 			"name": "Link metric query",
-			"standard": "IEEE1905.1",
+			"standard": "IEEE1905.1-2013",
 			"type": 8
 		},
 		"0x09": {
@@ -298,7 +424,7 @@
 					"id": 4,
 					"name": "link_metrics",
 					"numfields": 9,
-					"properties": [
+					"fields": [
 						{ "id": 5, "name": "local_if_mac_address", "size": 6, "subtype": "mac", "type": "string" },
 						{ "id": 6, "name": "remote_if_mac_address", "size": 6, "subtype": "mac", "type": "string" },
 						{
@@ -320,7 +446,7 @@
 								"0xffff": "Unknown Media"
 							},
 							"id": 7,
-							"name": "interface_type",
+							"name": "media_type",
 							"size": 2,
 							"subtype": "uint16_t",
 							"type": "number"
@@ -331,22 +457,24 @@
 						{ "id": 11, "name": "mac_throughput_capacity", "size": 2, "subtype": "uint16_t", "type": "number" },
 						{ "id": 12, "name": "link_availability", "size": 2, "subtype": "uint16_t", "type": "number" },
 						{ "id": 13, "name": "phy_rate", "size": 2, "subtype": "uint16_t", "type": "number" }
-					]
+					],
+					"repeat": "shall be repeated for each connected interface pair",
+					"repeat_ref": -1
 				}
 			],
 			"name": "1905.1 transmitter link metric",
-			"standard": "IEEE1905.1",
+			"standard": "IEEE1905.1-2013",
 			"type": 9
 		},
-		"0x10": {
+		"0x0a": {
 			"fields": [
 				{ "id": 2, "name": "transmitter_al_mac_address", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 3, "name": "neighbor_neighbor_al_mac_address", "size": 6, "subtype": "mac", "type": "string" },
+				{ "id": 3, "name": "neighbor_al_mac_address", "size": 6, "subtype": "mac", "type": "string" },
 				{
 					"id": 4,
 					"name": "link_metrics",
 					"numfields": 6,
-					"properties": [
+					"fields": [
 						{ "id": 5, "name": "local_if_mac_address", "size": 6, "subtype": "mac", "type": "string" },
 						{ "id": 6, "name": "remote_if_mac_address", "size": 6, "subtype": "mac", "type": "string" },
 						{
@@ -368,7 +496,7 @@
 								"0xffff": "Unknown Media"
 							},
 							"id": 7,
-							"name": "interface_type",
+							"name": "media_type",
 							"size": 2,
 							"subtype": "uint16_t",
 							"type": "number"
@@ -376,79 +504,158 @@
 						{ "id": 8, "name": "packet_errors", "size": 4, "subtype": "uint32_t", "type": "number" },
 						{ "id": 9, "name": "received_packets", "size": 4, "subtype": "uint32_t", "type": "number" },
 						{ "id": 10, "name": "rssi", "size": 1, "subtype": "uint8_t", "type": "number" }
-					]
+					],
+					"repeat": "shall be repeated for each connected interface pair",
+					"repeat_ref": -1
 				}
 			],
 			"name": "1905.1 receiver link metric",
-			"standard": "IEEE1905.1",
-			"type": 16
+			"standard": "IEEE1905.1-2013",
+			"type": 10
 		},
-		"0x11": {
+		"0x0b": {
 			"fields": [
 				{ "id": 2, "name": "vendor_specific_oui", "size": 3, "subtype": "string", "type": "string" },
 				{ "id": 3, "name": "vendor_specific_information", "size": 0, "size_ref": -1, "subtype": "string", "type": "string" }
 			],
 			"name": "Vendor specific",
-			"standard": "IEEE1905.1",
-			"type": 17
+			"standard": "IEEE1905.1-2013",
+			"type": 11
 		},
-		"0x12": {
+		"0x0c": {
 			"fields": [
-				{ "id": 2, "name": "result_code", "size": 1, "subtype": "uint8_t", "type": "number" }
+				{
+					"enum_name": "LINK_METRIC_RESULT_CODE",
+					"enum": {
+						"0x00": "Invalid neighbor"
+					},
+					"id": 2,
+					"name": "result_code",
+					"size": 1,
+					"subtype": "uint8_t",
+					"type": "number"
+				}
 			],
 			"name": "1905.1 link metric result code",
-			"standard": "IEEE1905.1",
-			"type": 18
+			"standard": "IEEE1905.1-2013",
+			"type": 12
 		},
-		"0x13": {
+		"0x0d": {
 			"fields": [
-				{ "id": 2, "name": "type_of_role", "size": 1, "subtype": "uint8_t", "type": "number" }
+				{
+					"enum_name": "IEEE1905_ROLE",
+					"enum": {
+						"0x00": "Registrar"
+					},
+					"id": 2,
+					"name": "role",
+					"size": 1,
+					"subtype": "uint8_t",
+					"type": "number"
+				}
 			],
-			"name": "SearchedRole",
-			"standard": "IEEE1905.1",
-			"type": 19
+			"name": "Searched Role",
+			"standard": "IEEE1905.1-2013",
+			"type": 13
 		},
-		"0x14": {
+		"0x0e": {
 			"fields": [
-				{ "id": 2, "name": "frequency_band", "size": 1, "subtype": "uint8_t", "type": "number" }
+				{
+					"enum_name": "IEEE1905_FREQUENCY_BAND",
+					"enum": {
+						"0x00": "802.11 2.4 GHz",
+						"0x01": "802.11 5 GHz",
+						"0x02": "802.11 60 GHz"
+					},
+					"id": 2,
+					"name": "frequency_band",
+					"size": 1,
+					"subtype": "uint8_t",
+					"type": "number"
+				}
 			],
-			"name": "AutoconfigFreqBand",
-			"standard": "IEEE1905.1",
-			"type": 20
+			"name": "Autoconfig Frequency Band",
+			"standard": "IEEE1905.1-2013",
+			"type": 14
 		},
-		"0x15": {
+		"0x0f": {
 			"fields": [
-				{ "id": 2, "name": "type_of_role", "size": 1, "subtype": "uint8_t", "type": "number" }
+				{
+					"enum_name": "IEEE1905_ROLE",
+					"enum": {
+						"0x00": "Registrar"
+					},
+					"id": 2,
+					"name": "role",
+					"size": 1,
+					"subtype": "uint8_t",
+					"type": "number"
+				}
 			],
-			"name": "SupportedRole",
-			"standard": "IEEE1905.1",
-			"type": 21
+			"name": "Supported Role",
+			"standard": "IEEE1905.1-2013",
+			"type": 15
 		},
-		"0x16": {
+		"0x10": {
 			"fields": [
-				{ "id": 2, "name": "frequency_band", "size": 1, "subtype": "uint8_t", "type": "number" }
+				{
+					"enum_name": "IEEE1905_FREQUENCY_BAND",
+					"enum": {
+						"0x00": "802.11 2.4 GHz",
+						"0x01": "802.11 5 GHz",
+						"0x02": "802.11 60 GHz"
+					},
+					"id": 2,
+					"name": "frequency_band",
+					"size": 1,
+					"subtype": "uint8_t",
+					"type": "number"
+				}
 			],
-			"name": "SupportedFreqBand",
-			"standard": "IEEE1905.1",
-			"type": 22
+			"name": "Supported Frequency Band",
+			"standard": "IEEE1905.1-2013",
+			"type": 16
 		},
-		"0x17": {
+		"0x11": {
 			"fields": [
 				{ "id": 2, "name": "wsc_frame", "size_ref": -1, "subtype": "string", "type": "string" }
 			],
 			"name": "WSC",
-			"standard": "IEEE1905.1",
-			"type": 23
+			"standard": "IEEE1905.1-2013",
+			"type": 17
 		},
-		"0x18": {
+		"0x12": {
 			"fields": [
 				{ "id": 2, "name": "media_types_count", "ref": 5.1, "size": 1, "subtype": "uint8_t", "type": "number" },
 				{
 					"id": 5.1,
 					"name": "media_types",
 					"numfields": 3,
-					"properties": [
-						{ "id": 3, "name": "media_type", "size": 2, "subtype": "uint16_t", "type": "number" },
+					"fields": [
+						{
+							"enum": {
+								"0x0000": "IEEE 802.3u fast Ethernet",
+								"0x0001": "IEEE 802.3ab gigabit Ethernet",
+								"0x0100": "IEEE 802.11b (2.4 GHz)",
+								"0x0101": "IEEE 802.11g (2.4 GHz)",
+								"0x0102": "IEEE 802.11a (5 GHz)",
+								"0x0103": "IEEE 802.11n (2.4 GHz)",
+								"0x0104": "IEEE 802.11n (5 GHz)",
+								"0x0105": "IEEE 802.11ac (5 GHz)",
+								"0x0106": "IEEE 802.11ad (60 GHz)",
+								"0x0107": "IEEE 802.11ax (2.4 GHz)",
+								"0x0108": "IEEE 802.11ax (5 GHz)",
+								"0x0200": "IEEE 1901 wavelet",
+								"0x0201": "IEEE 1901 FFT",
+								"0x0300": "MoCA v1.1",
+								"0xffff": "Unknown Media"
+							},
+							"id": 3,
+							"name": "media_type",
+							"size": 2,
+							"subtype": "uint16_t",
+							"type": "number"
+						},
 						{ "id": 4, "name": "octets_count", "ref": 5, "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 5, "name": "media_specific_information", "size": 0, "size_ref": 4, "subtype": "string", "type": "string" }
 					],
@@ -457,10 +664,10 @@
 				}
 			],
 			"name": "Push_Button_Event notification",
-			"standard": "IEEE1905.1",
-			"type": 24
+			"standard": "IEEE1905.1-2013",
+			"type": 18
 		},
-		"0x19": {
+		"0x13": {
 			"fields": [
 				{ "id": 2, "name": "al_id", "size": 6, "subtype": "mac", "type": "string" },
 				{ "id": 3, "name": "message_identifier", "size": 2, "subtype": "uint16_t", "type": "number" },
@@ -468,8 +675,325 @@
 				{ "id": 5, "name": "neighbor_if_mac_address", "size": 6, "subtype": "mac", "type": "string" }
 			],
 			"name": "Push_Button_Join notification",
-			"standard": "IEEE1905.1",
+			"standard": "IEEE1905.1-2013",
+			"type": 19
+		},
+		"0x14": {
+			"fields": [
+				{ "id": 1, "name": "al_mac_address", "size": 6, "subtype": "mac", "type": "string" },
+				{ "id": 2, "name": "local_interfaces_count", "ref": 3, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{
+					"id": 3,
+					"name": "local_interfaces",
+					"numfields": 8,
+					"fields": [
+						{ "id": 4, "name": "local_if_mac_address", "size": 6, "subtype": "mac", "type": "string" },
+						{ "id": 5, "name": "phy_oui", "size": 3, "subtype": "string", "type": "string" },
+						{ "id": 6, "name": "phy_variant", "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 7, "name": "phy_variant_name", "size": 32, "subtype": "string", "type": "string" },
+						{ "id": 8, "name": "phy_description_url_length", "ref": 10, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 9, "name": "media_specific_information_length", "ref": 11, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 10, "name": "phy_description_url", "size": 0, "size_ref": 8, "subtype": "string", "type": "string" },
+						{ "id": 11, "name": "media_specific_information", "size": 0, "size_ref": 9, "subtype": "string", "type": "string" }
+					],
+					"repeat": "k",
+					"repeat_ref": 2
+				}
+			],
+			"name": "Generic Phy device information",
+			"standard": "IEEE1905.1a-2014",
+			"type": 20
+		},
+		"0x15": {
+			"fields": [
+				{ "id": 1, "name": "friendly_name", "size": 64, "subtype": "string", "type": "string" },
+				{ "id": 2, "name": "manufacturer_name", "size": 64, "subtype": "string", "type": "string" },
+				{ "id": 3, "name": "manufacturer_model", "size": 64, "subtype": "string", "type": "string" }
+			],
+			"name": "Device identification",
+			"standard": "IEEE1905.1a-2014",
+			"type": 21
+		},
+		"0x16": {
+			"fields": [
+				{ "id": 1, "name": "url", "size_ref": -1, "subtype": "string", "type": "string" }
+			],
+			"name": "Control URL",
+			"standard": "IEEE1905.1a-2014",
+			"type": 22
+		},
+		"0x17": {
+			"fields": [
+				{ "id": 1, "name": "num_interfaces", "ref": 2, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{
+					"id": 2,
+					"name": "interfaces",
+					"numfields": 3,
+					"fields": [
+						{ "id": 3, "name": "if_mac_address", "size": 6, "subtype": "mac", "type": "string" },
+						{ "id": 4, "max": 15, "name": "addresses_count", "ref": 5, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{
+							"id": 5,
+							"name": "addresses",
+							"numfields": 3,
+							"fields": [
+								{
+									"enum": {
+										"0": "Unknown",
+										"1": "DHCP",
+										"2": "Static",
+										"3": "Auto-IP"
+									},
+									"id": 6,
+									"name": "ipv4addr_type",
+									"size": 1,
+									"subtype": "uint8_t",
+									"type": "number"
+								},
+								{ "id": 7, "name": "address", "size": 4, "subtype": "ipv4", "type": "string" },
+								{ "id": 8, "name": "dhcp_server", "size": 4, "subtype": "ipv4", "type": "string" }
+							],
+							"repeat": "j",
+							"repeat_ref": 4
+						}
+					],
+					"repeat": "k",
+					"repeat_ref": 1
+				}
+			],
+			"name": "IPv4",
+			"standard": "IEEE1905.1a-2014",
+			"type": 23
+		},
+		"0x18": {
+			"fields": [
+				{ "id": 1, "name": "num_interfaces", "ref": 2, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{
+					"id": 2,
+					"name": "interfaces",
+					"numfields": 4,
+					"fields": [
+						{ "id": 3, "name": "if_mac_address", "size": 6, "subtype": "mac", "type": "string" },
+						{ "id": 4, "name": "linklocal_address", "size": 16, "subtype": "ipv6", "type": "string" },
+						{ "id": 5, "max": 15, "name": "other_addresses_count", "ref": 6, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{
+							"id": 6,
+							"name": "other_addresses",
+							"numfields": 3,
+							"fields": [
+								{
+									"enum": {
+										"0": "Unknown",
+										"1": "DHCP",
+										"2": "Static",
+										"3": "SLAAC"
+									},
+									"id": 7,
+									"name": "ipv6addr_type",
+									"size": 1,
+									"subtype": "uint8_t",
+									"type": "number"
+								},
+								{ "id": 8, "name": "address", "size": 16, "subtype": "ipv6", "type": "string" },
+								{ "id": 9, "name": "origin", "size": 16, "subtype": "ipv6", "type": "string" }
+							],
+							"repeat": "j",
+							"repeat_ref": 5
+						}
+					],
+					"repeat": "k",
+					"repeat_ref": 1
+				}
+			],
+			"name": "IPv6",
+			"standard": "IEEE1905.1a-2014",
+			"type": 24
+		},
+		"0x19": {
+			"fields": [
+				{ "id": 1, "name": "num_phy_media_types", "ref": 2, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{
+					"id": 2,
+					"name": "phy_media_types",
+					"numfields": 4,
+					"fields": [
+						{ "id": 3, "name": "phy_oui", "size": 3, "subtype": "string", "type": "string" },
+						{ "id": 4, "name": "phy_variant", "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 5, "name": "media_specific_information_length", "ref": 6, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 6, "name": "media_specific_information", "size": 0, "size_ref": 5, "subtype": "string", "type": "string" }
+					],
+					"repeat": "n",
+					"repeat_ref": 1
+				}
+			],
+			"name": "Push Button Generic Phy Event",
+			"standard": "IEEE1905.1a-2014",
 			"type": 25
+		},
+		"0x1a": {
+			"fields": [
+				{
+					"enum": {
+						"0x00": "1905.1",
+						"0x01": "1905.1a"
+					},
+					"id": 1,
+					"name": "ieee1905_profile",
+					"size": 1,
+					"subtype": "uint8_t",
+					"type": "number"
+				}
+			],
+			"name": "1905 profile version",
+			"standard": "IEEE1905.1a-2014",
+			"type": 26
+		},
+		"0x1b": {
+			"fields": [
+				{ "id": 1, "name": "interface_count", "ref": 2, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{
+					"id": 2,
+					"name": "interfaces",
+					"numfields": 6,
+					"fields": [
+						{ "id": 3, "name": "if_mac_address", "size": 6, "subtype": "mac", "type": "string" },
+						{
+							"enum": {
+								"0x0000": "IEEE 802.3u fast Ethernet",
+								"0x0001": "IEEE 802.3ab gigabit Ethernet",
+								"0x0100": "IEEE 802.11b (2.4 GHz)",
+								"0x0101": "IEEE 802.11g (2.4 GHz)",
+								"0x0102": "IEEE 802.11a (5 GHz)",
+								"0x0103": "IEEE 802.11n (2.4 GHz)",
+								"0x0104": "IEEE 802.11n (5 GHz)",
+								"0x0105": "IEEE 802.11ac (5 GHz)",
+								"0x0106": "IEEE 802.11ad (60 GHz)",
+								"0x0107": "IEEE 802.11ax (2.4 GHz)",
+								"0x0108": "IEEE 802.11ax (5 GHz)",
+								"0x0200": "IEEE 1901 wavelet",
+								"0x0201": "IEEE 1901 FFT",
+								"0x0300": "MoCA v1.1",
+								"0xffff": "Unknown Media"
+							},
+							"id": 4,
+							"name": "media_type",
+							"size": 2,
+							"subtype":
+							"uint16_t",
+							"type": "number"
+						},
+						{ "id": 5, "name": "phy_oui", "size": 3, "subtype": "string", "type": "string" },
+						{ "id": 6, "name": "phy_variant", "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 6, "name": "media_specific_information_length", "ref": 7, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 7, "name": "media_specific_information", "size": 0, "size_ref": 6, "subtype": "string", "type": "string" }
+					],
+					"repeat": "k",
+					"repeat_ref": 1
+				}
+			],
+			"name": "Power off interface",
+			"standard": "IEEE1905.1a-2014",
+			"type": 27
+		},
+		"0x1c": {
+			"fields": [
+				{ "id": 1, "name": "interface_count", "ref": 2, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{
+					"id": 2,
+					"name": "interfaces",
+					"numfields": 2,
+					"fields": [
+						{ "id": 3, "name": "if_mac_address", "size": 6, "subtype": "mac", "type": "string" },
+						{
+							"enum": {
+								"0x00": "PWR_OFF",
+								"0x01": "PWR_ON",
+								"0x02": "PWR_SAVE"
+							},
+							"id": 4,
+							"name": "power_state",
+							"size": 1,
+							"subtype": "uint8_t",
+							"type": "number"
+						}
+					],
+					"repeat": "k",
+					"repeat_ref": 1
+				}
+			],
+			"name": "Interface power change information",
+			"standard": "IEEE1905.1a-2014",
+			"type": 28
+		},
+		"0x1d": {
+			"fields": [
+				{ "id": 1, "name": "interface_count", "ref": 2, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{
+					"id": 2,
+					"name": "interfaces",
+					"numfields": 2,
+					"fields": [
+						{ "id": 3, "name": "if_mac_address", "size": 6, "subtype": "mac", "type": "string" },
+						{
+							"enum": {
+								"0x00": "Request completed",
+								"0x01": "No change made",
+								"0x02": "Alternative change made"
+							},
+							"id": 4,
+							"name": "change_state",
+							"size": 1,
+							"subtype": "uint8_t",
+							"type": "number"
+						}
+					],
+					"repeat": "k",
+					"repeat_ref": 1
+				}
+			],
+			"name": "Interface power change status",
+			"standard": "IEEE1905.1a-2014",
+			"type": 29
+		},
+		"0x1e": {
+			"fields": [
+				{ "id": 1, "name": "interface_count", "ref": 2, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{
+					"id": 2,
+					"name": "interfaces",
+					"numfields": 3,
+					"fields": [
+						{ "id": 3, "name": "if_mac_address", "size": 6, "subtype": "mac", "type": "string" },
+						{ "id": 4, "name": "neighbor_count", "ref": 5, "size": 2, "subtype": "uint16_t", "type": "number" },
+						{
+						"id": 5,
+							"name": "neighbors",
+							"numfields": 3,
+							"fields": [
+								{ "id": 6, "name": "neighbor_mac_address", "size": 6, "subtype": "mac", "type": "string" },
+								{ "id": 7, "name": "behind_mac_address_count", "ref": 8, "size": 2, "subtype": "uint16_t", "type": "number" },
+								{
+									"id": 8,
+									"name": "behind_mac_addresses",
+									"numfields": 1,
+									"fields": [
+										{ "id": 9, "name": "behind_mac_address", "size": 6, "subtype": "mac", "type": "string" }
+									],
+									"repeat": "k",
+									"repeat_ref": 7
+								}
+							],
+							"repeat": "j",
+							"repeat_ref": 4
+						}
+					],
+					"repeat": "i",
+					"repeat_ref": 1
+				}
+			],
+			"name": "L2 neighbor device",
+			"standard": "IEEE1905.1a-2014",
+			"type": 30
 		}
 	}
 }
