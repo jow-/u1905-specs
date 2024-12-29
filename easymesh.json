@@ -30,11 +30,12 @@
 			"relay_indicator": false,
 			"standard": "Wi-Fi EasyMesh",
 			"tlvs": [
-				{ "name": "SupportedService", "profile": 1, "quantity": "?", "type": "0x80" },
+				{ "name": "Supported Service", "profile": 1, "quantity": "?", "type": "0x80" },
 				{ "name": "AP Operational BSS", "profile": 1, "quantity": "1", "type": "0x83" },
 				{ "name": "Associated Clients", "profile": 1, "quantity": "?", "type": "0x84" },
 				{ "name": "Multi-AP Profile", "profile": 2, "quantity": "1", "type": "0xb3" },
-				{ "name": "BSS Configuration Report", "profile": 3, "quantity": "1", "type": "0xb7" }
+				{ "name": "BSS Configuration Report", "profile": 3, "quantity": "1", "type": "0xb7" },
+				{ "name": "VBSS Configuration Report", "profile": 3, "quantity": "?", "type": "0xde0007" }
 			],
 			"transmission_type": "Unicast",
 			"type": 3
@@ -46,8 +47,8 @@
 			"relay_indicator": true,
 			"standard": "Wi-Fi EasyMesh",
 			"tlvs": [
-				{ "name": "SupportedService", "profile": 1, "quantity": "?", "type": "0x80" },
-				{ "name": "SearchedService", "profile": 1, "quantity": "?", "type": "0x81" },
+				{ "name": "Supported Service", "profile": 1, "quantity": "?", "type": "0x80" },
+				{ "name": "Searched Service", "profile": 1, "quantity": "?", "type": "0x81" },
 				{ "name": "Multi-AP Profile", "profile": 2, "quantity": "1", "type": "0xb3" },
 				{ "name": "DPP Chirp Value", "profile": 3, "quantity": "?", "type": "0xd3" }
 			],
@@ -61,7 +62,7 @@
 			"relay_indicator": false,
 			"standard": "Wi-Fi EasyMesh",
 			"tlvs": [
-				{ "name": "SupportedService", "profile": 1, "quantity": "?", "type": "0x80" },
+				{ "name": "Supported Service", "profile": 1, "quantity": "?", "type": "0x80" },
 				{ "name": "Device 1905 Layer Security Capability", "profile": 3, "quantity": "1", "type": "0xa9" },
 				{ "name": "Multi-AP Profile", "profile": 2, "quantity": "1", "type": "0xb3" },
 				{ "name": "DPP Chirp Value", "profile": 3, "quantity": "?", "type": "0xd3" },
@@ -666,7 +667,7 @@
 			"standard": "Wi-Fi EasyMesh",
 			"tlvs": [
 				{ "name": "Multi-AP Profile", "profile": 3, "quantity": "1", "type": "0xb3" },
-				{ "name": "SupportedService", "profile": 1, "quantity": "1", "type": "0x80" },
+				{ "name": "Supported Service", "profile": 1, "quantity": "1", "type": "0x80" },
 				{ "name": "AKM Suite Capabilities", "profile": 3, "quantity": "1", "type": "0xcc" },
 				{ "name": "AP Radio Basic Capabilities", "profile": 1, "quantity": "+", "type": "0x85" },
 				{ "name": "Backhaul STA Radio Capabilities", "profile": 1, "quantity": "*", "type": "0xcb" },
@@ -802,15 +803,138 @@
 			"type": 32823
 		},
 		"0x8038": {
-			"description": "-",
-			"name": "See Appendix B.4",
+			"description": "Query VBSS capabilities of a Multi-AP Agent.",
+			"name": "Virtual BSS Capabilities Request",
+			"protocol": "VBSS",
+			"relay_indicator": false,
+			"standard": "Wi-Fi EasyMesh",
+			"tlvs": [],
+			"transmission_type": "Unicast",
+			"type": 32824
+		},
+		"0x8039": {
+			"description": "Report VBSS capabilities of a Multi-AP Agent.",
+			"name": "Virtual BSS Capabilities Response",
 			"protocol": "VBSS",
 			"relay_indicator": false,
 			"standard": "Wi-Fi EasyMesh",
 			"tlvs": [
+				{ "name": "AP Radio VBSS Capabilities", "profile": 3, "quantity": "+", "type": "0xde0001" }
 			],
-			"transmission_type": "-",
-			"type": 32824
+			"transmission_type": "Unicast",
+			"type": 32825
+		},
+		"0x803A": {
+			"description": "Request creation or destruction of a Virtual BSS.",
+			"name": "Virtual BSS Request",
+			"protocol": "VBSS",
+			"relay_indicator": false,
+			"standard": "Wi-Fi EasyMesh",
+			"tlvs": [
+				{ "name": "Virtual BSS Creation", "profile": 3, "quantity": "?", "type": "0xde0002" },
+				{ "name": "Virtual BSS Destruction", "profile": 3, "quantity": "?", "type": "0xde0003" }
+			],
+			"transmission_type": "Unicast",
+			"type": 32826
+		},
+		"0x803B": {
+			"description": "Report the result of a Virtual BSS creation or destruction.",
+			"name": "Virtual BSS Response",
+			"protocol": "VBSS",
+			"relay_indicator": false,
+			"standard": "Wi-Fi EasyMesh",
+			"tlvs": [
+				{ "name": "Virtual BSS Event", "profile": 3, "quantity": "1", "type": "0xde0004" }
+			],
+			"transmission_type": "Unicast",
+			"type": 32827
+		},
+		"0x803C": {
+			"description": "Request client security context for VBSS transfer.",
+			"name": "Client Security Context Request",
+			"protocol": "VBSS",
+			"relay_indicator": false,
+			"standard": "Wi-Fi EasyMesh",
+			"tlvs": [
+				{ "name": "Client Info", "profile": 3, "quantity": "1", "type": "0x90" }
+			],
+			"transmission_type": "Unicast",
+			"type": 32828
+		},
+		"0x803D": {
+			"description": "Provide client security context for VBSS transfer.",
+			"name": "Client Security Context Response",
+			"protocol": "VBSS",
+			"relay_indicator": false,
+			"standard": "Wi-Fi EasyMesh",
+			"tlvs": [
+				{ "name": "Client Info", "profile": 3, "quantity": "1", "type": "0x90" },
+				{ "name": "Client Security Context", "profile": 3, "quantity": "1", "type": "0xde0005" }
+			],
+			"transmission_type": "Unicast",
+			"type": 32829
+		},
+		"0x803E": {
+			"description": "Request to trigger a Channel Switch Announcement for VBSS transfer.",
+			"name": "Trigger Channel Switch Announcement Request",
+			"protocol": "VBSS",
+			"relay_indicator": false,
+			"standard": "Wi-Fi EasyMesh",
+			"tlvs": [
+				{ "name": "Client Info", "profile": 3, "quantity": "1", "type": "0x90" },
+				{ "name": "Trigger Channel Switch Announcement", "profile": 3, "quantity": "1", "type": "0xde0006" }
+			],
+			"transmission_type": "Unicast",
+			"type": 32830
+		},
+		"0x803F": {
+			"description": "Acknowledge the Trigger Channel Switch Announcement Request.",
+			"name": "Trigger Channel Switch Announcement Response",
+			"protocol": "VBSS",
+			"relay_indicator": false,
+			"standard": "Wi-Fi EasyMesh",
+			"tlvs": [
+				{ "name": "Client Info", "profile": 3, "quantity": "1", "type": "0x90" },
+				{ "name": "Trigger Channel Switch Announcement", "profile": 3, "quantity": "1", "type": "0xde0006" }
+			],
+			"transmission_type": "Unicast",
+			"type": 32831
+		},
+		"0x8040": {
+			"description": "Request preparation for VBSS transfer.",
+			"name": "Virtual BSS Move Preparation Request",
+			"protocol": "VBSS",
+			"relay_indicator": false,
+			"standard": "Wi-Fi EasyMesh",
+			"tlvs": [
+				{ "name": "Client Info", "profile": 3, "quantity": "1", "type": "0x90" }
+			],
+			"transmission_type": "Unicast",
+			"type": 32832
+		},
+		"0x8041": {
+			"description": "Acknowledge the Virtual BSS Move Preparation Request.",
+			"name": "Virtual BSS Move Preparation Response",
+			"protocol": "VBSS",
+			"relay_indicator": false,
+			"standard": "Wi-Fi EasyMesh",
+			"tlvs": [
+				{ "name": "Client Info", "profile": 3, "quantity": "1", "type": "0x90" }
+			],
+			"transmission_type": "Unicast",
+			"type": 32833
+		},
+		"0x8042": {
+			"description": "Request cancellation of a VBSS transfer.",
+			"name": "Virtual BSS Move Cancel Request",
+			"protocol": "VBSS",
+			"relay_indicator": false,
+			"standard": "Wi-Fi EasyMesh",
+			"tlvs": [
+				{ "name": "Client Info", "profile": 3, "quantity": "1", "type": "0x90" }
+			],
+			"transmission_type": "Unicast",
+			"type": 32834
 		}
 	},
 	"tlv": {
@@ -821,8 +945,9 @@
 					"id": 4,
 					"name": "services",
 					"numfields": 1,
-					"properties": [
+					"fields": [
 						{
+							"enum_name": "MULTI_AP_SERVICE",
 							"enum": { "0x00": "Multi-AP Controller", "0x01": "Multi-AP Agent" },
 							"id": 3,
 							"name": "supported_service",
@@ -835,7 +960,7 @@
 					"repeat_ref": 2
 				}
 			],
-			"name": "SupportedService",
+			"name": "Supported Service",
 			"standard": "Wi-Fi EasyMesh",
 			"type": 128
 		},
@@ -846,14 +971,22 @@
 					"id": 4,
 					"name": "services",
 					"numfields": 1,
-					"properties": [
-						{ "id": 3, "name": "searched_service", "size": 1, "subtype": "uint8_t", "type": "number" }
+					"fields": [
+						{
+							"enum_name": "MULTI_AP_SERVICE",
+							"enum": { "0x00": "Multi-AP Controller", "0x01": "Multi-AP Agent" },
+							"id": 3,
+							"name": "searched_service",
+							"size": 1,
+							"subtype": "uint8_t",
+							"type": "number"
+						}
 					],
 					"repeat": "k",
 					"repeat_ref": 2
 				}
 			],
-			"name": "SearchedService",
+			"name": "Searched Service",
 			"standard": "Wi-Fi EasyMesh",
 			"type": 129
 		},
@@ -872,14 +1005,14 @@
 					"id": 9,
 					"name": "radios",
 					"numfields": 5,
-					"properties": [
+					"fields": [
 						{ "id": 3, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
 						{ "id": 4, "name": "bss_count", "ref": 8, "size": 1, "subtype": "uint8_t", "type": "number" },
 						{
 							"id": 8,
 							"name": "bss",
 							"numfields": 3,
-							"properties": [
+							"fields": [
 								{ "id": 5, "name": "mac_address", "size": 6, "subtype": "mac", "type": "string" },
 								{ "id": 6, "name": "ssid_length", "ref": 7, "size": 1, "subtype": "uint8_t", "type": "number" },
 								{ "id": 7, "name": "ssid", "size": 0, "size_ref": 6, "subtype": "string", "type": "string" }
@@ -903,14 +1036,14 @@
 					"id": 8,
 					"name": "bss",
 					"numfields": 4,
-					"properties": [
+					"fields": [
 						{ "id": 3, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
 						{ "id": 4, "name": "clients_count", "ref": 7, "size": 2, "subtype": "uint16_t", "type": "number" },
 						{
 							"id": 7,
 							"name": "clients",
 							"numfields": 2,
-							"properties": [
+							"fields": [
 								{ "id": 5, "name": "mac_address", "size": 6, "subtype": "mac", "type": "string" },
 								{ "id": 6, "max": 65535, "min": 0, "name": "last_association", "size": 2, "subtype": "uint16_t", "type": "number" }
 							],
@@ -933,9 +1066,9 @@
 				{ "id": 4, "name": "opclass_supported_count", "ref": 10, "size": 1, "subtype": "uint8_t", "type": "number" },
 				{
 					"id": 10,
-					"name": "opclass_supported",
+					"name": "opclasses_supported",
 					"numfields": 4,
-					"properties": [
+					"fields": [
 						{ "id": 5, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 6, "name": "max_txpower_eirp", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 7, "name": "statically_non_operable_channels_count", "ref": 9, "size": 1, "subtype": "uint8_t", "type": "number" },
@@ -943,7 +1076,7 @@
 							"id": 9,
 							"name": "statically_non_operable_channels",
 							"numfields": 1,
-							"properties": [
+							"fields": [
 								{ "id": 8, "name": "channel", "size": 1, "subtype": "uint8_t", "type": "number" }
 							],
 							"repeat": "m",
@@ -1098,7 +1231,7 @@
 					"id": 4,
 					"name": "local_steering_disallowed_sta",
 					"numfields": 1,
-					"properties": [
+					"fields": [
 						{ "id": 3, "name": "sta_mac_address", "size": 6, "subtype": "mac", "type": "string" }
 					],
 					"repeat": "h",
@@ -1109,7 +1242,7 @@
 					"id": 7,
 					"name": "btm_steering_disallowed_sta",
 					"numfields": 1,
-					"properties": [
+					"fields": [
 						{ "id": 6, "name": "sta_mac_address", "size": 6, "subtype": "mac", "type": "string" }
 					],
 					"repeat": "k",
@@ -1120,7 +1253,7 @@
 					"id": 13,
 					"name": "radios",
 					"numfields": 4,
-					"properties": [
+					"fields": [
 						{ "id": 9, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
 						{
 							"enum": { "0x00": "Agent Initiated Steering Disallowed", "0x01": "Agent Initiated RCPI-based Steering Mandated", "0x02": "Agent Initiated RCPI-based Steering Allowed" },
@@ -1150,7 +1283,7 @@
 					"id": 12,
 					"name": "radios",
 					"numfields": 7,
-					"properties": [
+					"fields": [
 						{ "id": 5, "max": 220, "min": 0, "name": "sta_metrics_reporting_rcpi_threshold", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 6, "name": "sta_metrics_reporting_rcpi_hysteresis_margin_override", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 7, "name": "ap_metrics_channel_utilization_reporting_threshold", "size": 1, "subtype": "uint8_t", "type": "number" },
@@ -1173,27 +1306,28 @@
 				{ "id": 3, "name": "opclass_count", "ref": 9, "size": 1, "subtype": "uint8_t", "type": "number" },
 				{
 					"id": 9,
-					"name": "opclass",
+					"name": "opclasses",
 					"numfields": 5,
-					"properties": [
+					"fields": [
 						{ "id": 4, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 5, "name": "channels_count", "ref": 6, "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 6, "name": "channel_list", "size": 0, "size_ref": 5, "subtype": "uint8_t", "type": "array" },
+						{ "id": 6, "name": "channels", "size": 0, "size_ref": 5, "subtype": "uint8_t", "type": "array" },
 						{ "id": 7, "max": 15, "min": 0, "name": "preference", "size": 0.5, "subtype": "bitfield", "type": "number" },
 						{
+							"enum_name": "CHANNEL_PREFERENCE_REASON_CODE",
 							"enum": {
 								"0b0000": "Unspecified",
 								"0b0001": "Proximate non-802.11 interferer in local environment",
 								"0b0010": "Intra-network 802.11 OBSS interference management",
 								"0b0011": "External network 802.11 OBSS interference management",
-								"0b0100": "Reduced coverage (e.g., due to limited transmit power)",
-								"0b0101": "Reduced throughput (e.g., due to limited channel bandwidth of the operating class, or high channel utilization measured on the channel)",
-								"0b0110": "In-device Interferer within AP (can only be specified by the Multi-AP Agent)",
-								"0b0111": "Operation disallowed due to radar detection on a DFS channel (can only be specified by the Multi-AP Agent)",
-								"0b1000": "Operation would prevent backhaul operation using shared radio (can only be specified by the Multi-AP Agent)",
-								"0b1001": "Immediate operation possible on a DFS channel - CAC has been run and is still valid and channel has been cleared for use (can only be specified by the Multi-AP Agent)",
-								"0b1010": "DFS channel state unknown (CAC has not run or its validity period has expired) (can only be specified by the Multi-AP Agent)",
-								"0b1011": "Controller DFS Channel Clear Indication (Can only be specified by the Multi-AP Controller)",
+								"0b0100": "Reduced coverage",
+								"0b0101": "Reduced throughput",
+								"0b0110": "In-device Interferer within AP",
+								"0b0111": "Operation disallowed due to radar detection on a DFS channel",
+								"0b1000": "Operation would prevent backhaul operation using shared radio",
+								"0b1001": "Immediate operation possible on a DFS channel",
+								"0b1010": "DFS channel state unknown",
+								"0b1011": "Controller DFS Channel Clear Indication",
 								"0b1100": "Operation disallowed by regulatory restriction"
 							},
 							"id": 8,
@@ -1217,16 +1351,16 @@
 				{ "id": 3, "name": "opclass_count", "ref": 9, "size": 1, "subtype": "uint8_t", "type": "number" },
 				{
 					"id": 9,
-					"name": "opclass",
+					"name": "opclasses",
 					"numfields": 4,
-					"properties": [
+					"fields": [
 						{ "id": 4, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 5, "name": "channels_count", "ref": 8, "size": 1, "subtype": "uint8_t", "type": "number" },
 						{
 							"id": 8,
 							"name": "channels",
 							"numfields": 2,
-							"properties": [
+							"fields": [
 								{ "id": 6, "name": "channel", "size": 1, "subtype": "uint8_t", "type": "number" },
 								{ "id": 7, "name": "minimum_frequency_separation", "size": 1, "subtype": "uint8_t", "type": "number" }
 							],
@@ -1280,7 +1414,7 @@
 					"id": 6,
 					"name": "current_opclass",
 					"numfields": 2,
-					"properties": [
+					"fields": [
 						{ "id": 4, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 5, "name": "current_operating_channel", "size": 1, "subtype": "uint8_t", "type": "number" }
 					],
@@ -1312,7 +1446,16 @@
 					"subtype": "uint8_t",
 					"type": "number"
 				},
-				{ "id": 3, "name": "frame_body", "subtype": "bitfield", "type": "number" }
+				{
+					"id": 3,
+					"name": "frame_body",
+					"requires": {
+						"2": [ 0 ]
+					},
+					"size_ref": -1,
+					"subtype": "string",
+					"type": "string"
+				}
 			],
 			"name": "Client Capability Report",
 			"standard": "Wi-Fi EasyMesh",
@@ -1336,7 +1479,7 @@
 					"id": 4,
 					"name": "bssids",
 					"numfields": 1,
-					"properties": [
+					"fields": [
 						{ "id": 3, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" }
 					],
 					"repeat": "k",
@@ -1352,12 +1495,21 @@
 				{ "id": 2, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
 				{ "id": 3, "name": "channel_utilization", "size": 1, "subtype": "uint8_t", "type": "number" },
 				{ "id": 4, "name": "sta_count", "size": 2, "subtype": "uint16_t", "type": "number" },
-				{ "id": 5, "name": "include_bit", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 5, "name": "include_esp_be", "size": 0.125, "subtype": "boolean", "type": "boolean" },
 				{ "id": 6, "name": "include_esp_bk", "size": 0.125, "subtype": "boolean", "type": "boolean" },
 				{ "id": 7, "name": "include_esp_vo", "size": 0.125, "subtype": "boolean", "type": "boolean" },
 				{ "id": 8, "name": "include_esp_vi", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 9, "name": "reserved", "size": 0.125, "subtype": "bitfield", "type": "void" },
-				{ "id": 10, "name": "esp_be", "size": 3, "subtype": "string", "type": "string" },
+				{ "id": 9, "name": "reserved", "size": 0.5, "subtype": "bitfield", "type": "void" },
+				{
+					"id": 10,
+					"name": "esp_be",
+					"requires": {
+						"5": [ 1 ]
+					},
+					"size": 3,
+					"subtype": "string",
+					"type": "string"
+				},
 				{
 					"id": 11,
 					"name": "esp_bk",
@@ -1409,7 +1561,7 @@
 					"id": 9,
 					"name": "bssids",
 					"numfields": 5,
-					"properties": [
+					"fields": [
 						{ "id": 4, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
 						{ "id": 5, "name": "time_delta", "size": 4, "subtype": "uint32_t", "type": "number" },
 						{ "id": 6, "name": "estimated_downlink_mac_data_rate", "size": 4, "subtype": "mac", "type": "string" },
@@ -1432,14 +1584,14 @@
 					"id": 8,
 					"name": "channels",
 					"numfields": 3,
-					"properties": [
+					"fields": [
 						{ "id": 4, "name": "channel", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 5, "name": "sta_mac_addresses_count", "ref": 7, "size": 1, "subtype": "mac", "type": "string" },
 						{
 							"id": 7,
 							"name": "sta_mac_addresses",
 							"numfields": 1,
-							"properties": [
+							"fields": [
 								{ "id": 6, "name": "sta_mac_address", "size": 6, "subtype": "mac", "type": "string" }
 							],
 							"repeat": "m",
@@ -1462,7 +1614,7 @@
 					"id": 8,
 					"name": "sta_entries",
 					"numfields": 4,
-					"properties": [
+					"fields": [
 						{ "id": 4, "name": "mac_address", "size": 6, "subtype": "mac", "type": "string" },
 						{ "id": 5, "name": "channel", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 6, "name": "time_delta", "size": 4, "subtype": "uint32_t", "type": "number" },
@@ -1490,10 +1642,10 @@
 					"id": 13,
 					"name": "ap_channel_reports",
 					"numfields": 3,
-					"properties": [
+					"fields": [
 						{ "id": 10, "name": "ap_channel_report_length", "ref": 12, "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 11, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 12, "name": "channel_list", "size": -1, "size_ref": 10, "subtype": "uint8_t", "type": "array" }
+						{ "id": 12, "name": "channels", "size": -1, "size_ref": 10, "subtype": "uint8_t", "type": "array" }
 					],
 					"repeat": "h",
 					"repeat_ref": 9
@@ -1514,8 +1666,13 @@
 					"id": 6,
 					"name": "measurement_report_elements",
 					"numfields": 1,
-					"properties": [
-						{ "id": 5, "name": "measurement_report_element", "subtype": "bitfield", "type": "number" }
+					"fields": [
+						{ "id": 5.1, "name": "id", "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 5.2, "name": "length", "ref": 5.6, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 5.3, "name": "token", "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 5.4, "name": "report_mode", "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 5.5, "name": "type", "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 5.6, "name": "report_data", "size": -3, "size_ref": 5.2, "subtype": "string", "type": "string" }
 					],
 					"repeat": "k",
 					"repeat_ref": 4
@@ -1531,7 +1688,7 @@
 				{ "id": 3, "name": "request_mode", "size": 0.125, "subtype": "boolean", "type": "boolean" },
 				{ "id": 4, "name": "btm_disassociation_imminent_bit", "size": 0.125, "subtype": "boolean", "type": "boolean" },
 				{ "id": 5, "name": "btm_abridged_bit", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 6, "name": "reserved", "size": 0.125, "subtype": "bitfield", "type": "void" },
+				{ "id": 6, "name": "reserved", "size": 0.625, "subtype": "bitfield", "type": "void" },
 				{ "id": 7, "name": "steering_opportunity_window", "size": 2, "subtype": "uint16_t", "type": "number" },
 				{ "id": 8, "name": "btm_disassociation_timer", "size": 2, "subtype": "uint16_t", "type": "number" },
 				{ "id": 9, "name": "sta_list_count", "ref": 11, "size": 1, "subtype": "uint8_t", "type": "number" },
@@ -1539,7 +1696,7 @@
 					"id": 11,
 					"name": "sta_list",
 					"numfields": 1,
-					"properties": [
+					"fields": [
 						{ "id": 10, "name": "sta_mac_address", "size": 6, "subtype": "mac", "type": "string" }
 					],
 					"repeat": "k",
@@ -1550,7 +1707,7 @@
 					"id": 16,
 					"name": "target_bssid_list",
 					"numfields": 3,
-					"properties": [
+					"fields": [
 						{ "id": 13, "name": "target_bssid", "size": 6, "subtype": "mac", "type": "string" },
 						{ "id": 14, "name": "target_bss_opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 15, "name": "target_bss_channel", "size": 1, "subtype": "uint8_t", "type": "number" }
@@ -1591,7 +1748,7 @@
 					"id": 8,
 					"name": "sta_list",
 					"numfields": 1,
-					"properties": [
+					"fields": [
 						{ "id": 7, "name": "sta_mac_address", "size": 6, "subtype": "mac", "type": "string" }
 					],
 					"repeat": "k",
@@ -1632,8 +1789,8 @@
 		},
 		"0xa0": {
 			"fields": [
-				{ "id": 2, "name": "higher_layer_protocol", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 3, "name": "higher_layer_protocol_payload", "subtype": "bitfield", "type": "number" }
+				{ "id": 2, "name": "protocol", "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 3, "name": "data", "size_ref": -1, "subtype": "string", "type": "string" }
 			],
 			"name": "Higher Layer Data",
 			"standard": "Wi-Fi EasyMesh",
@@ -1704,7 +1861,7 @@
 					"id": 14,
 					"name": "radios",
 					"numfields": 9,
-					"properties": [
+					"fields": [
 						{ "id": 4, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
 						{ "id": 5, "name": "on_boot_only", "size": 0.125, "subtype": "boolean", "type": "boolean" },
 						{
@@ -1727,10 +1884,10 @@
 							"id": 13,
 							"name": "opclass",
 							"numfields": 3,
-							"properties": [
+							"fields": [
 								{ "id": 10, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
 								{ "id": 11, "name": "channels_count", "ref": 12, "size": 1, "subtype": "uint8_t", "type": "number" },
-								{ "id": 12, "name": "channel_list", "size": 0, "size_ref": 11, "subtype": "uint8_t", "type": "array" }
+								{ "id": 12, "name": "channels", "size": 0, "size_ref": 11, "subtype": "uint8_t", "type": "array" }
 							],
 							"repeat": "m",
 							"repeat_ref": 9
@@ -1753,17 +1910,17 @@
 					"id": 11,
 					"name": "radios",
 					"numfields": 5,
-					"properties": [
+					"fields": [
 						{ "id": 5, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
 						{ "id": 6, "name": "opclass_count", "ref": 10, "size": 1, "subtype": "uint8_t", "type": "number" },
 						{
 							"id": 10,
 							"name": "opclass",
 							"numfields": 3,
-							"properties": [
+							"fields": [
 								{ "id": 7, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
 								{ "id": 8, "name": "channels_count", "ref": 9, "size": 1, "subtype": "uint8_t", "type": "number" },
-								{ "id": 9, "name": "channel_list", "size": 0, "size_ref": 8, "subtype": "uint8_t", "type": "array" }
+								{ "id": 9, "name": "channels", "size": 0, "size_ref": 8, "subtype": "uint8_t", "type": "array" }
 							],
 							"repeat": "m",
 							"repeat_ref": 6
@@ -1807,7 +1964,7 @@
 					"id": 24,
 					"name": "neighbors",
 					"numfields": 11,
-					"properties": [
+					"fields": [
 						{ "id": 13, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
 						{ "id": 14, "max": 32, "min": 0, "name": "ssid_length", "ref": 15, "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 15, "name": "ssid", "size": 0, "size_ref": 14, "subtype": "string", "type": "string" },
@@ -1859,7 +2016,7 @@
 					"id": 30,
 					"name": "roles",
 					"numfields": 25,
-					"properties": [
+					"fields": [
 						{ "id": 5, "name": "agent_role", "size": 0.25, "subtype": "bitfield", "type": "number" },
 						{ "id": 6, "name": "he_160", "size": 0.125, "subtype": "boolean", "type": "boolean" },
 						{ "id": 7, "name": "he_8080", "size": 0.125, "subtype": "boolean", "type": "boolean" },
@@ -1879,7 +2036,7 @@
 						{ "id": 21, "name": "max_ul_ofdma_rx", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 22, "name": "rts", "size": 0.125, "subtype": "boolean", "type": "boolean" },
 						{ "id": 23, "name": "mu_rts", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-						{ "id": 24, "name": "multi_bssid", "size": 0.125, "subtype": "mac", "type": "string" },
+						{ "id": 24, "name": "multi_bssid", "size": 0.125, "subtype": "boolean", "type": "boolean" },
 						{ "id": 25, "name": "mu_edca", "size": 0.125, "subtype": "boolean", "type": "boolean" },
 						{ "id": 26, "name": "twt_requester", "size": 0.125, "subtype": "boolean", "type": "boolean" },
 						{ "id": 27, "name": "twt_responder", "size": 0.125, "subtype": "boolean", "type": "boolean" },
@@ -1896,7 +2053,7 @@
 		},
 		"0xab": {
 			"fields": [
-				{ "id": 3, "name": "1905_gtk_key_id", "size": 0.25, "subtype": "bitfield", "type": "number" },
+				{ "id": 3, "name": "gtk_key_id", "size": 0.25, "subtype": "bitfield", "type": "number" },
 				{ "id": 4, "name": "mic_version", "size": 0.25, "subtype": "bitfield", "type": "number" },
 				{ "id": 5, "name": "reserved", "size": 0.5, "subtype": "bitfield", "type": "void" },
 				{ "id": 6, "name": "integrity_transmission_counter", "size": 6, "subtype": "string", "type": "string" },
@@ -1927,7 +2084,7 @@
 					"id": 9,
 					"name": "radios",
 					"numfields": 6,
-					"properties": [
+					"fields": [
 						{ "id": 3, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
 						{ "id": 4, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 5, "name": "channel", "size": 1, "subtype": "uint8_t", "type": "number" },
@@ -1950,7 +2107,7 @@
 					"id": 6,
 					"name": "radios",
 					"numfields": 3,
-					"properties": [
+					"fields": [
 						{ "id": 3, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
 						{ "id": 4, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 5, "name": "channel", "size": 1, "subtype": "uint8_t", "type": "number" }
@@ -1970,7 +2127,7 @@
 					"id": 11,
 					"name": "radios",
 					"numfields": 7,
-					"properties": [
+					"fields": [
 						{ "id": 3, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
 						{ "id": 4, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 5, "name": "channel", "size": 1, "subtype": "uint8_t", "type": "number" },
@@ -1994,7 +2151,7 @@
 							"id": 10,
 							"name": "pairs",
 							"numfields": 2,
-							"properties": [
+							"fields": [
 								{ "id": 8, "name": "opclass_detected", "size": 1, "subtype": "uint8_t", "type": "number" },
 								{ "id": 9, "name": "channel_detected", "size": 1, "subtype": "uint8_t", "type": "number" }
 							],
@@ -2018,7 +2175,7 @@
 					"id": 7,
 					"name": "n2",
 					"numfields": 2,
-					"properties": [
+					"fields": [
 						{ "id": 5, "name": "tid", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 6, "name": "queue_size", "size": 1, "subtype": "uint8_t", "type": "number" }
 					],
@@ -2038,7 +2195,7 @@
 					"id": 6,
 					"name": "available_channels",
 					"numfields": 3,
-					"properties": [
+					"fields": [
 						{ "id": 3, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 4, "name": "channel", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 5, "name": "minutes", "size": 2, "subtype": "uint16_t", "type": "number" }
@@ -2051,7 +2208,7 @@
 					"id": 11,
 					"name": "radar_detected_channels",
 					"numfields": 3,
-					"properties": [
+					"fields": [
 						{ "id": 8, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 9, "name": "channel", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 10, "name": "duration", "size": 2, "subtype": "uint16_t", "type": "number" }
@@ -2064,7 +2221,7 @@
 					"id": 16,
 					"name": "active_cac_channels",
 					"numfields": 3,
-					"properties": [
+					"fields": [
 						{ "id": 13, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 14, "name": "channel", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 15, "name": "countdown", "size": 3, "subtype": "string", "type": "string" }
@@ -2085,14 +2242,14 @@
 					"id": 15,
 					"name": "radios",
 					"numfields": 8,
-					"properties": [
+					"fields": [
 						{ "id": 4, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
 						{ "id": 5, "name": "cac_types_supported_count", "ref": 14, "size": 1, "subtype": "uint8_t", "type": "number" },
 						{
 							"id": 14,
 							"name": "cac_types_supported",
 							"numfields": 6,
-							"properties": [
+							"fields": [
 								{
 									"enum": { "0x00": "Continuous CAC", "0x01": "Continuous with dedicated radio", "0x02": "MIMO dimension reduced", "0x03": "Time sliced CAC" },
 									"id": 6,
@@ -2105,16 +2262,16 @@
 								{ "id": 8, "name": "opclass_count", "ref": 13, "size": 1, "subtype": "uint8_t", "type": "number" },
 								{
 									"id": 13,
-									"name": "opclass",
+									"name": "opclasses",
 									"numfields": 3,
-									"properties": [
+									"fields": [
 										{ "id": 9, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
 										{ "id": 10, "name": "channels_count", "ref": 12, "size": 1, "subtype": "uint8_t", "type": "number" },
 										{
 											"id": 12,
 											"name": "channels",
 											"numfields": 1,
-											"properties": [
+											"fields": [
 												{ "id": 11, "name": "channel", "size": 1, "subtype": "uint8_t", "type": "number" }
 											],
 											"repeat": "f",
@@ -2139,7 +2296,20 @@
 		},
 		"0xb3": {
 			"fields": [
-				{ "id": 3, "max": 255, "min": 1, "name": "multi_ap_profile", "size": 1, "subtype": "uint8_t", "type": "number" }
+				{
+					"enum_name": "MULTI_AP_PROFILE",
+					"enum": {
+						"0x00": "Reserved",
+						"0x01": "Multi-AP Profile 1",
+						"0x02": "Multi-AP Profile 2",
+						"0x03": "Multi-AP Profile 3"
+					},
+					"id": 3,
+					"name": "profile",
+					"size": 1,
+					"subtype": "uint8_t",
+					"type": "number"
+				}
 			],
 			"name": "Multi-AP Profile",
 			"standard": "Wi-Fi EasyMesh",
@@ -2152,16 +2322,16 @@
 				{
 					"enum": { "0x0": "bytes", "0x1": "kibibytes (KiB)", "0x2": "mebibytes (MiB)" },
 					"id": 5,
-					"name": "byte_counter_units",
+					"name": "byte_counter_unit",
 					"size": 0.25,
 					"subtype": "bitfield",
 					"type": "number"
 				},
-				{ "id": 6, "name": "prioritization", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 7, "name": "dpp_onboarding", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 8, "name": "traffic_separation", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 6, "name": "supports_prioritization", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 7, "name": "supports_dpp_onboarding", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 8, "name": "supports_traffic_separation", "size": 0.125, "subtype": "boolean", "type": "boolean" },
 				{ "id": 9, "name": "reserved2", "size": 0.375, "subtype": "bitfield", "suffix": "2", "type": "void" },
-				{ "id": 10, "name": "max_vids", "size": 1, "subtype": "uint8_t", "type": "number" }
+				{ "id": 10, "name": "max_unique_vids", "size": 1, "subtype": "uint8_t", "type": "number" }
 			],
 			"name": "Profile-2 AP Capability",
 			"standard": "Wi-Fi EasyMesh",
@@ -2184,7 +2354,7 @@
 					"id": 6,
 					"name": "ssids",
 					"numfields": 3,
-					"properties": [
+					"fields": [
 						{ "id": 3, "name": "ssid_name_length", "ref": 4, "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 4, "name": "ssid_name", "size": 0, "size_ref": 3, "subtype": "string", "type": "string" },
 						{ "id": 5, "name": "vlan_id", "size": 2, "subtype": "uint16_t", "type": "number" }
@@ -2204,14 +2374,14 @@
 					"id": 18,
 					"name": "radios",
 					"numfields": 14,
-					"properties": [
+					"fields": [
 						{ "id": 4, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
 						{ "id": 5, "name": "bss_count", "ref": 17, "size": 1, "subtype": "uint8_t", "type": "number" },
 						{
 							"id": 17,
 							"name": "bss",
 							"numfields": 11,
-							"properties": [
+							"fields": [
 								{ "id": 6, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
 								{ "id": 7, "name": "backhaul", "size": 0.125, "subtype": "boolean", "type": "boolean" },
 								{ "id": 8, "name": "fronthaul", "size": 0.125, "subtype": "boolean", "type": "boolean" },
@@ -2264,10 +2434,11 @@
 					"id": 3,
 					"name": "dscp_pcp_mapping",
 					"numfields": 1,
-					"properties": [
+					"fields": [
 						{ "id": 4, "name": "pcp_value", "size": 1, "subtype": "uint8_t", "type": "number" }
 					],
-					"repeat": 64
+					"repeat": 64,
+					"repeat_ref": -1
 				}
 			],
 			"name": "DSCP Mapping Table",
@@ -2276,7 +2447,7 @@
 		},
 		"0xbb": {
 			"fields": [
-				{ "id": 3, "name": "dpp_configuration_request_object", "subtype": "bitfield", "type": "number" }
+				{ "id": 3, "name": "dpp_configuration_request_object", "size_ref": -1, "subtype": "string", "type": "string" }
 			],
 			"name": "BSS Configuration Request",
 			"standard": "Wi-Fi EasyMesh",
@@ -2285,6 +2456,7 @@
 		"0xbc": {
 			"fields": [
 				{
+					"enum_name": "PROFILE_2_REASON_CODE",
 					"enum": {
 						"0x01": "Service Prioritization Rule not found",
 						"0x02": "Number of Service Prioritization Rules exceeded the maximum supported",
@@ -2340,7 +2512,7 @@
 		},
 		"0xbd": {
 			"fields": [
-				{ "id": 3, "name": "dpp_configuration_object", "subtype": "bitfield", "type": "number" }
+				{ "id": 3, "name": "dpp_configuration_object", "size_ref": -1, "subtype": "string", "type": "string" }
 			],
 			"name": "BSS Configuration Response",
 			"standard": "Wi-Fi EasyMesh",
@@ -2368,7 +2540,7 @@
 					"id": 5,
 					"name": "bssids",
 					"numfields": 2,
-					"properties": [
+					"fields": [
 						{ "id": 3, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
 						{
 							"enum": { "0x00": "No more associations allowed", "0x01": "Associations allowed" },
@@ -2420,7 +2592,7 @@
 		},
 		"0xc2": {
 			"fields": [
-				{ "id": 2, "name": "request_frame_body", "subtype": "bitfield", "type": "number" }
+				{ "id": 2, "name": "request_frame_body", "size_ref": -1, "subtype": "string", "type": "string" }
 			],
 			"name": "Tunneled",
 			"standard": "Wi-Fi EasyMesh",
@@ -2440,18 +2612,18 @@
 					"id": 11,
 					"name": "sta_list",
 					"numfields": 1,
-					"properties": [
+					"fields": [
 						{ "id": 10, "name": "mac_address", "size": 6, "subtype": "mac", "type": "string" }
 					],
 					"repeat": "k",
 					"repeat_ref": 9
 				},
-				{ "id": 12, "name": "target_bssid_list_count", "ref": 17, "size": 1, "subtype": "mac", "type": "string" },
+				{ "id": 12, "name": "target_bssid_count", "ref": 17, "size": 1, "subtype": "mac", "type": "string" },
 				{
 					"id": 17,
-					"name": "target_bssid_list",
+					"name": "target_bssids",
 					"numfields": 4,
-					"properties": [
+					"fields": [
 						{ "id": 13, "name": "target_bssid", "size": 6, "subtype": "mac", "type": "string" },
 						{ "id": 14, "name": "target_bss_opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 15, "name": "target_bss_channel", "size": 1, "subtype": "uint8_t", "type": "number" },
@@ -2517,7 +2689,7 @@
 					"id": 10,
 					"name": "bssids",
 					"numfields": 5,
-					"properties": [
+					"fields": [
 						{ "id": 5, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
 						{ "id": 6, "name": "last_data_downlink_rate", "size": 4, "subtype": "uint32_t", "type": "number" },
 						{ "id": 7, "name": "last_data_uplink_rate", "size": 4, "subtype": "uint32_t", "type": "number" },
@@ -2567,8 +2739,8 @@
 					"id": 6,
 					"name": "backhaul_akm_suite_selectors",
 					"numfields": 2,
-					"properties": [
-						{ "id": 4, "name": "bh_oui", "size": 3 },
+					"fields": [
+						{ "id": 4, "name": "bh_oui", "size": 3, "subtype": "string", "type": "string" },
 						{ "id": 5, "name": "bh_akm_suite_type", "size": 1, "subtype": "uint8_t", "type": "number" }
 					],
 					"repeat": "k",
@@ -2579,8 +2751,8 @@
 					"id": 10,
 					"name": "fronthaul_akm_suite_selectors",
 					"numfields": 2,
-					"properties": [
-						{ "id": 8, "name": "fh_oui", "size": 3 },
+					"fields": [
+						{ "id": 8, "name": "fh_oui", "size": 3, "subtype": "string", "type": "string" },
 						{ "id": 9, "name": "fh_akm_suite_type", "size": 1, "subtype": "uint8_t", "type": "number" }
 					],
 					"repeat": "r",
@@ -2608,7 +2780,7 @@
 		},
 		"0xce": {
 			"fields": [
-				{ "id": 3, "name": "eapol_frame_payload", "subtype": "bitfield", "type": "number" }
+				{ "id": 3, "name": "eapol_frame_payload", "size_ref": -1, "subtype": "string", "type": "string" }
 			],
 			"name": "1905 Encap EAPOL",
 			"standard": "Wi-Fi EasyMesh",
@@ -2638,7 +2810,7 @@
 		},
 		"0xd1": {
 			"fields": [
-				{ "id": 3, "name": "dpp_frame", "subtype": "bitfield", "type": "number" }
+				{ "id": 3, "name": "dpp_frame", "size_ref": -1, "subtype": "bitfield", "type": "number" }
 			],
 			"name": "DPP Message",
 			"standard": "Wi-Fi EasyMesh",
@@ -2685,7 +2857,7 @@
 					"id": 13,
 					"name": "radios",
 					"numfields": 3,
-					"properties": [
+					"fields": [
 						{ "id": 10, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
 						{ "id": 11, "name": "chipset_vendor_length", "ref": 12, "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 12, "name": "chipset_vendor", "size": 0, "size_ref": 11, "subtype": "string", "type": "string" }
@@ -2705,7 +2877,7 @@
 					"id": 7,
 					"name": "multi_ap_agents_present",
 					"numfields": 3,
-					"properties": [
+					"fields": [
 						{ "id": 4, "name": "mac_address", "size": 6, "subtype": "mac", "type": "string" },
 						{
 							"enum": { "0x01": "Multi-AP Profile-1", "0x02": "Multi-AP Profile-2", "0x03": "Multi-AP Profile-3" },
@@ -2729,14 +2901,13 @@
 			"fields": [
 				{ "id": 3, "name": "opclass_count", "ref": 8, "size": 1, "subtype": "uint8_t", "type": "number" },
 				{
-					"errors": [ "Invalid field repeat count" ],
 					"id": 8,
-					"name": "opclass",
+					"name": "opclasses",
 					"numfields": 4,
-					"properties": [
+					"fields": [
 						{ "id": 4, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 5, "name": "channels_count", "ref": 6, "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 6, "name": "channel_list", "size": 0, "size_ref": 5, "subtype": "uint8_t", "type": "array" },
+						{ "id": 6, "name": "channels", "size": 0, "size_ref": 5, "subtype": "uint8_t", "type": "array" },
 						{ "id": 7, "name": "reserved", "size": 4, "subtype": "string", "type": "void" }
 					],
 					"repeat": "m",
@@ -2758,7 +2929,7 @@
 					"id": 17,
 					"name": "usage_entries",
 					"numfields": 9,
-					"properties": [
+					"fields": [
 						{ "id": 8, "name": "burst_length", "size": 4, "subtype": "uint32_t", "type": "number" },
 						{ "id": 9, "name": "repetitions_count", "size": 4, "subtype": "uint32_t", "type": "number" },
 						{ "id": 10, "name": "burst_interval", "size": 4, "subtype": "uint32_t", "type": "number" },
@@ -2846,8 +3017,8 @@
 					"id": 5,
 					"name": "mscs_disallowed_sta",
 					"numfields": 1,
-					"properties": [
-						{ "id": 4, "name": "mscs_disallowed_sta_list", "size": 6, "subtype": "string", "type": "string" }
+					"fields": [
+						{ "id": 4, "name": "mscs_disallowed_sta_mac", "size": 6, "subtype": "mac", "type": "string" }
 					],
 					"repeat": "numMSCSDisallowed",
 					"repeat_ref": 3
@@ -2857,8 +3028,8 @@
 					"id": 8,
 					"name": "scs_disallowed_sta",
 					"numfields": 1,
-					"properties": [
-						{ "id": 7, "name": "scs_disallowed_sta_list", "size": 6, "subtype": "string", "type": "string" }
+					"fields": [
+						{ "id": 7, "name": "scs_disallowed_sta_mac", "size": 6, "subtype": "mac", "type": "string" }
 					],
 					"repeat": "numSCSDisallowed",
 					"repeat_ref": 6
@@ -2874,7 +3045,7 @@
 				{ "id": 3, "name": "qmid", "size": 2, "subtype": "uint16_t", "type": "number" },
 				{ "id": 4, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
 				{ "id": 5, "name": "client_mac", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 6, "name": "descriptor_element", "subtype": "bitfield", "type": "number" }
+				{ "id": 6, "name": "descriptor_element", "size_ref": -1, "subtype": "string", "type": "string" }
 			],
 			"name": "QoS Management Descriptor",
 			"standard": "Wi-Fi EasyMesh",
@@ -2884,7 +3055,7 @@
 			"fields": [
 				{ "id": 3, "name": "ki_bmi_b_counter", "size": 0.125, "subtype": "boolean", "type": "boolean" },
 				{ "id": 4, "name": "reserved", "size": 0.875, "subtype": "bitfield", "type": "void" },
-				{ "id": 5, "name": "reserved_for_future_expansion", "subtype": "bitfield", "type": "number" }
+				{ "id": 5, "name": "reserved_for_future_expansion", "size_ref": -1, "subtype": "string", "type": "void" }
 			],
 			"name": "Controller Capability",
 			"standard": "Wi-Fi EasyMesh",
@@ -2904,7 +3075,8 @@
 			],
 			"name": "AP Radio VBSS Capabilities",
 			"standard": "Wi-Fi EasyMesh",
-			"type": 222
+			"type": 222,
+			"subtype": 1
 		},
 		"0xde0002": {
 			"fields": [
@@ -2927,7 +3099,8 @@
 			],
 			"name": "Virtual BSS Creation",
 			"standard": "Wi-Fi EasyMesh",
-			"type": 222
+			"type": 222,
+			"subtype": 2
 		},
 		"0xde0003": {
 			"fields": [
@@ -2937,7 +3110,8 @@
 			],
 			"name": "Virtual BSS Destruction",
 			"standard": "Wi-Fi EasyMesh",
-			"type": 222
+			"type": 222,
+			"subtype": 3
 		},
 		"0xde0004": {
 			"fields": [
@@ -2947,7 +3121,8 @@
 			],
 			"name": "Virtual BSS Event",
 			"standard": "Wi-Fi EasyMesh",
-			"type": 222
+			"type": 222,
+			"subtype": 4
 		},
 		"0xde0005": {
 			"fields": [
@@ -2962,7 +3137,8 @@
 			],
 			"name": "Client Security Context",
 			"standard": "Wi-Fi EasyMesh",
-			"type": 222
+			"type": 222,
+			"subtype": 5
 		},
 		"0xde0006": {
 			"fields": [
@@ -2971,7 +3147,8 @@
 			],
 			"name": "Trigger Channel Switch Announcement",
 			"standard": "Wi-Fi EasyMesh",
-			"type": 222
+			"type": 222,
+			"subtype": 6
 		},
 		"0xde0007": {
 			"fields": [
@@ -2980,14 +3157,14 @@
 					"id": 11,
 					"name": "radios",
 					"numfields": 5,
-					"properties": [
+					"fields": [
 						{ "id": 5, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
 						{ "id": 6, "name": "vbss_count", "ref": 10, "size": 1, "subtype": "uint8_t", "type": "number" },
 						{
 							"id": 10,
 							"name": "vbss",
 							"numfields": 3,
-							"properties": [
+							"fields": [
 								{ "id": 7, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
 								{ "id": 8, "name": "ssid_length", "ref": 9, "size": 1, "subtype": "uint8_t", "type": "number" },
 								{ "id": 9, "name": "ssid", "size": 0, "size_ref": 8, "subtype": "string", "type": "string" }
@@ -3000,9 +3177,10 @@
 					"repeat_ref": 4
 				}
 			],
-			"name": "VBSS Configuration Report TLV format BSSID",
+			"name": "VBSS Configuration Report",
 			"standard": "Wi-Fi EasyMesh",
-			"type": 222
+			"type": 222,
+			"subtype": 7
 		}
 	}
 }
