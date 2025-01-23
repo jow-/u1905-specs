@@ -295,11 +295,11 @@ gen_decode_repeat = function(indent, field, optional) {
 		}
 		else if (fixed_length) {
 			println(indent, "%s%s = [];", decl, field.name);
-			println(indent, "while (buf.pos() + %d < end) {", fixed_length);
+			println(indent, "while (buf.pos() + %d <= end) {", fixed_length);
 		}
 		else {
 			println(indent, "%s%s = [];", decl, field.name);
-			println(indent, "while (buf.pos() < end) {");
+			println(indent, "while (buf.pos() <= end) {");
 		}
 
 		indent++;
