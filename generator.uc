@@ -495,6 +495,29 @@ function size_expr(prefix, ref_fields) {
 
 let gen_encode_prop;
 
+function value_ref(prefix, field) {
+	if (match(field.subtype, /^(mac|ipv4|ipv6)$/)) {
+		return (prefix ? '' : '_') + field.name;
+	}
+
+	return prefix + field.name;
+}
+
+function gen_default_prop(indent, val, field) {
+	if (type(field.requires) === 'object') {
+		let ref = value_ref(val, field);
+
+		for (let ref_id in sort(keys(field.requires))) {
+			let req_field = field.requires[ref_id].field;
+			let values = field.requires[ref_id].values;
+
+			let req_ref = value_ref(val, req_field);
+
+			println(indent, '%s ??= (%s != null) && %d;', req_ref, ref, values[0]);
+		}
+	}
+}
+
 function gen_encode_prop_lowlevel(indent, val, field, depth, bitoff) {
 	let pack_fmt = [null, 'B', '!H', null, '!L', null, null, null, '!Q'];
 	let limit = [null, '0xff', '0xffff', null, '0xffffffff', null, null, null, '0xffffffffffffffff'];
@@ -506,6 +529,7 @@ function gen_encode_prop_lowlevel(indent, val, field, depth, bitoff) {
 		if (length(subfields) === 1) {
 			println(indent, 'for (let %s in %s%s) {', subfields[0].name, val, field.name);
 			gen_validate_prop(indent + 1, '', subfields[0]);
+			gen_default_prop(indent + 1, '', subfields[0]);
 
 			let off = 0;
 			for (let subfield in field.fields) {
@@ -525,6 +549,14 @@ function gen_encode_prop_lowlevel(indent, val, field, depth, bitoff) {
 			for (let subfield in field.fields) {
 				gen_validate_prop(indent + 1, itemvar + ".", subfield);
 			}
+
+			println(0, '');
+
+			for (let subfield in field.fields) {
+				gen_default_prop(indent + 1, itemvar + ".", subfield);
+			}
+
+			println(0, '');
 
 			let off = 0;
 			for (let subfield in field.fields) {
@@ -592,66 +624,27 @@ function gen_encode_prop_lowlevel(indent, val, field, depth, bitoff) {
 	}
 	else if (field.subtype === 'mac') {
 		let var_name = (val ? '' : '_') + field.name;
-		let optional = 'requires' in field ? 1 : 0;
-
-		if (optional) println(indent, 'if (%s != null)', var_name);
-		println(indent + optional, "buf.put('6s', %s);", var_name);
+		println(indent, "buf.put('6s', %s);", var_name);
 	}
 	else if ((m = match(field.subtype, /^ipv([46])$/)) != null) {
 		let var_name = (val ? '' : '_') + field.name;
 		let len = (m[1] == 4) ? 4 : 16;
-		let optional = 'requires' in field ? 1 : 0;
-
-		if (optional) println(indent, 'if (%s != null)', var_name);
-		println(indent + optional, "buf.put('%dB', ...%s);", len, var_name);
+		println(indent, "buf.put('%dB', ...%s);", len, var_name);
 	}
 	else if (field.type === 'string') {
-		if ('requires' in field) {
-			println(indent, 'if (%s%s != null) {', val, field.name);
-			indent++;
-		}
-
-		if (field.size === '*' || field.size <= 0) {
+		if (field.size === '*' || field.size <= 0)
 			println(indent, "buf.put('*', %s%s);", val, field.name);
-		}
-		else {
+		else
 			println(indent, "buf.put('%us', %s%s);", field.size, val, field.name);
-		}
-
-		if ('requires' in field) {
-			indent--;
-			println(indent, '}');
-		}
 	}
-}
-
-function value_ref(prefix, field) {
-	if (match(field.subtype, /^(mac|ipv4|ipv6)$/)) {
-		return (prefix ? '' : '_') + field.name;
-	}
-
-	return prefix + field.name;
 }
 
 gen_encode_prop = function(indent, val, field, depth, bitoff) {
 	if (type(field.requires) === 'object') {
 		let ref = value_ref(val, field);
 
-		println(indent, 'if (%s != null) {', ref);
-
-		for (let ref_id in sort(keys(field.requires))) {
-			let req_field = field.requires[ref_id].field;
-			let values = field.requires[ref_id].values;
-
-			let req_ref = value_ref(val, req_field);
-
-			println(indent, '	if (%s == null)', req_ref);
-			println(indent, '		%s = %d;', req_ref, values[0]);
-		}
-
+		println(indent, 'if (%s != null)', ref);
 		gen_encode_prop_lowlevel(indent + 1, val, field, depth, bitoff);
-
-		println(indent, '}');
 	}
 	else {
 		gen_encode_prop_lowlevel(indent, val, field, depth, bitoff);
@@ -676,6 +669,8 @@ function gen_encode(indent, fields) {
 	if (length(fields_filtered) === 1) {
 		gen_validate_prop(indent + 1, '', fields_filtered[0]);
 		println(0, '');
+		gen_default_prop(indent + 1, '', fields_filtered[0]);
+		println(0, '');
 		let off = 0;
 		for (let field in fields) {
 			gen_encode_prop(indent + 1, '', field, null, off % 8);
@@ -689,6 +684,14 @@ function gen_encode(indent, fields) {
 		for (let field in fields_filtered) {
 			gen_validate_prop(indent + 1, 'tlv.', field);
 		}
+
+		println(0, '');
+
+		for (let field in fields_filtered) {
+			gen_default_prop(indent + 1, 'tlv.', field);
+		}
+
+		println(0, '');
 
 		let off = 0;
 		for (let field in fields) {
@@ -871,16 +874,18 @@ function gen_cmdu(indent, cmdu) {
 function gen_codecs(state) {
 	output = '';
 
-	println(0, "import defs from 'u1905.defs';");
+	println(0, "import defs from 'umap.defs';");
 	println(0, "");
 
 	for (let i, mode in [ [ 'encoder', gen_encode ], [ 'decoder', gen_decode ], [ 'extended_encoder', gen_encode ], [ 'extended_decoder', gen_decode ] ]) {
+		if (i > 0)
+			println(0, "");
+
 		println(0, "// -----------------------------------------------------------------------------");
 		println(0, "// TLV %s ROUTINES", replace(uc(mode[0]), '_', ' '));
 		println(0, "// -----------------------------------------------------------------------------");
 		println(0, "");
 		println(0, "export const %s = [];", mode[0]);
-		println(0, "");
 
 		for (let tlv_type in state.tlv) {
 			let tlv = state.tlv[tlv_type];
@@ -891,12 +896,12 @@ function gen_codecs(state) {
 				fixup_refs(tlv.fields);
 
 			if (!ext ^ !index(mode[0], 'extended_')) {
+				println(0, "");
 				println(0, "// %s - %s", id, tlv.name);
 				println(0, "// %s", tlv.standard);
 				println(0, "%s[%s] = \r", mode[0], id);
 
 				mode[1](0, tlv.fields);
-				println(0, "");
 			}
 		}
 	}
