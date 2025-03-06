@@ -2724,9 +2724,18 @@
 		"0xcb": {
 			"fields": [
 				{ "id": 3, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 4, "name": "mac_address_included", "size": 0.125, "subtype": "mac", "type": "string" },
+				{ "id": 4, "name": "mac_address_included", "size": 0.125, "subtype": "boolean", "type": "boolean" },
 				{ "id": 5, "name": "reserved", "size": 0.875, "subtype": "bitfield", "type": "void" },
-				{ "id": 6, "name": "mac_address", "size": 6, "subtype": "mac", "type": "string" }
+				{
+					"id": 6,
+					"name": "mac_address",
+					"requires": {
+						"4": [ 1 ]
+					},
+					"size": 6,
+					"subtype": "mac",
+					"type": "string"
+				}
 			],
 			"name": "Backhaul STA Radio Capabilities",
 			"standard": "Wi-Fi EasyMesh",
