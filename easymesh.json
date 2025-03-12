@@ -1955,14 +1955,65 @@
 					"subtype": "uint8_t",
 					"type": "number"
 				},
-				{ "id": 8, "name": "timestamp_length", "ref": 9, "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 9, "name": "timestamp", "size": 0, "size_ref": 8, "subtype": "string", "type": "string" },
-				{ "id": 10, "name": "utilization", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 11, "name": "noise", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 12, "name": "number_of_neighbors", "ref": 24, "size": 2, "subtype": "uint16_t", "type": "number" },
+				{
+					"id": 8,
+					"name": "timestamp_length",
+					"requires": {
+						"6": [ 0 ]
+					},
+					"ref": 9,
+					"size": 1,
+					"subtype": "uint8_t",
+					"type": "number"
+				},
+				{
+					"id": 9,
+					"name": "timestamp",
+					"requires": {
+						"6": [ 0 ]
+					},
+					"size": 0,
+					"size_ref": 8,
+					"subtype": "string",
+					"type": "string"
+				},
+				{
+					"id": 10,
+					"name": "utilization",
+					"requires": {
+						"6": [ 0 ]
+					},
+					"size": 1,
+					"subtype": "uint8_t",
+					"type": "number"
+				},
+				{
+					"id": 11,
+					"name": "noise",
+					"requires": {
+						"6": [ 0 ]
+					},
+					"size": 1,
+					"subtype": "uint8_t",
+					"type": "number"
+				},
+				{
+					"id": 12,
+					"name": "number_of_neighbors",
+					"requires": {
+						"6": [ 0 ]
+					},
+					"ref": 24,
+					"size": 2,
+					"subtype": "uint16_t",
+					"type": "number"
+				},
 				{
 					"id": 24,
 					"name": "neighbors",
+					"requires": {
+						"6": [ 0 ]
+					},
 					"numfields": 11,
 					"fields": [
 						{ "id": 13, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
@@ -1980,9 +2031,37 @@
 					"repeat": "NumberOfNeighbors",
 					"repeat_ref": 12
 				},
-				{ "id": 25, "name": "aggregate_scan_duration", "size": 4, "subtype": "uint32_t", "type": "number" },
-				{ "id": 26, "name": "scan_type", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 27, "name": "reserved", "size": 0.875, "subtype": "bitfield", "type": "void" }
+				{
+					"id": 25,
+					"name": "aggregate_scan_duration",
+					"requires": {
+						"6": [ 0 ]
+					},
+					"size": 4,
+					"subtype":
+					"uint32_t",
+					"type": "number"
+				},
+				{
+					"id": 26,
+					"name": "active_scan",
+					"requires": {
+						"6": [ 0 ]
+					},
+					"size": 0.125,
+					"subtype": "boolean",
+					"type": "boolean"
+				},
+				{
+					"id": 27,
+					"name": "reserved",
+					"requires": {
+						"6": [ 0 ]
+					},
+					"size": 0.875,
+					"subtype": "bitfield",
+					"type": "void"
+				}
 			],
 			"name": "Channel Scan Result",
 			"standard": "Wi-Fi EasyMesh",
