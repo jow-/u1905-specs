@@ -21,9 +21,10 @@ function println(indent, fmt, ...vals) {
 
 	let add_blank_line = (
 		(nl !== '' && fmt === '') ||
-		(match(code, /^(for|if|while) /) && !match(output, /\{\n$/)) ||
-		(match(code, /^(let|const) /) && !match(prev_code, /^(let|const) /) && !match(output, /\{\n$/)) ||
-		(pad && !match(code, /^[]}]/) && length(pad) < length(prev_pad) && !match(output, /\{\n$/) && !match(code, /^\);/)) ||
+		(match(code, /^(for|if|while) /) && !match(output, /(\b(for|if|while) [^\n]*|\{)\n$/)) ||
+		(match(code, /^const bitfield\d* /) && !match(output, /(\b(for|if|while) [^\n]*|\{)\n$/)) ||
+		(match(code, /^(let|const) /) && !match(prev_code, /^(let|const) /) && !match(output, /(\b(for|if|while) [^\n]*|\{)\n$/)) ||
+		(pad && !match(code, /^[]}]/) && length(pad) < length(prev_pad) && !match(output, /(\b(for|if|while) [^\n]*|\{)\n$/) && !match(code, /^\);/)) ||
 		(match(output, /\}\n$/) && !match(code, /^\}/)) ||
 		(match(prev_code, /^(\);|let |const )/) && !match(code, /^(\}|let |const )/))
 	);
@@ -33,7 +34,7 @@ function println(indent, fmt, ...vals) {
 	}
 
 	if (match(fmt, /}$/)) {
-		output = replace(output, /\}\n[ \t]*\n$/, "}\n");
+		output = replace(output, /\n[ \t]*\n$/, "\n");
 	}
 
 	if (fmt !== '') {
@@ -52,6 +53,14 @@ function bitstr(num)
 		res = (num % 2) + res;
 
 	return substr('00000000' + res, -8);
+}
+
+function value_ref(prefix, field) {
+	if (match(field.subtype, /^(mac|ipv4|ipv6)$/)) {
+		return (prefix ? '' : '_') + field.name;
+	}
+
+	return prefix + field.name;
 }
 
 function gen_prop_assign(indent, fields) {
@@ -76,20 +85,21 @@ function gen_prop_assign(indent, fields) {
 	println(indent, "}\r");
 }
 
-function gen_require_condition(requires) {
+function gen_require_condition(requires, prefix) {
 	let and_cond = [];
 
 	if (type(requires) === "object") {
 		for (let ref_id in sort(keys(requires))) {
 			let ref_field = requires[ref_id].field;
+			let ref_value = prefix ? value_ref(prefix, ref_field) : ref_field.name;
 			let values = requires[ref_id].values;
 			if (length(values) === 0) continue;
 
 			if (length(values) === 1) {
-				push(and_cond, sprintf('%s == %d', ref_field.name, values[0]));
+				push(and_cond, sprintf('%s == %d', ref_value, values[0]));
 			}
 			else {
-				push(and_cond, sprintf('%s in [ %s ]', ref_field.name, join(', ', values)));
+				push(and_cond, sprintf('%s in [ %s ]', ref_value, join(', ', values)));
 			}
 		}
 	}
@@ -97,10 +107,10 @@ function gen_require_condition(requires) {
 	return length(and_cond) ? join(' && ', and_cond) : '';
 }
 
-function gen_decode_bitfield(indent, counter, members) {
+function gen_decode_bitfield(indent, counter, members, optional) {
+	let decl = optional ? '' : 'const ';
 	let offset = 0;
 
-	println(0, '');
 	println(indent, "const bitfield%s = buf.get('B');", counter);
 
 	for (let member in members) {
@@ -112,19 +122,19 @@ function gen_decode_bitfield(indent, counter, members) {
 		if (member.type === 'void') continue;
 
 		if (bit_num === 1.0) {
-			println(indent, "const %s = ((bitfield%s & 0b%s) == 0b%s);",
-				member.name, counter,
+			println(indent, "%s%s = ((bitfield%s & 0b%s) == 0b%s);",
+				decl, member.name, counter,
 				bitstr((1 << (8 - bit_off - 1))), bitstr((1 << (8 - bit_off - 1))));
 		}
 		else if (bit_off + bit_num < 8.0) {
-			println(indent, "const %s = (bitfield%s >> %d) & 0b%s;",
-				member.name, counter,
+			println(indent, "%s%s = (bitfield%s >> %d) & 0b%s;",
+				decl, member.name, counter,
 				(8 - bit_off - bit_num),
 				bitstr((1 << bit_num) - 1));
 		}
 		else {
-			println(indent, "const %s = bitfield%s & 0b%s;",
-				member.name, counter,
+			println(indent, "%s%s = bitfield%s & 0b%s;",
+				decl, member.name, counter,
 				bitstr((1 << bit_num) - 1));
 		}
 	}
@@ -254,7 +264,7 @@ function gen_decode_prop(indent, fields) {
 				i++;
 			}
 
-			gen_decode_bitfield(indent, bitfield_counter, bitfield_members);
+			gen_decode_bitfield(indent, bitfield_counter, bitfield_members, optional);
 			bitfield_counter = (bitfield_counter || 1) + 1;
 			i--;
 		}
@@ -495,14 +505,6 @@ function size_expr(prefix, ref_fields) {
 
 let gen_encode_prop;
 
-function value_ref(prefix, field) {
-	if (match(field.subtype, /^(mac|ipv4|ipv6)$/)) {
-		return (prefix ? '' : '_') + field.name;
-	}
-
-	return prefix + field.name;
-}
-
 function gen_default_prop(indent, val, field) {
 	if (type(field.requires) === 'object') {
 		let ref = value_ref(val, field);
@@ -640,10 +642,12 @@ function gen_encode_prop_lowlevel(indent, val, field, depth, bitoff) {
 }
 
 gen_encode_prop = function(indent, val, field, depth, bitoff) {
-	if (type(field.requires) === 'object') {
-		let ref = value_ref(val, field);
+	let optional = gen_require_condition(field.requires, val);
 
-		println(indent, 'if (%s != null)', ref);
+	if (optional) {
+		if (!bitoff)
+			println(indent, 'if (%s)', optional);
+
 		gen_encode_prop_lowlevel(indent + 1, val, field, depth, bitoff);
 	}
 	else {
