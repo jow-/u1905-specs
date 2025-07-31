@@ -1564,8 +1564,8 @@
 					"fields": [
 						{ "id": 4, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
 						{ "id": 5, "name": "time_delta", "size": 4, "subtype": "uint32_t", "type": "number" },
-						{ "id": 6, "name": "estimated_downlink_mac_data_rate", "size": 4, "subtype": "mac", "type": "string" },
-						{ "id": 7, "name": "estimated_uplink_mac_data_rate", "size": 4, "subtype": "mac", "type": "string" },
+						{ "id": 6, "name": "estimated_downlink_mac_data_rate", "size": 4, "subtype": "uint32_t", "type": "number" },
+						{ "id": 7, "name": "estimated_uplink_mac_data_rate", "size": 4, "subtype": "uint32_t", "type": "number" },
 						{ "id": 8, "max": 220, "min": 0, "name": "uplink_rcpi", "size": 1, "subtype": "uint8_t", "type": "number" }
 					],
 					"repeat": "k",
