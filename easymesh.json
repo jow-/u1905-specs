@@ -1278,12 +1278,12 @@
 			"fields": [
 				{ "id": 2, "max": 255, "min": 0, "name": "ap_metrics_reporting_interval", "size": 1, "subtype": "uint8_t", "type": "number" },
 				{ "id": 3, "name": "radios_count", "ref": 12, "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 4, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
 				{
 					"id": 12,
 					"name": "radios",
-					"numfields": 7,
+					"numfields": 8,
 					"fields": [
+						{ "id": 4, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
 						{ "id": 5, "max": 220, "min": 0, "name": "sta_metrics_reporting_rcpi_threshold", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 6, "name": "sta_metrics_reporting_rcpi_hysteresis_margin_override", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 7, "name": "ap_metrics_channel_utilization_reporting_threshold", "size": 1, "subtype": "uint8_t", "type": "number" },
