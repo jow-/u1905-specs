@@ -2785,7 +2785,6 @@
 		},
 		"0xc9": {
 			"fields": [
-				{ "id": 1, "name": "octets_count", "size": 2, "subtype": "uint16_t", "type": "number" },
 				{ "id": 3, "name": "status_code", "size": 2, "subtype": "uint16_t", "type": "number" }
 			],
 			"name": "Status Code",
