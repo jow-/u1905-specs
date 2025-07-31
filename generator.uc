@@ -198,7 +198,7 @@ function gen_decode_prop_lowlevel(indent, field, optional) {
 		}
 	}
 	else if (field.type === 'void') {
-		// ignore
+		println(indent, "buf.get(%d);", field.size);
 	}
 	else {
 		println(indent, "// %s%s = <%s / %s>;", decl, field.name, field.type, field.subtype);
@@ -460,7 +460,7 @@ function gen_validate_prop(indent, val, field) {
 			o1 = sprintf('%s%s != null && (', val, field.name),  o2 = ')';
 
 		if (field.size_field && field.size < 0) {
-			println(indent, 'if (%stype(%s%s) != "string" || length(%s%s) > %s - %u%s)', o1, val, field.name, val, field.name, limit[field.size_field.size], field.size, o2);
+			println(indent, 'if (%stype(%s%s) != "string" || length(%s%s) > %s - %u%s)', o1, val, field.name, val, field.name, limit[field.size_field.size], -field.size, o2);
 		}
 		else if (field.size_field) {
 			let sz = field.size_field.size >= 1 ? limit[field.size_field.size] : 2 ** (field.size_field.size / 0.125);
@@ -494,6 +494,9 @@ function size_expr(prefix, ref_fields) {
 			}
 
 			push(exprs, sprintf('(%s%s != null ? %d : null)', prefix, field.name, fixed_length));
+		}
+		else if (field.size < 0) {
+			push(exprs, sprintf('length(%s%s) + %u', prefix, field.name, -field.size));
 		}
 		else {
 			push(exprs, sprintf('length(%s%s)', prefix, field.name));
@@ -638,6 +641,9 @@ function gen_encode_prop_lowlevel(indent, val, field, depth, bitoff) {
 			println(indent, "buf.put('*', %s%s);", val, field.name);
 		else
 			println(indent, "buf.put('%us', %s%s);", field.size, val, field.name);
+	}
+	else if (field.type === 'void' && field.size > 0) {
+		println(indent, "buf.put('%dx');", field.size);
 	}
 }
 
