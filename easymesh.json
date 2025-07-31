@@ -1665,7 +1665,7 @@
 				{
 					"id": 6,
 					"name": "measurement_report_elements",
-					"numfields": 1,
+					"numfields": 6,
 					"fields": [
 						{ "id": 5.1, "name": "id", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 5.2, "name": "length", "ref": 5.6, "size": 1, "subtype": "uint8_t", "type": "number" },
