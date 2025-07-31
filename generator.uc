@@ -21,6 +21,7 @@ function println(indent, fmt, ...vals) {
 
 	let add_blank_line = (
 		(nl !== '' && fmt === '') ||
+		(length(pad) == length(prev_pad) && match(code, /^return /)) ||
 		(match(code, /^(for|if|while) /) && !match(output, /(\b(for|if|while) [^\n]*|\{)\n$/)) ||
 		(match(code, /^const bitfield\d* /) && !match(output, /(\b(for|if|while) [^\n]*|\{)\n$/)) ||
 		(match(code, /^(let|const) /) && !match(prev_code, /^(let|const) /) && !match(output, /(\b(for|if|while) [^\n]*|\{)\n$/)) ||
@@ -193,12 +194,13 @@ function gen_decode_prop_lowlevel(indent, field, optional) {
 			println(indent, "	return null;");
 			println(indent, "%s%s = buf.get(%s);", decl, field.name, field.size_field.name);
 		}
-		else {
+		else if (field.size > 0) {
 			println(indent, "%s%s = buf.get(%d);", decl, field.name, field.size);
 		}
 	}
 	else if (field.type === 'void') {
-		println(indent, "buf.get(%d);", field.size);
+		if (field.size > 0)
+			println(indent, "buf.get(%d);", field.size);
 	}
 	else {
 		println(indent, "// %s%s = <%s / %s>;", decl, field.name, field.type, field.subtype);
