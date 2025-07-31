@@ -1412,7 +1412,7 @@
 				{ "id": 3, "name": "current_opclass_count", "ref": 6, "size": 1, "subtype": "uint8_t", "type": "number" },
 				{
 					"id": 6,
-					"name": "current_opclass",
+					"name": "current_opclasses",
 					"numfields": 2,
 					"fields": [
 						{ "id": 4, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
@@ -1882,7 +1882,7 @@
 						{ "id": 9, "name": "opclass_count", "ref": 13, "size": 1, "subtype": "uint8_t", "type": "number" },
 						{
 							"id": 13,
-							"name": "opclass",
+							"name": "opclasses",
 							"numfields": 3,
 							"fields": [
 								{ "id": 10, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
@@ -1915,7 +1915,7 @@
 						{ "id": 6, "name": "opclass_count", "ref": 10, "size": 1, "subtype": "uint8_t", "type": "number" },
 						{
 							"id": 10,
-							"name": "opclass",
+							"name": "opclasses",
 							"numfields": 3,
 							"fields": [
 								{ "id": 7, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
