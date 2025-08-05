@@ -924,12 +924,22 @@ function gen_codecs(state) {
 function gen_definitions(state) {
 	output = '';
 
+	println(0, "import * as ubus from 'ubus';");
+	println(0, "");
 	println(0, "export default {");
 	println(0, "	IEEE1905_MULTICAST_MAC: '01:80:c2:00:00:13',");
 	println(0, "	LLDP_NEAREST_BRIDGE_MAC: '01:80:c2:00:00:0e',");
 	println(0, "");
 	println(0, "	CMDU_F_LASTFRAG: 0b10000000,");
 	println(0, "	CMDU_F_ISRELAY: 0b01000000,");
+	println(0, "");
+
+	for (let key in [ 'STATUS_OK', 'STATUS_INVALID_COMMAND', 'STATUS_INVALID_COMMAND',
+			  'STATUS_INVALID_ARGUMENT', 'STATUS_METHOD_NOT_FOUND',
+			  'STATUS_NOT_FOUND', 'STATUS_NO_DATA', 'STATUS_PERMISSION_DENIED',
+			  'STATUS_TIMEOUT', 'STATUS_NOT_SUPPORTED', 'STATUS_UNKNOWN_ERROR',
+			  'STATUS_CONNECTION_FAILED' ])
+		println(0, "	UBUS_%s: ubus.%s,", key, key);
 	println(0, "");
 
 	for (let key in sort(keys(state.cmdu))) {
