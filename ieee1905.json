@@ -365,7 +365,7 @@
 					"numfields": 3,
 					"fields": [
 						{ "id": 3, "name": "neighbor_al_mac_address", "size": 6, "subtype": "mac", "type": "string" },
-						{ "id": 4, "name": "bridges_present", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+						{ "id": 4, "name": "bridges_present", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 						{ "id": 5, "name": "reserved", "size": 0.875, "subtype": "bitfield", "type": "void" }
 					],
 					"repeat": "0 or more",
