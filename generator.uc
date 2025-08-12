@@ -68,7 +68,7 @@ function gen_prop_assign(indent, fields) {
 	let bitfield_counter = '';
 	let fields_filtered = filter(fields, f => f.type !== 'void' && !('ref' in f));
 
-	if (length(fields_filtered) === 1 && !('enum' in fields_filtered[0])) {
+	if (length(fields_filtered) === 1 && fields_filtered[0].subtype != 'bitfield' && !('enum' in fields_filtered[0])) {
 		println(0, fields_filtered[0].name + "\r");
 		return;
 	}
@@ -447,13 +447,10 @@ function gen_validate_prop(indent, val, field) {
 	}
 	else if (field.subtype === 'bitfield') {
 		let max = (1 << (field.size / 0.125)) - 1;
-		if (max === 1) {
-			println(indent, 'if (type(%s%s) != "bool")', val, field.name);
-		}
-		else {
+		if (max > 1) {
 			println(indent, 'if (type(%s%s) != "int" || %s%s < 0 || %s%s > 0b%s)', val, field.name, val, field.name, val, field.name, bitstr(max));
+			println(indent, '	return null;');
 		}
-		println(indent, '	return null;');
 	}
 	else if (field.type === 'string') {
 		let o1 = '', o2 = '';
