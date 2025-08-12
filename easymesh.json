@@ -1110,9 +1110,9 @@
 					"subtype": "bitfield",
 					"type": "number"
 				},
-				{ "id": 5, "name": "short_gi_support_20mhz", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 6, "name": "short_gi_support_40mhz", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 7, "name": "ht_support_40mhz", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 5, "name": "short_gi_support_20mhz", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 6, "name": "short_gi_support_40mhz", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 7, "name": "ht_support_40mhz", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 8, "name": "reserved", "size": 0.125, "subtype": "bitfield", "type": "void" }
 			],
 			"name": "AP HT Capabilities",
@@ -1158,12 +1158,12 @@
 					"subtype": "bitfield",
 					"type": "number"
 				},
-				{ "id": 7, "name": "short_gi_support_80mhz", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 8, "name": "short_gi_support_160mhz_8080mhz", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 9, "name": "vht_support_8080mhz", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 10, "name": "vht_support_160mhz", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 11, "name": "su_beamformer_capable", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 12, "name": "mu_beamformer_capable", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 7, "name": "short_gi_support_80mhz", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 8, "name": "short_gi_support_160mhz_8080mhz", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 9, "name": "vht_support_8080mhz", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 10, "name": "vht_support_160mhz", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 11, "name": "su_beamformer_capable", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 12, "name": "mu_beamformer_capable", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 13, "name": "reserved", "size": 0.5, "subtype": "bitfield", "type": "void" }
 			],
 			"name": "AP VHT Capabilities",
@@ -1209,15 +1209,15 @@
 					"subtype": "bitfield",
 					"type": "number"
 				},
-				{ "id": 7, "name": "he_support_8080mhz", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 8, "name": "he_support_160mhz", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 9, "name": "su_beamformer_capable", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 10, "name": "mu_beamformer_capable", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 11, "name": "ul_mu_mimo_capable", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 12, "name": "ul_mu_mimo_ofdma_capable", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 13, "name": "dl_mu_mimo_ofdma_capable", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 14, "name": "ul_ofdma_capable", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 15, "name": "dl_ofdma_capable", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 7, "name": "he_support_8080mhz", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 8, "name": "he_support_160mhz", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 9, "name": "su_beamformer_capable", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 10, "name": "mu_beamformer_capable", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 11, "name": "ul_mu_mimo_capable", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 12, "name": "ul_mu_mimo_ofdma_capable", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 13, "name": "dl_mu_mimo_ofdma_capable", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 14, "name": "ul_ofdma_capable", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 15, "name": "dl_ofdma_capable", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 16, "name": "reserved", "size": 0.125, "subtype": "bitfield", "type": "void" }
 			],
 			"name": "AP HE Capabilities",
@@ -1287,9 +1287,9 @@
 						{ "id": 5, "max": 220, "min": 0, "name": "sta_metrics_reporting_rcpi_threshold", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 6, "name": "sta_metrics_reporting_rcpi_hysteresis_margin_override", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 7, "name": "ap_metrics_channel_utilization_reporting_threshold", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 8, "name": "associated_sta_traffic_stats_inclusion_policy", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-						{ "id": 9, "name": "associated_sta_link_metrics_inclusion_policy", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-						{ "id": 10, "name": "associated_wifi6_sta_status_inclusion_policy", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+						{ "id": 8, "name": "associated_sta_traffic_stats_inclusion_policy", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+						{ "id": 9, "name": "associated_sta_link_metrics_inclusion_policy", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+						{ "id": 10, "name": "associated_wifi6_sta_status_inclusion_policy", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 						{ "id": 11, "name": "reserved", "size": 0.625, "subtype": "bitfield", "type": "void" }
 					],
 					"repeat": "k",
@@ -1465,7 +1465,7 @@
 			"fields": [
 				{ "id": 2, "name": "mac_address", "size": 6, "subtype": "mac", "type": "string" },
 				{ "id": 3, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 4, "name": "association_event", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 4, "name": "association_event", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 5, "name": "reserved", "size": 0.875, "subtype": "bitfield", "type": "void" }
 			],
 			"name": "Client Association Event",
@@ -1495,10 +1495,10 @@
 				{ "id": 2, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
 				{ "id": 3, "name": "channel_utilization", "size": 1, "subtype": "uint8_t", "type": "number" },
 				{ "id": 4, "name": "sta_count", "size": 2, "subtype": "uint16_t", "type": "number" },
-				{ "id": 5, "name": "include_esp_be", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 6, "name": "include_esp_bk", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 7, "name": "include_esp_vo", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 8, "name": "include_esp_vi", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 5, "name": "include_esp_be", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 6, "name": "include_esp_bk", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 7, "name": "include_esp_vo", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 8, "name": "include_esp_vi", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 9, "name": "reserved", "size": 0.5, "subtype": "bitfield", "type": "void" },
 				{
 					"id": 10,
@@ -1685,9 +1685,9 @@
 		"0x9b": {
 			"fields": [
 				{ "id": 2, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 3, "name": "request_mode", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 4, "name": "btm_disassociation_imminent_bit", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 5, "name": "btm_abridged_bit", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 3, "name": "request_mode", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 4, "name": "btm_disassociation_imminent_bit", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 5, "name": "btm_abridged_bit", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 6, "name": "reserved", "size": 0.625, "subtype": "bitfield", "type": "void" },
 				{ "id": 7, "name": "steering_opportunity_window", "size": 2, "subtype": "uint16_t", "type": "number" },
 				{ "id": 8, "name": "btm_disassociation_timer", "size": 2, "subtype": "uint16_t", "type": "number" },
@@ -1798,9 +1798,9 @@
 		},
 		"0xa1": {
 			"fields": [
-				{ "id": 2, "name": "onchannel_unassoc_sta_metrics", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 3, "name": "offchannel_unassoc_sta_metrics", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 4, "name": "agent_initiated_rcpi_steering", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 2, "name": "onchannel_unassoc_sta_metrics", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 3, "name": "offchannel_unassoc_sta_metrics", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 4, "name": "agent_initiated_rcpi_steering", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 5, "name": "reserved", "size": 0.625, "subtype": "bitfield", "type": "void" }
 			],
 			"name": "AP Capability",
@@ -1847,7 +1847,7 @@
 		},
 		"0xa4": {
 			"fields": [
-				{ "id": 2, "name": "report_independent_channel_scans", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 2, "name": "report_independent_channel_scans", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 3, "name": "reserved", "size": 0.875, "subtype": "bitfield", "type": "void" }
 			],
 			"name": "Channel Scan Reporting Policy",
@@ -1863,7 +1863,7 @@
 					"numfields": 9,
 					"fields": [
 						{ "id": 4, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
-						{ "id": 5, "name": "on_boot_only", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+						{ "id": 5, "name": "on_boot_only", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 						{
 							"enum": {
 								"0x00": "No impact (independent radio is available for scanning that is not used for Fronthaul or backhaul)",
@@ -1903,7 +1903,7 @@
 		},
 		"0xa6": {
 			"fields": [
-				{ "id": 2, "name": "perform_fresh_scan", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 2, "name": "perform_fresh_scan", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 3, "name": "reserved", "size": 0.875, "subtype": "bitfield", "type": "void" },
 				{ "id": 4, "name": "radios_count", "ref": 11, "size": 1, "subtype": "uint8_t", "type": "number" },
 				{
@@ -2022,7 +2022,7 @@
 						{ "id": 16, "name": "signal_strength", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 17, "name": "channel_bandwidth_length", "ref": 18, "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 18, "name": "channel_bandwidth", "size": 0, "size_ref": 17, "subtype": "string", "type": "string" },
-						{ "id": 19, "name": "bss_load_element_present", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+						{ "id": 19, "name": "bss_load_element_present", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 						{ "id": 20, "name": "reserved", "size": 0.125, "subtype": "bitfield", "type": "void" },
 						{ "id": 21, "max": 0, "min": 0, "name": "bss_color", "size": 0.75, "subtype": "bitfield", "type": "number" },
 						{ "id": 22, "name": "channel_utilization", "size": 1, "subtype": "uint8_t", "type": "number" },
@@ -2049,7 +2049,7 @@
 						"6": [ 0 ]
 					},
 					"size": 0.125,
-					"subtype": "boolean",
+					"subtype": "bitfield",
 					"type": "boolean"
 				},
 				{
@@ -2097,30 +2097,30 @@
 					"numfields": 25,
 					"fields": [
 						{ "id": 5, "name": "agent_role", "size": 0.25, "subtype": "bitfield", "type": "number" },
-						{ "id": 6, "name": "he_160", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-						{ "id": 7, "name": "he_8080", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+						{ "id": 6, "name": "he_160", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+						{ "id": 7, "name": "he_8080", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 						{ "id": 8, "name": "mcs_nss_length", "ref": 9, "size": 0.5, "subtype": "bitfield", "type": "number" },
 						{ "id": 9, "name": "mcs_nss", "size": 0, "size_ref": 8, "subtype": "string", "type": "string" },
-						{ "id": 10, "name": "su_beamformer", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-						{ "id": 11, "name": "su_beamformee", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-						{ "id": 12, "name": "mu_beamformer_status", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-						{ "id": 13, "name": "beamformee_sts_less_80", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-						{ "id": 14, "name": "beamformee_sts_greater_80", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-						{ "id": 15, "name": "ul_mu_mimo", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-						{ "id": 16, "name": "ul_ofdma", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-						{ "id": 17, "name": "dl_ofdma", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+						{ "id": 10, "name": "su_beamformer", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+						{ "id": 11, "name": "su_beamformee", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+						{ "id": 12, "name": "mu_beamformer_status", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+						{ "id": 13, "name": "beamformee_sts_less_80", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+						{ "id": 14, "name": "beamformee_sts_greater_80", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+						{ "id": 15, "name": "ul_mu_mimo", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+						{ "id": 16, "name": "ul_ofdma", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+						{ "id": 17, "name": "dl_ofdma", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 						{ "id": 18, "name": "max_dl_mu_mimo_tx", "size": 0.5, "subtype": "bitfield", "type": "number" },
 						{ "id": 19, "name": "max_ul_mu_mimo_rx", "size": 0.5, "subtype": "bitfield", "type": "number" },
 						{ "id": 20, "name": "max_dl_ofdma_tx", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 21, "name": "max_ul_ofdma_rx", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 22, "name": "rts", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-						{ "id": 23, "name": "mu_rts", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-						{ "id": 24, "name": "multi_bssid", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-						{ "id": 25, "name": "mu_edca", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-						{ "id": 26, "name": "twt_requester", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-						{ "id": 27, "name": "twt_responder", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-						{ "id": 28, "name": "spatial_reuse", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-						{ "id": 29, "name": "anticipated_channel_usage", "size": 0.125, "subtype": "boolean", "type": "boolean" }
+						{ "id": 22, "name": "rts", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+						{ "id": 23, "name": "mu_rts", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+						{ "id": 24, "name": "multi_bssid", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+						{ "id": 25, "name": "mu_edca", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+						{ "id": 26, "name": "twt_requester", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+						{ "id": 27, "name": "twt_responder", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+						{ "id": 28, "name": "spatial_reuse", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+						{ "id": 29, "name": "anticipated_channel_usage", "size": 0.125, "subtype": "bitfield", "type": "boolean" }
 					],
 					"repeat": "n",
 					"repeat_ref": 4
@@ -2406,9 +2406,9 @@
 					"subtype": "bitfield",
 					"type": "number"
 				},
-				{ "id": 6, "name": "supports_prioritization", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 7, "name": "supports_dpp_onboarding", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 8, "name": "supports_traffic_separation", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 6, "name": "supports_prioritization", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 7, "name": "supports_dpp_onboarding", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 8, "name": "supports_traffic_separation", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 9, "name": "reserved2", "size": 0.375, "subtype": "bitfield", "suffix": "2", "type": "void" },
 				{ "id": 10, "name": "max_unique_vids", "size": 1, "subtype": "uint8_t", "type": "number" }
 			],
@@ -2462,12 +2462,12 @@
 							"numfields": 11,
 							"fields": [
 								{ "id": 6, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
-								{ "id": 7, "name": "backhaul", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-								{ "id": 8, "name": "fronthaul", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-								{ "id": 9, "name": "r1_disallowed_status", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-								{ "id": 10, "name": "r2_disallowed_status", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-								{ "id": 11, "name": "multiple_bssid", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-								{ "id": 12, "name": "transmitted_bssid", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+								{ "id": 7, "name": "backhaul", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+								{ "id": 8, "name": "fronthaul", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+								{ "id": 9, "name": "r1_disallowed_status", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+								{ "id": 10, "name": "r2_disallowed_status", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+								{ "id": 11, "name": "multiple_bssid", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+								{ "id": 12, "name": "transmitted_bssid", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 								{ "id": 13, "name": "reserved", "size": 0.25, "subtype": "bitfield", "type": "void" },
 								{ "id": 14, "name": "reserved2", "size": 1, "subtype": "string", "suffix": "2", "type": "void" },
 								{ "id": 15, "name": "ssid_length", "ref": 16, "size": 1, "subtype": "uint8_t", "type": "number" },
@@ -2496,11 +2496,11 @@
 		"0xb9": {
 			"fields": [
 				{ "id": 3, "name": "rule_id", "size": 4, "subtype": "uint32_t", "type": "number" },
-				{ "id": 4, "name": "add_remove", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 4, "name": "add_remove", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 5, "name": "reserved", "size": 0.875, "subtype": "bitfield", "type": "void" },
 				{ "id": 6, "name": "precedence", "size": 1, "subtype": "uint8_t", "type": "number" },
 				{ "id": 7, "name": "output", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 8, "name": "always_match", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 8, "name": "always_match", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 9, "name": "reserved2", "size": 0.875, "subtype": "bitfield", "suffix": "2", "type": "void" }
 			],
 			"name": "Service Prioritization Rule",
@@ -2600,12 +2600,12 @@
 		"0xbe": {
 			"fields": [
 				{ "id": 3, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 4, "name": "combined_front_back", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 5, "name": "combined_profile1_profile2", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 6, "name": "mscs", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 7, "name": "scs", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 8, "name": "qos_map", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 9, "name": "dscp_policy", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 4, "name": "combined_front_back", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 5, "name": "combined_profile1_profile2", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 6, "name": "mscs", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 7, "name": "scs", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 8, "name": "qos_map", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 9, "name": "dscp_policy", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 10, "name": "reserved", "size": 0.25, "subtype": "bitfield", "type": "void" }
 			],
 			"name": "AP Radio Advanced Capabilities",
@@ -2680,9 +2680,9 @@
 		"0xc3": {
 			"fields": [
 				{ "id": 2, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 3, "name": "request_mode", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 4, "name": "btm_disassociation_imminent_bit", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 5, "name": "btm_abridged_bit", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 3, "name": "request_mode", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 4, "name": "btm_disassociation_imminent_bit", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 5, "name": "btm_abridged_bit", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 6, "name": "reserved", "size": 0.625, "subtype": "bitfield", "type": "void" },
 				{ "id": 7, "name": "steering_opportunity_window", "size": 2, "subtype": "uint16_t", "type": "number" },
 				{ "id": 8, "name": "btm_disassociation_timer", "size": 2, "subtype": "uint16_t", "type": "number" },
@@ -2718,7 +2718,7 @@
 		},
 		"0xc4": {
 			"fields": [
-				{ "id": 3, "name": "report_unsuccessful_assocs", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 3, "name": "report_unsuccessful_assocs", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 4, "name": "reserved", "size": 0.875, "subtype": "bitfield", "type": "void" },
 				{ "id": 5, "name": "max_reporting_rate", "size": 4, "subtype": "uint32_t", "type": "number" }
 			],
@@ -2802,7 +2802,7 @@
 		"0xcb": {
 			"fields": [
 				{ "id": 3, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 4, "name": "mac_address_included", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 4, "name": "mac_address_included", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 5, "name": "reserved", "size": 0.875, "subtype": "bitfield", "type": "void" },
 				{
 					"id": 6,
@@ -2854,7 +2854,7 @@
 			"fields": [
 				{ "id": 3, "name": "enrollee_mac_address_present", "size": 0.125, "subtype": "mac", "type": "string" },
 				{ "id": 4, "name": "reserved", "size": 0.125, "subtype": "bitfield", "type": "void" },
-				{ "id": 5, "name": "dpp_frame_indicator", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 5, "name": "dpp_frame_indicator", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 6, "name": "reserved2", "size": 0.625, "subtype": "bitfield", "suffix": "2", "type": "void" },
 				{ "id": 7, "name": "destination_sta_mac_address", "size": 6, "subtype": "mac", "type": "string" },
 				{ "id": 8, "name": "frame_type", "size": 1, "subtype": "uint8_t", "type": "number" },
@@ -2887,8 +2887,8 @@
 		"0xd0": {
 			"fields": [
 				{ "id": 3, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 4, "name": "profile1_backhaul_sta_disallowed", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 5, "name": "profile2_backhaul_sta_disallowed", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 4, "name": "profile1_backhaul_sta_disallowed", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 5, "name": "profile2_backhaul_sta_disallowed", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 6, "name": "reserved", "size": 0.75, "subtype": "bitfield", "type": "void" }
 			],
 			"name": "Backhaul BSS Configuration",
@@ -2921,7 +2921,7 @@
 		"0xd3": {
 			"fields": [
 				{ "id": 3, "name": "enrollee_mac_address_present", "size": 0.125, "subtype": "mac", "type": "string" },
-				{ "id": 4, "name": "hash_validity", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 4, "name": "hash_validity", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 5, "name": "reserved", "size": 0.75, "subtype": "bitfield", "type": "void" },
 				{ "id": 6, "name": "destination_sta_mac_address", "size": 6, "subtype": "mac", "type": "string" },
 				{ "id": 7, "name": "hash_length", "ref": 8, "size": 1, "subtype": "uint8_t", "type": "number" },
@@ -3041,11 +3041,11 @@
 				{ "id": 4, "name": "reserved", "size": 0.25, "subtype": "bitfield", "type": "void" },
 				{ "id": 5, "name": "bss_color", "size": 0.75, "subtype": "bitfield", "type": "number" },
 				{ "id": 6, "name": "reserved2", "size": 0.375, "subtype": "bitfield", "suffix": "2", "type": "void" },
-				{ "id": 7, "name": "hesiga_spatial_reuse_value15_allowed", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 8, "name": "srg_information_valid", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 9, "name": "non_srg_offset_valid", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 7, "name": "hesiga_spatial_reuse_value15_allowed", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 8, "name": "srg_information_valid", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 9, "name": "non_srg_offset_valid", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 10, "name": "reserved3", "size": 0.125, "subtype": "bitfield", "suffix": "3", "type": "void" },
-				{ "id": 11, "name": "psr_disallowed", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 11, "name": "psr_disallowed", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 12, "name": "non_srg_obsspd_max_offset", "size": 1, "subtype": "uint8_t", "type": "number" },
 				{ "id": 13, "name": "srg_obsspd_min_offset", "size": 1, "subtype": "uint8_t", "type": "number" },
 				{ "id": 14, "name": "srg_obsspd_max_offset", "size": 1, "subtype": "uint8_t", "type": "number" },
@@ -3061,14 +3061,14 @@
 			"fields": [
 				{ "id": 3, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
 				{ "id": 4, "name": "reserved", "size": 0.125, "subtype": "bitfield", "type": "void" },
-				{ "id": 5, "name": "partial_bss_color", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 5, "name": "partial_bss_color", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 6, "name": "bss_color", "size": 0.75, "subtype": "bitfield", "type": "number" },
 				{ "id": 7, "name": "reserved2", "size": 0.375, "subtype": "bitfield", "suffix": "2", "type": "void" },
-				{ "id": 8, "name": "hesiga_spatial_reuse_value15_allowed", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 9, "name": "srg_information_valid", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 10, "name": "non_srg_offset_valid", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 8, "name": "hesiga_spatial_reuse_value15_allowed", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 9, "name": "srg_information_valid", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 10, "name": "non_srg_offset_valid", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 11, "name": "reserved3", "size": 0.125, "subtype": "bitfield", "suffix": "3", "type": "void" },
-				{ "id": 12, "name": "psr_disallowed", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 12, "name": "psr_disallowed", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 13, "name": "non_srg_obsspd_max_offset", "size": 1, "subtype": "uint8_t", "type": "number" },
 				{ "id": 14, "name": "srg_obsspd_min_offset", "size": 1, "subtype": "uint8_t", "type": "number" },
 				{ "id": 15, "name": "srg_obsspd_max_offset", "size": 1, "subtype": "uint8_t", "type": "number" },
@@ -3140,9 +3140,10 @@
 		},
 		"0xdd": {
 			"fields": [
-				{ "id": 3, "name": "ki_bmi_b_counter", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 4, "name": "reserved", "size": 0.875, "subtype": "bitfield", "type": "void" },
-				{ "id": 5, "name": "reserved_for_future_expansion", "size_ref": -1, "subtype": "string", "type": "void" }
+				{ "id": 3, "name": "kib_mib_counter", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 4, "name": "early_ap_capability", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 5, "name": "reserved", "size": 0.75, "subtype": "bitfield", "type": "void" },
+				{ "id": 6, "name": "reserved_for_future_expansion", "size_ref": -1, "subtype": "string", "type": "void" }
 			],
 			"name": "Controller Capability",
 			"standard": "Wi-Fi EasyMesh",
@@ -3152,10 +3153,10 @@
 			"fields": [
 				{ "id": 3, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
 				{ "id": 4, "name": "max_vbss", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 5, "name": "vbsss_subtract", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 6, "name": "vbssid_restrictions", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 7, "name": "vbssid_match_mask_restrictions", "size": 0.125, "subtype": "boolean", "type": "boolean" },
-				{ "id": 8, "name": "fixed_bits_restrictions", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 5, "name": "vbsss_subtract", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 6, "name": "vbssid_restrictions", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 7, "name": "vbssid_match_mask_restrictions", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
+				{ "id": 8, "name": "fixed_bits_restrictions", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 9, "name": "reserved", "size": 0.5, "subtype": "bitfield", "type": "void" },
 				{ "id": 10, "name": "fixed_bits_mask", "size": 6, "subtype": "string", "type": "string" },
 				{ "id": 11, "name": "fixed_bits_value", "size": 6, "subtype": "string", "type": "string" }
@@ -3213,7 +3214,7 @@
 		},
 		"0xde0005": {
 			"fields": [
-				{ "id": 4, "name": "client_connected", "size": 0.125, "subtype": "boolean", "type": "boolean" },
+				{ "id": 4, "name": "client_connected", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 5, "name": "reserved", "size": 0.875, "subtype": "bitfield", "type": "void" },
 				{ "id": 6, "name": "key_length", "ref": 7, "size": 2, "subtype": "uint16_t", "type": "number" },
 				{ "id": 7, "name": "key", "size": 0, "size_ref": 6, "subtype": "string", "type": "string" },
