@@ -940,7 +940,7 @@
 	"tlv": {
 		"0x80": {
 			"fields": [
-				{ "id": 2, "name": "services_count", "ref": 4, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 2, "name": "services_count", "ref": 4, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 4,
 					"name": "services",
@@ -952,7 +952,7 @@
 							"id": 3,
 							"name": "supported_service",
 							"size": 1,
-							"subtype": "uint8_t",
+							"subtype": "u8",
 							"type": "number"
 						}
 					],
@@ -966,7 +966,7 @@
 		},
 		"0x81": {
 			"fields": [
-				{ "id": 2, "name": "services_count", "ref": 4, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 2, "name": "services_count", "ref": 4, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 4,
 					"name": "services",
@@ -978,7 +978,7 @@
 							"id": 3,
 							"name": "searched_service",
 							"size": 1,
-							"subtype": "uint8_t",
+							"subtype": "u8",
 							"type": "number"
 						}
 					],
@@ -1000,21 +1000,21 @@
 		},
 		"0x83": {
 			"fields": [
-				{ "id": 2, "name": "radios_count", "ref": 9, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 2, "name": "radios_count", "ref": 9, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 9,
 					"name": "radios",
 					"numfields": 5,
 					"fields": [
 						{ "id": 3, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
-						{ "id": 4, "name": "bss_count", "ref": 8, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 4, "name": "bss_count", "ref": 8, "size": 1, "subtype": "u8", "type": "number" },
 						{
 							"id": 8,
 							"name": "bss",
 							"numfields": 3,
 							"fields": [
 								{ "id": 5, "name": "mac_address", "size": 6, "subtype": "mac", "type": "string" },
-								{ "id": 6, "name": "ssid_length", "ref": 7, "size": 1, "subtype": "uint8_t", "type": "number" },
+								{ "id": 6, "name": "ssid_length", "ref": 7, "size": 1, "subtype": "u8", "type": "number" },
 								{ "id": 7, "name": "ssid", "size": 0, "size_ref": 6, "subtype": "string", "type": "string" }
 							],
 							"repeat": "m",
@@ -1031,21 +1031,21 @@
 		},
 		"0x84": {
 			"fields": [
-				{ "id": 2, "name": "bss_count", "ref": 8, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 2, "name": "bss_count", "ref": 8, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 8,
 					"name": "bss",
 					"numfields": 4,
 					"fields": [
 						{ "id": 3, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
-						{ "id": 4, "name": "clients_count", "ref": 7, "size": 2, "subtype": "uint16_t", "type": "number" },
+						{ "id": 4, "name": "clients_count", "ref": 7, "size": 2, "subtype": "u16", "type": "number" },
 						{
 							"id": 7,
 							"name": "clients",
 							"numfields": 2,
 							"fields": [
 								{ "id": 5, "name": "mac_address", "size": 6, "subtype": "mac", "type": "string" },
-								{ "id": 6, "max": 65535, "min": 0, "name": "last_association", "size": 2, "subtype": "uint16_t", "type": "number" }
+								{ "id": 6, "max": 65535, "min": 0, "name": "last_association", "size": 2, "subtype": "u16", "type": "number" }
 							],
 							"repeat": "m",
 							"repeat_ref": 4
@@ -1062,22 +1062,22 @@
 		"0x85": {
 			"fields": [
 				{ "id": 2, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 3, "name": "max_bss_supported", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 4, "name": "opclass_supported_count", "ref": 10, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 3, "name": "max_bss_supported", "size": 1, "subtype": "u8", "type": "number" },
+				{ "id": 4, "name": "opclass_supported_count", "ref": 10, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 10,
 					"name": "opclasses_supported",
 					"numfields": 4,
 					"fields": [
-						{ "id": 5, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 6, "name": "max_txpower_eirp", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 7, "name": "statically_non_operable_channels_count", "ref": 9, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 5, "name": "opclass", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 6, "name": "max_txpower_eirp", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 7, "name": "statically_non_operable_channels_count", "ref": 9, "size": 1, "subtype": "u8", "type": "number" },
 						{
 							"id": 9,
 							"name": "statically_non_operable_channels",
 							"numfields": 1,
 							"fields": [
-								{ "id": 8, "name": "channel", "size": 1, "subtype": "uint8_t", "type": "number" }
+								{ "id": 8, "name": "channel", "size": 1, "subtype": "u8", "type": "number" }
 							],
 							"repeat": "m",
 							"repeat_ref": 7
@@ -1122,8 +1122,8 @@
 		"0x87": {
 			"fields": [
 				{ "id": 2, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 3, "name": "supported_vht_tx_mcs", "size": 2, "subtype": "uint16_t", "type": "number" },
-				{ "id": 4, "name": "supported_vht_rx_mcs", "size": 2, "subtype": "uint16_t", "type": "number" },
+				{ "id": 3, "name": "supported_vht_tx_mcs", "size": 2, "subtype": "u16", "type": "number" },
+				{ "id": 4, "name": "supported_vht_rx_mcs", "size": 2, "subtype": "u16", "type": "number" },
 				{
 					"enum": {
 						"0b000": "1 Tx spatial stream",
@@ -1173,7 +1173,7 @@
 		"0x88": {
 			"fields": [
 				{ "id": 2, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 3, "name": "supported_he_mcs_length", "ref": 4, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 3, "name": "supported_he_mcs_length", "ref": 4, "size": 1, "subtype": "u8", "type": "number" },
 				{ "id": 4, "name": "supported_he_mcs", "size": 0, "size_ref": 3, "subtype": "string", "type": "string" },
 				{
 					"enum": {
@@ -1226,7 +1226,7 @@
 		},
 		"0x89": {
 			"fields": [
-				{ "id": 2, "name": "local_steering_disallowed_sta_count", "ref": 4, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 2, "name": "local_steering_disallowed_sta_count", "ref": 4, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 4,
 					"name": "local_steering_disallowed_sta",
@@ -1237,7 +1237,7 @@
 					"repeat": "h",
 					"repeat_ref": 2
 				},
-				{ "id": 5, "name": "btm_steering_disallowed_sta_count", "ref": 7, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 5, "name": "btm_steering_disallowed_sta_count", "ref": 7, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 7,
 					"name": "btm_steering_disallowed_sta",
@@ -1248,7 +1248,7 @@
 					"repeat": "k",
 					"repeat_ref": 5
 				},
-				{ "id": 8, "name": "radios_count", "ref": 13, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 8, "name": "radios_count", "ref": 13, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 13,
 					"name": "radios",
@@ -1260,11 +1260,11 @@
 							"id": 10,
 							"name": "steering_policy",
 							"size": 1,
-							"subtype": "uint8_t",
+							"subtype": "u8",
 							"type": "number"
 						},
-						{ "id": 11, "name": "channel_utilization_threshold", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 12, "max": 220, "min": 0, "name": "rcpi_steering_threshold", "size": 1, "subtype": "uint8_t", "type": "number" }
+						{ "id": 11, "name": "channel_utilization_threshold", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 12, "max": 220, "min": 0, "name": "rcpi_steering_threshold", "size": 1, "subtype": "u8", "type": "number" }
 					],
 					"repeat": "m",
 					"repeat_ref": 8
@@ -1276,17 +1276,17 @@
 		},
 		"0x8a": {
 			"fields": [
-				{ "id": 2, "max": 255, "min": 0, "name": "ap_metrics_reporting_interval", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 3, "name": "radios_count", "ref": 12, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 2, "max": 255, "min": 0, "name": "ap_metrics_reporting_interval", "size": 1, "subtype": "u8", "type": "number" },
+				{ "id": 3, "name": "radios_count", "ref": 12, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 12,
 					"name": "radios",
 					"numfields": 8,
 					"fields": [
 						{ "id": 4, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
-						{ "id": 5, "max": 220, "min": 0, "name": "sta_metrics_reporting_rcpi_threshold", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 6, "name": "sta_metrics_reporting_rcpi_hysteresis_margin_override", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 7, "name": "ap_metrics_channel_utilization_reporting_threshold", "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 5, "max": 220, "min": 0, "name": "sta_metrics_reporting_rcpi_threshold", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 6, "name": "sta_metrics_reporting_rcpi_hysteresis_margin_override", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 7, "name": "ap_metrics_channel_utilization_reporting_threshold", "size": 1, "subtype": "u8", "type": "number" },
 						{ "id": 8, "name": "associated_sta_traffic_stats_inclusion_policy", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 						{ "id": 9, "name": "associated_sta_link_metrics_inclusion_policy", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 						{ "id": 10, "name": "associated_wifi6_sta_status_inclusion_policy", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
@@ -1303,15 +1303,15 @@
 		"0x8b": {
 			"fields": [
 				{ "id": 2, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 3, "name": "opclass_count", "ref": 9, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 3, "name": "opclass_count", "ref": 9, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 9,
 					"name": "opclasses",
 					"numfields": 5,
 					"fields": [
-						{ "id": 4, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 5, "name": "channels_count", "ref": 6, "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 6, "name": "channels", "size": 0, "size_ref": 5, "subtype": "uint8_t", "type": "array" },
+						{ "id": 4, "name": "opclass", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 5, "name": "channels_count", "ref": 6, "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 6, "name": "channels", "size": 0, "size_ref": 5, "subtype": "u8", "type": "array" },
 						{ "id": 7, "max": 15, "min": 0, "name": "preference", "size": 0.5, "subtype": "bitfield", "type": "number" },
 						{
 							"enum_name": "CHANNEL_PREFERENCE_REASON_CODE",
@@ -1348,21 +1348,21 @@
 		"0x8c": {
 			"fields": [
 				{ "id": 2, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 3, "name": "opclass_count", "ref": 9, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 3, "name": "opclass_count", "ref": 9, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 9,
 					"name": "opclasses",
 					"numfields": 4,
 					"fields": [
-						{ "id": 4, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 5, "name": "channels_count", "ref": 8, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 4, "name": "opclass", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 5, "name": "channels_count", "ref": 8, "size": 1, "subtype": "u8", "type": "number" },
 						{
 							"id": 8,
 							"name": "channels",
 							"numfields": 2,
 							"fields": [
-								{ "id": 6, "name": "channel", "size": 1, "subtype": "uint8_t", "type": "number" },
-								{ "id": 7, "name": "minimum_frequency_separation", "size": 1, "subtype": "uint8_t", "type": "number" }
+								{ "id": 6, "name": "channel", "size": 1, "subtype": "u8", "type": "number" },
+								{ "id": 7, "name": "minimum_frequency_separation", "size": 1, "subtype": "u8", "type": "number" }
 							],
 							"repeat": "k",
 							"repeat_ref": 5
@@ -1379,7 +1379,7 @@
 		"0x8d": {
 			"fields": [
 				{ "id": 2, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 3, "name": "txpower_limit_eirp", "size": 1, "subtype": "uint8_t", "type": "number" }
+				{ "id": 3, "name": "txpower_limit_eirp", "size": 1, "subtype": "u8", "type": "number" }
 			],
 			"name": "Transmit Power Limit",
 			"standard": "Wi-Fi EasyMesh",
@@ -1398,7 +1398,7 @@
 					"id": 3,
 					"name": "channel_selection_response_code",
 					"size": 1,
-					"subtype": "uint8_t",
+					"subtype": "u8",
 					"type": "number"
 				}
 			],
@@ -1409,19 +1409,19 @@
 		"0x8f": {
 			"fields": [
 				{ "id": 2, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 3, "name": "current_opclass_count", "ref": 6, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 3, "name": "current_opclass_count", "ref": 6, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 6,
 					"name": "current_opclasses",
 					"numfields": 2,
 					"fields": [
-						{ "id": 4, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 5, "name": "current_operating_channel", "size": 1, "subtype": "uint8_t", "type": "number" }
+						{ "id": 4, "name": "opclass", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 5, "name": "current_operating_channel", "size": 1, "subtype": "u8", "type": "number" }
 					],
 					"repeat": "k",
 					"repeat_ref": 3
 				},
-				{ "id": 7, "name": "current_txpower_eirp", "size": 1, "subtype": "uint8_t", "type": "number" }
+				{ "id": 7, "name": "current_txpower_eirp", "size": 1, "subtype": "u8", "type": "number" }
 			],
 			"name": "Operating Channel Report",
 			"standard": "Wi-Fi EasyMesh",
@@ -1443,7 +1443,7 @@
 					"id": 2,
 					"name": "result_code",
 					"size": 1,
-					"subtype": "uint8_t",
+					"subtype": "u8",
 					"type": "number"
 				},
 				{
@@ -1474,7 +1474,7 @@
 		},
 		"0x93": {
 			"fields": [
-				{ "id": 2, "name": "bssids_count", "ref": 4, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 2, "name": "bssids_count", "ref": 4, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 4,
 					"name": "bssids",
@@ -1493,8 +1493,8 @@
 		"0x94": {
 			"fields": [
 				{ "id": 2, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 3, "name": "channel_utilization", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 4, "name": "sta_count", "size": 2, "subtype": "uint16_t", "type": "number" },
+				{ "id": 3, "name": "channel_utilization", "size": 1, "subtype": "u8", "type": "number" },
+				{ "id": 4, "name": "sta_count", "size": 2, "subtype": "u16", "type": "number" },
 				{ "id": 5, "name": "include_esp_be", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 6, "name": "include_esp_bk", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 7, "name": "include_esp_vo", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
@@ -1556,17 +1556,17 @@
 		"0x96": {
 			"fields": [
 				{ "id": 2, "name": "mac_address", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 3, "name": "bssids_count", "ref": 9, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 3, "name": "bssids_count", "ref": 9, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 9,
 					"name": "bssids",
 					"numfields": 5,
 					"fields": [
 						{ "id": 4, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
-						{ "id": 5, "name": "time_delta", "size": 4, "subtype": "uint32_t", "type": "number" },
-						{ "id": 6, "name": "estimated_downlink_mac_data_rate", "size": 4, "subtype": "uint32_t", "type": "number" },
-						{ "id": 7, "name": "estimated_uplink_mac_data_rate", "size": 4, "subtype": "uint32_t", "type": "number" },
-						{ "id": 8, "max": 220, "min": 0, "name": "uplink_rcpi", "size": 1, "subtype": "uint8_t", "type": "number" }
+						{ "id": 5, "name": "time_delta", "size": 4, "subtype": "u32", "type": "number" },
+						{ "id": 6, "name": "estimated_downlink_mac_data_rate", "size": 4, "subtype": "u32", "type": "number" },
+						{ "id": 7, "name": "estimated_uplink_mac_data_rate", "size": 4, "subtype": "u32", "type": "number" },
+						{ "id": 8, "max": 220, "min": 0, "name": "uplink_rcpi", "size": 1, "subtype": "u8", "type": "number" }
 					],
 					"repeat": "k",
 					"repeat_ref": 3
@@ -1578,15 +1578,15 @@
 		},
 		"0x97": {
 			"fields": [
-				{ "id": 2, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 3, "name": "channels_count", "ref": 8, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 2, "name": "opclass", "size": 1, "subtype": "u8", "type": "number" },
+				{ "id": 3, "name": "channels_count", "ref": 8, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 8,
 					"name": "channels",
 					"numfields": 3,
 					"fields": [
-						{ "id": 4, "name": "channel", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 5, "name": "sta_mac_addresses_count", "ref": 7, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 4, "name": "channel", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 5, "name": "sta_mac_addresses_count", "ref": 7, "size": 1, "subtype": "u8", "type": "number" },
 						{
 							"id": 7,
 							"name": "sta_mac_addresses",
@@ -1608,17 +1608,17 @@
 		},
 		"0x98": {
 			"fields": [
-				{ "id": 2, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 3, "name": "sta_entries_count", "ref": 8, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 2, "name": "opclass", "size": 1, "subtype": "u8", "type": "number" },
+				{ "id": 3, "name": "sta_entries_count", "ref": 8, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 8,
 					"name": "sta_entries",
 					"numfields": 4,
 					"fields": [
 						{ "id": 4, "name": "mac_address", "size": 6, "subtype": "mac", "type": "string" },
-						{ "id": 5, "name": "channel", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 6, "name": "time_delta", "size": 4, "subtype": "uint32_t", "type": "number" },
-						{ "id": 7, "max": 220, "min": 0, "name": "uplink_rcpi", "size": 1, "subtype": "uint8_t", "type": "number" }
+						{ "id": 5, "name": "channel", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 6, "name": "time_delta", "size": 4, "subtype": "u32", "type": "number" },
+						{ "id": 7, "max": 220, "min": 0, "name": "uplink_rcpi", "size": 1, "subtype": "u8", "type": "number" }
 					],
 					"repeat": "k",
 					"repeat_ref": 3
@@ -1631,27 +1631,27 @@
 		"0x99": {
 			"fields": [
 				{ "id": 2, "name": "mac_address", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 3, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 4, "name": "channel", "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 3, "name": "opclass", "size": 1, "subtype": "u8", "type": "number" },
+				{ "id": 4, "name": "channel", "size": 1, "subtype": "u8", "type": "number" },
 				{ "id": 5, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 6, "name": "reporting_detail_value", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 7, "name": "ssid_length", "ref": 8, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 6, "name": "reporting_detail_value", "size": 1, "subtype": "u8", "type": "number" },
+				{ "id": 7, "name": "ssid_length", "ref": 8, "size": 1, "subtype": "u8", "type": "number" },
 				{ "id": 8, "name": "ssid", "size": 0, "size_ref": 7, "subtype": "string", "type": "string" },
-				{ "id": 9, "name": "ap_channel_reports_count", "ref": 13, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 9, "name": "ap_channel_reports_count", "ref": 13, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 13,
 					"name": "ap_channel_reports",
 					"numfields": 3,
 					"fields": [
-						{ "id": 10, "name": "ap_channel_report_length", "ref": 12, "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 11, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 12, "name": "channels", "size": -1, "size_ref": 10, "subtype": "uint8_t", "type": "array" }
+						{ "id": 10, "name": "ap_channel_report_length", "ref": 12, "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 11, "name": "opclass", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 12, "name": "channels", "size": -1, "size_ref": 10, "subtype": "u8", "type": "array" }
 					],
 					"repeat": "h",
 					"repeat_ref": 9
 				},
-				{ "id": 14, "name": "element_ids_count", "ref": 15, "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 15, "name": "element_list", "size": 0, "size_ref": 14, "subtype": "uint8_t", "type": "array" }
+				{ "id": 14, "name": "element_ids_count", "ref": 15, "size": 1, "subtype": "u8", "type": "number" },
+				{ "id": 15, "name": "element_list", "size": 0, "size_ref": 14, "subtype": "u8", "type": "array" }
 			],
 			"name": "Beacon Metrics Query",
 			"standard": "Wi-Fi EasyMesh",
@@ -1661,17 +1661,17 @@
 			"fields": [
 				{ "id": 2, "name": "mac_address", "size": 6, "subtype": "mac", "type": "string" },
 				{ "id": 3, "name": "reserved", "size": 1, "subtype": "string", "type": "void" },
-				{ "id": 4, "name": "measurement_report_elements_count", "ref": 6, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 4, "name": "measurement_report_elements_count", "ref": 6, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 6,
 					"name": "measurement_report_elements",
 					"numfields": 6,
 					"fields": [
-						{ "id": 5.1, "name": "id", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 5.2, "name": "length", "ref": 5.6, "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 5.3, "name": "token", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 5.4, "name": "report_mode", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 5.5, "name": "type", "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 5.1, "name": "id", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 5.2, "name": "length", "ref": 5.6, "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 5.3, "name": "token", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 5.4, "name": "report_mode", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 5.5, "name": "type", "size": 1, "subtype": "u8", "type": "number" },
 						{ "id": 5.6, "name": "report_data", "size": -3, "size_ref": 5.2, "subtype": "string", "type": "string" }
 					],
 					"repeat": "k",
@@ -1689,9 +1689,9 @@
 				{ "id": 4, "name": "btm_disassociation_imminent_bit", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 5, "name": "btm_abridged_bit", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 6, "name": "reserved", "size": 0.625, "subtype": "bitfield", "type": "void" },
-				{ "id": 7, "name": "steering_opportunity_window", "size": 2, "subtype": "uint16_t", "type": "number" },
-				{ "id": 8, "name": "btm_disassociation_timer", "size": 2, "subtype": "uint16_t", "type": "number" },
-				{ "id": 9, "name": "sta_list_count", "ref": 11, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 7, "name": "steering_opportunity_window", "size": 2, "subtype": "u16", "type": "number" },
+				{ "id": 8, "name": "btm_disassociation_timer", "size": 2, "subtype": "u16", "type": "number" },
+				{ "id": 9, "name": "sta_list_count", "ref": 11, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 11,
 					"name": "sta_list",
@@ -1702,15 +1702,15 @@
 					"repeat": "k",
 					"repeat_ref": 9
 				},
-				{ "id": 12, "name": "target_bssid_list_count", "ref": 16, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 12, "name": "target_bssid_list_count", "ref": 16, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 16,
 					"name": "target_bssid_list",
 					"numfields": 3,
 					"fields": [
 						{ "id": 13, "name": "target_bssid", "size": 6, "subtype": "mac", "type": "string" },
-						{ "id": 14, "name": "target_bss_opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 15, "name": "target_bss_channel", "size": 1, "subtype": "uint8_t", "type": "number" }
+						{ "id": 14, "name": "target_bss_opclass", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 15, "name": "target_bss_channel", "size": 1, "subtype": "u8", "type": "number" }
 					],
 					"repeat": "m",
 					"repeat_ref": 12
@@ -1724,7 +1724,7 @@
 			"fields": [
 				{ "id": 2, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
 				{ "id": 3, "name": "sta_mac_address", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 4, "name": "btm_status_code", "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 4, "name": "btm_status_code", "size": 1, "subtype": "u8", "type": "number" },
 				{ "id": 5, "name": "target_bssid", "subtype": "mac", "type": "string" }
 			],
 			"name": "Steering BTM Report",
@@ -1739,11 +1739,11 @@
 					"id": 4,
 					"name": "association_control",
 					"size": 1,
-					"subtype": "uint8_t",
+					"subtype": "u8",
 					"type": "number"
 				},
-				{ "id": 5, "name": "validity_period", "size": 2, "subtype": "uint16_t", "type": "number" },
-				{ "id": 6, "name": "sta_list_count", "ref": 8, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 5, "name": "validity_period", "size": 2, "subtype": "u16", "type": "number" },
+				{ "id": 6, "name": "sta_list_count", "ref": 8, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 8,
 					"name": "sta_list",
@@ -1763,8 +1763,8 @@
 			"fields": [
 				{ "id": 2, "name": "mac_address", "size": 6, "subtype": "mac", "type": "string" },
 				{ "id": 3, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 4, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 5, "name": "channel", "size": 1, "subtype": "uint8_t", "type": "number" }
+				{ "id": 4, "name": "opclass", "size": 1, "subtype": "u8", "type": "number" },
+				{ "id": 5, "name": "channel", "size": 1, "subtype": "u8", "type": "number" }
 			],
 			"name": "Backhaul Steering Request",
 			"standard": "Wi-Fi EasyMesh",
@@ -1779,7 +1779,7 @@
 					"id": 4,
 					"name": "result_code",
 					"size": 1,
-					"subtype": "uint8_t",
+					"subtype": "u8",
 					"type": "number"
 				}
 			],
@@ -1789,7 +1789,7 @@
 		},
 		"0xa0": {
 			"fields": [
-				{ "id": 2, "name": "protocol", "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 2, "name": "protocol", "size": 1, "subtype": "u8", "type": "number" },
 				{ "id": 3, "name": "data", "size_ref": -1, "subtype": "string", "type": "string" }
 			],
 			"name": "Higher Layer Data",
@@ -1810,13 +1810,13 @@
 		"0xa2": {
 			"fields": [
 				{ "id": 2, "name": "mac_address", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 3, "name": "bytes_sent", "size": 4, "subtype": "uint32_t", "type": "number" },
-				{ "id": 4, "name": "bytes_received", "size": 4, "subtype": "uint32_t", "type": "number" },
-				{ "id": 5, "name": "packets_sent", "size": 4, "subtype": "uint32_t", "type": "number" },
-				{ "id": 6, "name": "packets_received", "size": 4, "subtype": "uint32_t", "type": "number" },
-				{ "id": 7, "name": "tx_packets_errors", "size": 4, "subtype": "uint32_t", "type": "number" },
-				{ "id": 8, "name": "rx_packets_errors", "size": 4, "subtype": "uint32_t", "type": "number" },
-				{ "id": 9, "name": "retransmission_count", "size": 4, "subtype": "uint32_t", "type": "number" }
+				{ "id": 3, "name": "bytes_sent", "size": 4, "subtype": "u32", "type": "number" },
+				{ "id": 4, "name": "bytes_received", "size": 4, "subtype": "u32", "type": "number" },
+				{ "id": 5, "name": "packets_sent", "size": 4, "subtype": "u32", "type": "number" },
+				{ "id": 6, "name": "packets_received", "size": 4, "subtype": "u32", "type": "number" },
+				{ "id": 7, "name": "tx_packets_errors", "size": 4, "subtype": "u32", "type": "number" },
+				{ "id": 8, "name": "rx_packets_errors", "size": 4, "subtype": "u32", "type": "number" },
+				{ "id": 9, "name": "retransmission_count", "size": 4, "subtype": "u32", "type": "number" }
 			],
 			"name": "Associated STA Traffic Stats",
 			"standard": "Wi-Fi EasyMesh",
@@ -1836,7 +1836,7 @@
 					"id": 2,
 					"name": "reason_code",
 					"size": 1,
-					"subtype": "uint8_t",
+					"subtype": "u8",
 					"type": "number"
 				},
 				{ "id": 3, "name": "mac_address", "size": 6, "subtype": "mac", "type": "string" }
@@ -1856,7 +1856,7 @@
 		},
 		"0xa5": {
 			"fields": [
-				{ "id": 3, "name": "radios_count", "ref": 14, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 3, "name": "radios_count", "ref": 14, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 14,
 					"name": "radios",
@@ -1878,16 +1878,16 @@
 							"type": "number"
 						},
 						{ "id": 7, "name": "reserved", "size": 0.625, "subtype": "bitfield", "type": "void" },
-						{ "id": 8, "name": "minimum_scan_interval", "size": 4, "subtype": "uint32_t", "type": "number" },
-						{ "id": 9, "name": "opclass_count", "ref": 13, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 8, "name": "minimum_scan_interval", "size": 4, "subtype": "u32", "type": "number" },
+						{ "id": 9, "name": "opclass_count", "ref": 13, "size": 1, "subtype": "u8", "type": "number" },
 						{
 							"id": 13,
 							"name": "opclasses",
 							"numfields": 3,
 							"fields": [
-								{ "id": 10, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
-								{ "id": 11, "name": "channels_count", "ref": 12, "size": 1, "subtype": "uint8_t", "type": "number" },
-								{ "id": 12, "name": "channels", "size": 0, "size_ref": 11, "subtype": "uint8_t", "type": "array" }
+								{ "id": 10, "name": "opclass", "size": 1, "subtype": "u8", "type": "number" },
+								{ "id": 11, "name": "channels_count", "ref": 12, "size": 1, "subtype": "u8", "type": "number" },
+								{ "id": 12, "name": "channels", "size": 0, "size_ref": 11, "subtype": "u8", "type": "array" }
 							],
 							"repeat": "m",
 							"repeat_ref": 9
@@ -1905,22 +1905,22 @@
 			"fields": [
 				{ "id": 2, "name": "perform_fresh_scan", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 3, "name": "reserved", "size": 0.875, "subtype": "bitfield", "type": "void" },
-				{ "id": 4, "name": "radios_count", "ref": 11, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 4, "name": "radios_count", "ref": 11, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 11,
 					"name": "radios",
 					"numfields": 5,
 					"fields": [
 						{ "id": 5, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
-						{ "id": 6, "name": "opclass_count", "ref": 10, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 6, "name": "opclass_count", "ref": 10, "size": 1, "subtype": "u8", "type": "number" },
 						{
 							"id": 10,
 							"name": "opclasses",
 							"numfields": 3,
 							"fields": [
-								{ "id": 7, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
-								{ "id": 8, "name": "channels_count", "ref": 9, "size": 1, "subtype": "uint8_t", "type": "number" },
-								{ "id": 9, "name": "channels", "size": 0, "size_ref": 8, "subtype": "uint8_t", "type": "array" }
+								{ "id": 7, "name": "opclass", "size": 1, "subtype": "u8", "type": "number" },
+								{ "id": 8, "name": "channels_count", "ref": 9, "size": 1, "subtype": "u8", "type": "number" },
+								{ "id": 9, "name": "channels", "size": 0, "size_ref": 8, "subtype": "u8", "type": "array" }
 							],
 							"repeat": "m",
 							"repeat_ref": 6
@@ -1937,8 +1937,8 @@
 		"0xa7": {
 			"fields": [
 				{ "id": 3, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 4, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 5, "name": "channel", "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 4, "name": "opclass", "size": 1, "subtype": "u8", "type": "number" },
+				{ "id": 5, "name": "channel", "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"enum": {
 						"0x00": "Success",
@@ -1952,7 +1952,7 @@
 					"id": 6,
 					"name": "scan_status",
 					"size": 1,
-					"subtype": "uint8_t",
+					"subtype": "u8",
 					"type": "number"
 				},
 				{
@@ -1963,7 +1963,7 @@
 					},
 					"ref": 9,
 					"size": 1,
-					"subtype": "uint8_t",
+					"subtype": "u8",
 					"type": "number"
 				},
 				{
@@ -1984,7 +1984,7 @@
 						"6": [ 0 ]
 					},
 					"size": 1,
-					"subtype": "uint8_t",
+					"subtype": "u8",
 					"type": "number"
 				},
 				{
@@ -1994,7 +1994,7 @@
 						"6": [ 0 ]
 					},
 					"size": 1,
-					"subtype": "uint8_t",
+					"subtype": "u8",
 					"type": "number"
 				},
 				{
@@ -2005,7 +2005,7 @@
 					},
 					"ref": 24,
 					"size": 2,
-					"subtype": "uint16_t",
+					"subtype": "u16",
 					"type": "number"
 				},
 				{
@@ -2017,16 +2017,16 @@
 					"numfields": 11,
 					"fields": [
 						{ "id": 13, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
-						{ "id": 14, "max": 32, "min": 0, "name": "ssid_length", "ref": 15, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 14, "max": 32, "min": 0, "name": "ssid_length", "ref": 15, "size": 1, "subtype": "u8", "type": "number" },
 						{ "id": 15, "name": "ssid", "size": 0, "size_ref": 14, "subtype": "string", "type": "string" },
-						{ "id": 16, "name": "signal_strength", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 17, "name": "channel_bandwidth_length", "ref": 18, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 16, "name": "signal_strength", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 17, "name": "channel_bandwidth_length", "ref": 18, "size": 1, "subtype": "u8", "type": "number" },
 						{ "id": 18, "name": "channel_bandwidth", "size": 0, "size_ref": 17, "subtype": "string", "type": "string" },
 						{ "id": 19, "name": "bss_load_element_present", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 						{ "id": 20, "name": "reserved", "size": 0.125, "subtype": "bitfield", "type": "void" },
 						{ "id": 21, "max": 0, "min": 0, "name": "bss_color", "size": 0.75, "subtype": "bitfield", "type": "number" },
-						{ "id": 22, "name": "channel_utilization", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 23, "name": "station_count", "size": 2, "subtype": "uint16_t", "type": "number" }
+						{ "id": 22, "name": "channel_utilization", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 23, "name": "station_count", "size": 2, "subtype": "u16", "type": "number" }
 					],
 					"repeat": "NumberOfNeighbors",
 					"repeat_ref": 12
@@ -2039,7 +2039,7 @@
 					},
 					"size": 4,
 					"subtype":
-					"uint32_t",
+					"u32",
 					"type": "number"
 				},
 				{
@@ -2069,7 +2069,7 @@
 		},
 		"0xa8": {
 			"fields": [
-				{ "id": 2, "name": "timestamp_length", "ref": 3, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 2, "name": "timestamp_length", "ref": 3, "size": 1, "subtype": "u8", "type": "number" },
 				{ "id": 3, "name": "timestamp", "size": 0, "size_ref": 2, "subtype": "string", "type": "string" }
 			],
 			"name": "Timestamp",
@@ -2078,9 +2078,9 @@
 		},
 		"0xa9": {
 			"fields": [
-				{ "id": 3, "name": "onboarding_protocol", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 4, "name": "mic_algorithm", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 5, "name": "encryption_algorithm", "size": 1, "subtype": "uint8_t", "type": "number" }
+				{ "id": 3, "name": "onboarding_protocol", "size": 1, "subtype": "u8", "type": "number" },
+				{ "id": 4, "name": "mic_algorithm", "size": 1, "subtype": "u8", "type": "number" },
+				{ "id": 5, "name": "encryption_algorithm", "size": 1, "subtype": "u8", "type": "number" }
 			],
 			"name": "1905 Layer Security Capability",
 			"standard": "Wi-Fi EasyMesh",
@@ -2089,7 +2089,7 @@
 		"0xaa": {
 			"fields": [
 				{ "id": 3, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 4, "name": "roles_count", "ref": 30, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 4, "name": "roles_count", "ref": 30, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"errors": [ "Invalid field repeat count" ],
 					"id": 30,
@@ -2111,8 +2111,8 @@
 						{ "id": 17, "name": "dl_ofdma", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 						{ "id": 18, "name": "max_dl_mu_mimo_tx", "size": 0.5, "subtype": "bitfield", "type": "number" },
 						{ "id": 19, "name": "max_ul_mu_mimo_rx", "size": 0.5, "subtype": "bitfield", "type": "number" },
-						{ "id": 20, "name": "max_dl_ofdma_tx", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 21, "name": "max_ul_ofdma_rx", "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 20, "name": "max_dl_ofdma_tx", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 21, "name": "max_ul_ofdma_rx", "size": 1, "subtype": "u8", "type": "number" },
 						{ "id": 22, "name": "rts", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 						{ "id": 23, "name": "mu_rts", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 						{ "id": 24, "name": "multi_bssid", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
@@ -2135,9 +2135,9 @@
 				{ "id": 3, "name": "gtk_key_id", "size": 0.25, "subtype": "bitfield", "type": "number" },
 				{ "id": 4, "name": "mic_version", "size": 0.25, "subtype": "bitfield", "type": "number" },
 				{ "id": 5, "name": "reserved", "size": 0.5, "subtype": "bitfield", "type": "void" },
-				{ "id": 6, "name": "integrity_transmission_counter", "size": 6, "subtype": "uint48_t", "type": "number" },
+				{ "id": 6, "name": "integrity_transmission_counter", "size": 6, "subtype": "u48", "type": "number" },
 				{ "id": 7, "name": "source_1905_al_mac_address", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 8, "name": "mic_length", "ref": 9, "size": 2, "subtype": "uint16_t", "type": "number" },
+				{ "id": 8, "name": "mic_length", "ref": 9, "size": 2, "subtype": "u16", "type": "number" },
 				{ "id": 9, "name": "mic", "size": 0, "size_ref": 8, "subtype": "string", "type": "string" }
 			],
 			"name": "MIC",
@@ -2146,10 +2146,10 @@
 		},
 		"0xac": {
 			"fields": [
-				{ "id": 3, "name": "encryption_transmission_counter", "size": 6, "subtype": "uint48_t", "type": "number" },
+				{ "id": 3, "name": "encryption_transmission_counter", "size": 6, "subtype": "u48", "type": "number" },
 				{ "id": 4, "name": "source_1905_al_mac_address", "size": 6, "subtype": "mac", "type": "string" },
 				{ "id": 5, "name": "destination_1905_al_mac_address", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 6, "name": "aes_siv_length", "ref": 7, "size": 2, "subtype": "uint16_t", "type": "number" },
+				{ "id": 6, "name": "aes_siv_length", "ref": 7, "size": 2, "subtype": "u16", "type": "number" },
 				{ "id": 7, "name": "aes_siv", "size": 0, "size_ref": 6, "subtype": "string", "type": "string" }
 			],
 			"name": "Encrypted",
@@ -2158,15 +2158,15 @@
 		},
 		"0xad": {
 			"fields": [
-				{ "id": 2, "name": "radios_count", "ref": 9, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 2, "name": "radios_count", "ref": 9, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 9,
 					"name": "radios",
 					"numfields": 6,
 					"fields": [
 						{ "id": 3, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
-						{ "id": 4, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 5, "name": "channel", "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 4, "name": "opclass", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 5, "name": "channel", "size": 1, "subtype": "u8", "type": "number" },
 						{ "id": 6, "name": "cac_method", "size": 0.375, "subtype": "bitfield", "type": "number" },
 						{ "id": 7, "name": "cac_completion_action", "size": 0.25, "subtype": "bitfield", "type": "number" },
 						{ "id": 8, "name": "reserved", "size": 0.375, "subtype": "bitfield", "type": "void" }
@@ -2181,15 +2181,15 @@
 		},
 		"0xae": {
 			"fields": [
-				{ "id": 2, "name": "radios_count", "ref": 6, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 2, "name": "radios_count", "ref": 6, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 6,
 					"name": "radios",
 					"numfields": 3,
 					"fields": [
 						{ "id": 3, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
-						{ "id": 4, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 5, "name": "channel", "size": 1, "subtype": "uint8_t", "type": "number" }
+						{ "id": 4, "name": "opclass", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 5, "name": "channel", "size": 1, "subtype": "u8", "type": "number" }
 					],
 					"repeat": "r",
 					"repeat_ref": 2
@@ -2201,15 +2201,15 @@
 		},
 		"0xaf": {
 			"fields": [
-				{ "id": 2, "name": "radios_count", "ref": 11, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 2, "name": "radios_count", "ref": 11, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 11,
 					"name": "radios",
 					"numfields": 7,
 					"fields": [
 						{ "id": 3, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
-						{ "id": 4, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 5, "name": "channel", "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 4, "name": "opclass", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 5, "name": "channel", "size": 1, "subtype": "u8", "type": "number" },
 						{
 							"enum": {
 								"0x00": "Successful",
@@ -2222,17 +2222,17 @@
 							"id": 6,
 							"name": "cac_completion_status",
 							"size": 1,
-							"subtype": "uint8_t",
+							"subtype": "u8",
 							"type": "number"
 						},
-						{ "id": 7, "name": "pairs_count", "ref": 10, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 7, "name": "pairs_count", "ref": 10, "size": 1, "subtype": "u8", "type": "number" },
 						{
 							"id": 10,
 							"name": "pairs",
 							"numfields": 2,
 							"fields": [
-								{ "id": 8, "name": "opclass_detected", "size": 1, "subtype": "uint8_t", "type": "number" },
-								{ "id": 9, "name": "channel_detected", "size": 1, "subtype": "uint8_t", "type": "number" }
+								{ "id": 8, "name": "opclass_detected", "size": 1, "subtype": "u8", "type": "number" },
+								{ "id": 9, "name": "channel_detected", "size": 1, "subtype": "u8", "type": "number" }
 							],
 							"repeat": "k",
 							"repeat_ref": 7
@@ -2249,14 +2249,14 @@
 		"0xb0": {
 			"fields": [
 				{ "id": 3, "name": "mac_address", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 4, "name": "n", "ref": 7, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 4, "name": "n", "ref": 7, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 7,
 					"name": "n2",
 					"numfields": 2,
 					"fields": [
-						{ "id": 5, "name": "tid", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 6, "name": "queue_size", "size": 1, "subtype": "uint8_t", "type": "number" }
+						{ "id": 5, "name": "tid", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 6, "name": "queue_size", "size": 1, "subtype": "u8", "type": "number" }
 					],
 					"repeat": "n",
 					"repeat_ref": 4,
@@ -2269,41 +2269,41 @@
 		},
 		"0xb1": {
 			"fields": [
-				{ "id": 2, "name": "available_channels_count", "ref": 6, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 2, "name": "available_channels_count", "ref": 6, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 6,
 					"name": "available_channels",
 					"numfields": 3,
 					"fields": [
-						{ "id": 3, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 4, "name": "channel", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 5, "name": "minutes", "size": 2, "subtype": "uint16_t", "type": "number" }
+						{ "id": 3, "name": "opclass", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 4, "name": "channel", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 5, "name": "minutes", "size": 2, "subtype": "u16", "type": "number" }
 					],
 					"repeat": "a",
 					"repeat_ref": 2
 				},
-				{ "id": 7, "name": "radar_detected_channels_count", "ref": 11, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 7, "name": "radar_detected_channels_count", "ref": 11, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 11,
 					"name": "radar_detected_channels",
 					"numfields": 3,
 					"fields": [
-						{ "id": 8, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 9, "name": "channel", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 10, "name": "duration", "size": 2, "subtype": "uint16_t", "type": "number" }
+						{ "id": 8, "name": "opclass", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 9, "name": "channel", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 10, "name": "duration", "size": 2, "subtype": "u16", "type": "number" }
 					],
 					"repeat": "n",
 					"repeat_ref": 7
 				},
-				{ "id": 12, "name": "active_cac_channels_count", "ref": 16, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 12, "name": "active_cac_channels_count", "ref": 16, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 16,
 					"name": "active_cac_channels",
 					"numfields": 3,
 					"fields": [
-						{ "id": 13, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 14, "name": "channel", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 15, "name": "countdown", "size": 3, "subtype": "uint24_t", "type": "number" }
+						{ "id": 13, "name": "opclass", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 14, "name": "channel", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 15, "name": "countdown", "size": 3, "subtype": "u24", "type": "number" }
 					],
 					"repeat": "c",
 					"repeat_ref": 12
@@ -2316,14 +2316,14 @@
 		"0xb2": {
 			"fields": [
 				{ "id": 2, "name": "country_code", "size": 2, "subtype": "cc", "type": "string" },
-				{ "id": 3, "name": "radios_count", "ref": 15, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 3, "name": "radios_count", "ref": 15, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 15,
 					"name": "radios",
 					"numfields": 8,
 					"fields": [
 						{ "id": 4, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
-						{ "id": 5, "name": "cac_types_supported_count", "ref": 14, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 5, "name": "cac_types_supported_count", "ref": 14, "size": 1, "subtype": "u8", "type": "number" },
 						{
 							"id": 14,
 							"name": "cac_types_supported",
@@ -2334,24 +2334,24 @@
 									"id": 6,
 									"name": "cac_method_supported",
 									"size": 1,
-									"subtype": "uint8_t",
+									"subtype": "u8",
 									"type": "number"
 								},
-								{ "id": 7, "name": "duration", "size": 3, "subtype": "uint24_t", "type": "number" },
-								{ "id": 8, "name": "opclass_count", "ref": 13, "size": 1, "subtype": "uint8_t", "type": "number" },
+								{ "id": 7, "name": "duration", "size": 3, "subtype": "u24", "type": "number" },
+								{ "id": 8, "name": "opclass_count", "ref": 13, "size": 1, "subtype": "u8", "type": "number" },
 								{
 									"id": 13,
 									"name": "opclasses",
 									"numfields": 3,
 									"fields": [
-										{ "id": 9, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
-										{ "id": 10, "name": "channels_count", "ref": 12, "size": 1, "subtype": "uint8_t", "type": "number" },
+										{ "id": 9, "name": "opclass", "size": 1, "subtype": "u8", "type": "number" },
+										{ "id": 10, "name": "channels_count", "ref": 12, "size": 1, "subtype": "u8", "type": "number" },
 										{
 											"id": 12,
 											"name": "channels",
 											"numfields": 1,
 											"fields": [
-												{ "id": 11, "name": "channel", "size": 1, "subtype": "uint8_t", "type": "number" }
+												{ "id": 11, "name": "channel", "size": 1, "subtype": "u8", "type": "number" }
 											],
 											"repeat": "f",
 											"repeat_ref": 10
@@ -2386,7 +2386,7 @@
 					"id": 3,
 					"name": "profile",
 					"size": 1,
-					"subtype": "uint8_t",
+					"subtype": "u8",
 					"type": "number"
 				}
 			],
@@ -2396,7 +2396,7 @@
 		},
 		"0xb4": {
 			"fields": [
-				{ "id": 3, "name": "max_prioritization_rules", "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 3, "name": "max_prioritization_rules", "size": 1, "subtype": "u8", "type": "number" },
 				{ "id": 4, "name": "reserved", "size": 1, "subtype": "string", "type": "void" },
 				{
 					"enum": { "0x0": "bytes", "0x1": "kibibytes (KiB)", "0x2": "mebibytes (MiB)" },
@@ -2410,7 +2410,7 @@
 				{ "id": 7, "name": "supports_dpp_onboarding", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 8, "name": "supports_traffic_separation", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 9, "name": "reserved2", "size": 0.375, "subtype": "bitfield", "suffix": "2", "type": "void" },
-				{ "id": 10, "name": "max_unique_vids", "size": 1, "subtype": "uint8_t", "type": "number" }
+				{ "id": 10, "name": "max_unique_vids", "size": 1, "subtype": "u8", "type": "number" }
 			],
 			"name": "Profile-2 AP Capability",
 			"standard": "Wi-Fi EasyMesh",
@@ -2418,7 +2418,7 @@
 		},
 		"0xb5": {
 			"fields": [
-				{ "id": 2, "name": "primary_vlan_id", "size": 2, "subtype": "uint16_t", "type": "number" },
+				{ "id": 2, "name": "primary_vlan_id", "size": 2, "subtype": "u16", "type": "number" },
 				{ "id": 3, "name": "default_pcp", "size": 0.375, "subtype": "bitfield", "type": "number" },
 				{ "id": 4, "name": "reserved", "size": 0.625, "subtype": "bitfield", "type": "void" }
 			],
@@ -2428,15 +2428,15 @@
 		},
 		"0xb6": {
 			"fields": [
-				{ "id": 2, "name": "ssids_count", "ref": 6, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 2, "name": "ssids_count", "ref": 6, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 6,
 					"name": "ssids",
 					"numfields": 3,
 					"fields": [
-						{ "id": 3, "name": "ssid_name_length", "ref": 4, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 3, "name": "ssid_name_length", "ref": 4, "size": 1, "subtype": "u8", "type": "number" },
 						{ "id": 4, "name": "ssid_name", "size": 0, "size_ref": 3, "subtype": "string", "type": "string" },
-						{ "id": 5, "name": "vlan_id", "size": 2, "subtype": "uint16_t", "type": "number" }
+						{ "id": 5, "name": "vlan_id", "size": 2, "subtype": "u16", "type": "number" }
 					],
 					"repeat": "k",
 					"repeat_ref": 2
@@ -2448,14 +2448,14 @@
 		},
 		"0xb7": {
 			"fields": [
-				{ "id": 3, "name": "radios_count", "ref": 18, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 3, "name": "radios_count", "ref": 18, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 18,
 					"name": "radios",
 					"numfields": 14,
 					"fields": [
 						{ "id": 4, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
-						{ "id": 5, "name": "bss_count", "ref": 17, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 5, "name": "bss_count", "ref": 17, "size": 1, "subtype": "u8", "type": "number" },
 						{
 							"id": 17,
 							"name": "bss",
@@ -2470,7 +2470,7 @@
 								{ "id": 12, "name": "transmitted_bssid", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 								{ "id": 13, "name": "reserved", "size": 0.25, "subtype": "bitfield", "type": "void" },
 								{ "id": 14, "name": "reserved2", "size": 1, "subtype": "string", "suffix": "2", "type": "void" },
-								{ "id": 15, "name": "ssid_length", "ref": 16, "size": 1, "subtype": "uint8_t", "type": "number" },
+								{ "id": 15, "name": "ssid_length", "ref": 16, "size": 1, "subtype": "u8", "type": "number" },
 								{ "id": 16, "name": "ssid", "size": 0, "size_ref": 15, "subtype": "string", "type": "string" }
 							],
 							"repeat": "m",
@@ -2495,11 +2495,11 @@
 		},
 		"0xb9": {
 			"fields": [
-				{ "id": 3, "name": "rule_id", "size": 4, "subtype": "uint32_t", "type": "number" },
+				{ "id": 3, "name": "rule_id", "size": 4, "subtype": "u32", "type": "number" },
 				{ "id": 4, "name": "add_remove", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 5, "name": "reserved", "size": 0.875, "subtype": "bitfield", "type": "void" },
-				{ "id": 6, "name": "precedence", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 7, "name": "output", "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 6, "name": "precedence", "size": 1, "subtype": "u8", "type": "number" },
+				{ "id": 7, "name": "output", "size": 1, "subtype": "u8", "type": "number" },
 				{ "id": 8, "name": "always_match", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 9, "name": "reserved2", "size": 0.875, "subtype": "bitfield", "suffix": "2", "type": "void" }
 			],
@@ -2514,7 +2514,7 @@
 					"name": "dscp_pcp_mapping",
 					"numfields": 1,
 					"fields": [
-						{ "id": 4, "name": "pcp_value", "size": 1, "subtype": "uint8_t", "type": "number" }
+						{ "id": 4, "name": "pcp_value", "size": 1, "subtype": "u8", "type": "number" }
 					],
 					"repeat": 64,
 					"repeat_ref": -1
@@ -2551,7 +2551,7 @@
 					"id": 3,
 					"name": "reason_code",
 					"size": 1,
-					"subtype": "uint8_t",
+					"subtype": "u8",
 					"type": "number"
 				},
 				{
@@ -2571,7 +2571,7 @@
 						"3": [ 1, 2 ]
 					},
 					"size": 4,
-					"subtype": "uint32_t",
+					"subtype": "u32",
 					"type": "number"
 				},
 				{
@@ -2581,7 +2581,7 @@
 						"3": [ 11 ]
 					},
 					"size": 2,
-					"subtype": "uint16_t",
+					"subtype": "u16",
 					"type": "number"
 				}
 			],
@@ -2614,7 +2614,7 @@
 		},
 		"0xbf": {
 			"fields": [
-				{ "id": 2, "name": "bssids_count", "ref": 5, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 2, "name": "bssids_count", "ref": 5, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 5,
 					"name": "bssids",
@@ -2626,7 +2626,7 @@
 							"id": 4,
 							"name": "association_allowance_status",
 							"size": 1,
-							"subtype": "uint8_t",
+							"subtype": "u8",
 							"type": "number"
 						}
 					],
@@ -2661,7 +2661,7 @@
 					"id": 2,
 					"name": "tunneled_protocol_type",
 					"size": 1,
-					"subtype": "uint8_t",
+					"subtype": "u8",
 					"type": "number"
 				}
 			],
@@ -2684,9 +2684,9 @@
 				{ "id": 4, "name": "btm_disassociation_imminent_bit", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 5, "name": "btm_abridged_bit", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 6, "name": "reserved", "size": 0.625, "subtype": "bitfield", "type": "void" },
-				{ "id": 7, "name": "steering_opportunity_window", "size": 2, "subtype": "uint16_t", "type": "number" },
-				{ "id": 8, "name": "btm_disassociation_timer", "size": 2, "subtype": "uint16_t", "type": "number" },
-				{ "id": 9, "name": "sta_list_count", "ref": 11, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 7, "name": "steering_opportunity_window", "size": 2, "subtype": "u16", "type": "number" },
+				{ "id": 8, "name": "btm_disassociation_timer", "size": 2, "subtype": "u16", "type": "number" },
+				{ "id": 9, "name": "sta_list_count", "ref": 11, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 11,
 					"name": "sta_list",
@@ -2697,16 +2697,16 @@
 					"repeat": "k",
 					"repeat_ref": 9
 				},
-				{ "id": 12, "name": "target_bssid_count", "ref": 17, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 12, "name": "target_bssid_count", "ref": 17, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 17,
 					"name": "target_bssids",
 					"numfields": 4,
 					"fields": [
 						{ "id": 13, "name": "target_bssid", "size": 6, "subtype": "mac", "type": "string" },
-						{ "id": 14, "name": "target_bss_opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 15, "name": "target_bss_channel", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 16, "name": "reason_code", "size": 1, "subtype": "uint8_t", "type": "number" }
+						{ "id": 14, "name": "target_bss_opclass", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 15, "name": "target_bss_channel", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 16, "name": "reason_code", "size": 1, "subtype": "u8", "type": "number" }
 					],
 					"repeat": "m",
 					"repeat_ref": 12
@@ -2720,7 +2720,7 @@
 			"fields": [
 				{ "id": 3, "name": "report_unsuccessful_assocs", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 4, "name": "reserved", "size": 0.875, "subtype": "bitfield", "type": "void" },
-				{ "id": 5, "name": "max_reporting_rate", "size": 4, "subtype": "uint32_t", "type": "number" }
+				{ "id": 5, "name": "max_reporting_rate", "size": 4, "subtype": "u32", "type": "number" }
 			],
 			"name": "Unsuccessful Association Policy",
 			"standard": "Wi-Fi EasyMesh",
@@ -2728,7 +2728,7 @@
 		},
 		"0xc5": {
 			"fields": [
-				{ "id": 3, "name": "collection_interval", "size": 4, "subtype": "uint32_t", "type": "number" }
+				{ "id": 3, "name": "collection_interval", "size": 4, "subtype": "u32", "type": "number" }
 			],
 			"name": "Metric Collection Interval",
 			"standard": "Wi-Fi EasyMesh",
@@ -2737,10 +2737,10 @@
 		"0xc6": {
 			"fields": [
 				{ "id": 3, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 4, "name": "noise", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 5, "name": "transmit", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 6, "name": "receive_self", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 7, "name": "receive_other", "size": 1, "subtype": "uint8_t", "type": "number" }
+				{ "id": 4, "name": "noise", "size": 1, "subtype": "u8", "type": "number" },
+				{ "id": 5, "name": "transmit", "size": 1, "subtype": "u8", "type": "number" },
+				{ "id": 6, "name": "receive_self", "size": 1, "subtype": "u8", "type": "number" },
+				{ "id": 7, "name": "receive_other", "size": 1, "subtype": "u8", "type": "number" }
 			],
 			"name": "Radio Metrics",
 			"standard": "Wi-Fi EasyMesh",
@@ -2749,12 +2749,12 @@
 		"0xc7": {
 			"fields": [
 				{ "id": 3, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 4, "name": "unicast_bytes_sent", "size": 4, "subtype": "uint32_t", "type": "number" },
-				{ "id": 5, "name": "unicast_bytes_received", "size": 4, "subtype": "uint32_t", "type": "number" },
-				{ "id": 6, "name": "multicast_bytes_sent", "size": 4, "subtype": "uint32_t", "type": "number" },
-				{ "id": 7, "name": "multicast_bytes_received", "size": 4, "subtype": "uint32_t", "type": "number" },
-				{ "id": 8, "name": "broadcast_bytes_sent", "size": 4, "subtype": "uint32_t", "type": "number" },
-				{ "id": 9, "name": "broadcast_bytes_received", "size": 4, "subtype": "uint32_t", "type": "number" }
+				{ "id": 4, "name": "unicast_bytes_sent", "size": 4, "subtype": "u32", "type": "number" },
+				{ "id": 5, "name": "unicast_bytes_received", "size": 4, "subtype": "u32", "type": "number" },
+				{ "id": 6, "name": "multicast_bytes_sent", "size": 4, "subtype": "u32", "type": "number" },
+				{ "id": 7, "name": "multicast_bytes_received", "size": 4, "subtype": "u32", "type": "number" },
+				{ "id": 8, "name": "broadcast_bytes_sent", "size": 4, "subtype": "u32", "type": "number" },
+				{ "id": 9, "name": "broadcast_bytes_received", "size": 4, "subtype": "u32", "type": "number" }
 			],
 			"name": "AP Extended Metrics",
 			"standard": "Wi-Fi EasyMesh",
@@ -2763,17 +2763,17 @@
 		"0xc8": {
 			"fields": [
 				{ "id": 3, "name": "mac_address", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 4, "name": "bssids_count", "ref": 10, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 4, "name": "bssids_count", "ref": 10, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 10,
 					"name": "bssids",
 					"numfields": 5,
 					"fields": [
 						{ "id": 5, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
-						{ "id": 6, "name": "last_data_downlink_rate", "size": 4, "subtype": "uint32_t", "type": "number" },
-						{ "id": 7, "name": "last_data_uplink_rate", "size": 4, "subtype": "uint32_t", "type": "number" },
-						{ "id": 8, "name": "utilization_receive", "size": 4, "subtype": "uint32_t", "type": "number" },
-						{ "id": 9, "name": "utilization_transmit", "size": 4, "subtype": "uint32_t", "type": "number" }
+						{ "id": 6, "name": "last_data_downlink_rate", "size": 4, "subtype": "u32", "type": "number" },
+						{ "id": 7, "name": "last_data_uplink_rate", "size": 4, "subtype": "u32", "type": "number" },
+						{ "id": 8, "name": "utilization_receive", "size": 4, "subtype": "u32", "type": "number" },
+						{ "id": 9, "name": "utilization_transmit", "size": 4, "subtype": "u32", "type": "number" }
 					],
 					"repeat": "k",
 					"repeat_ref": 4
@@ -2785,7 +2785,7 @@
 		},
 		"0xc9": {
 			"fields": [
-				{ "id": 3, "name": "status_code", "size": 2, "subtype": "uint16_t", "type": "number" }
+				{ "id": 3, "name": "status_code", "size": 2, "subtype": "u16", "type": "number" }
 			],
 			"name": "Status Code",
 			"standard": "Wi-Fi EasyMesh",
@@ -2793,7 +2793,7 @@
 		},
 		"0xca": {
 			"fields": [
-				{ "id": 3, "name": "reason_code", "size": 2, "subtype": "uint16_t", "type": "number" }
+				{ "id": 3, "name": "reason_code", "size": 2, "subtype": "u16", "type": "number" }
 			],
 			"name": "Reason Code",
 			"standard": "Wi-Fi EasyMesh",
@@ -2821,26 +2821,26 @@
 		},
 		"0xcc": {
 			"fields": [
-				{ "id": 3, "name": "backhaul_akm_suite_selectors_count", "ref": 6, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 3, "name": "backhaul_akm_suite_selectors_count", "ref": 6, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 6,
 					"name": "backhaul_akm_suite_selectors",
 					"numfields": 2,
 					"fields": [
 						{ "id": 4, "name": "bh_oui", "size": 3, "subtype": "string", "type": "string" },
-						{ "id": 5, "name": "bh_akm_suite_type", "size": 1, "subtype": "uint8_t", "type": "number" }
+						{ "id": 5, "name": "bh_akm_suite_type", "size": 1, "subtype": "u8", "type": "number" }
 					],
 					"repeat": "k",
 					"repeat_ref": 3
 				},
-				{ "id": 7, "name": "fronthaul_akm_suite_selectors_count", "ref": 10, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 7, "name": "fronthaul_akm_suite_selectors_count", "ref": 10, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 10,
 					"name": "fronthaul_akm_suite_selectors",
 					"numfields": 2,
 					"fields": [
 						{ "id": 8, "name": "fh_oui", "size": 3, "subtype": "string", "type": "string" },
-						{ "id": 9, "name": "fh_akm_suite_type", "size": 1, "subtype": "uint8_t", "type": "number" }
+						{ "id": 9, "name": "fh_akm_suite_type", "size": 1, "subtype": "u8", "type": "number" }
 					],
 					"repeat": "r",
 					"repeat_ref": 7
@@ -2857,8 +2857,8 @@
 				{ "id": 5, "name": "dpp_frame_indicator", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 6, "name": "reserved2", "size": 0.625, "subtype": "bitfield", "suffix": "2", "type": "void" },
 				{ "id": 7, "name": "destination_sta_mac_address", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 8, "name": "frame_type", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 9, "name": "encapsulated_frame_length", "ref": 10, "size": 2, "subtype": "uint16_t", "type": "number" },
+				{ "id": 8, "name": "frame_type", "size": 1, "subtype": "u8", "type": "number" },
+				{ "id": 9, "name": "encapsulated_frame_length", "ref": 10, "size": 2, "subtype": "u16", "type": "number" },
 				{ "id": 10, "name": "encapsulated_frame", "size": 0, "size_ref": 9, "subtype": "string", "type": "string" }
 			],
 			"name": "1905 Encap DPP",
@@ -2910,7 +2910,7 @@
 					"id": 3,
 					"name": "advertise_cce",
 					"size": 1,
-					"subtype": "uint8_t",
+					"subtype": "u8",
 					"type": "number"
 				}
 			],
@@ -2924,7 +2924,7 @@
 				{ "id": 4, "name": "hash_validity", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 5, "name": "reserved", "size": 0.75, "subtype": "bitfield", "type": "void" },
 				{ "id": 6, "name": "destination_sta_mac_address", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 7, "name": "hash_length", "ref": 8, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 7, "name": "hash_length", "ref": 8, "size": 1, "subtype": "u8", "type": "number" },
 				{ "id": 8, "name": "hash_value", "size": 0, "size_ref": 7, "subtype": "string", "type": "string" }
 			],
 			"name": "DPP Chirp Value",
@@ -2933,20 +2933,20 @@
 		},
 		"0xd4": {
 			"fields": [
-				{ "id": 3, "name": "serial_number_length", "ref": 4, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 3, "name": "serial_number_length", "ref": 4, "size": 1, "subtype": "u8", "type": "number" },
 				{ "id": 4, "name": "serial_number", "size": 0, "size_ref": 3, "subtype": "string", "type": "string" },
-				{ "id": 5, "name": "length", "ref": 6, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 5, "name": "length", "ref": 6, "size": 1, "subtype": "u8", "type": "number" },
 				{ "id": 6, "name": "software_version", "size": 0, "size_ref": 5, "subtype": "string", "type": "string" },
-				{ "id": 7, "name": "execution_env_length", "ref": 8, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 7, "name": "execution_env_length", "ref": 8, "size": 1, "subtype": "u8", "type": "number" },
 				{ "id": 8, "name": "execution_env", "size": 0, "size_ref": 7, "subtype": "string", "type": "string" },
-				{ "id": 9, "name": "radios_count", "ref": 13, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 9, "name": "radios_count", "ref": 13, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 13,
 					"name": "radios",
 					"numfields": 3,
 					"fields": [
 						{ "id": 10, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
-						{ "id": 11, "name": "chipset_vendor_length", "ref": 12, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 11, "name": "chipset_vendor_length", "ref": 12, "size": 1, "subtype": "u8", "type": "number" },
 						{ "id": 12, "name": "chipset_vendor", "size": 0, "size_ref": 11, "subtype": "string", "type": "string" }
 					],
 					"repeat": "k",
@@ -2959,7 +2959,7 @@
 		},
 		"0xd5": {
 			"fields": [
-				{ "id": 3, "name": "multi_ap_agents_present_count", "ref": 7, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 3, "name": "multi_ap_agents_present_count", "ref": 7, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 7,
 					"name": "multi_ap_agents_present",
@@ -2971,10 +2971,10 @@
 							"id": 5,
 							"name": "multi_ap_profile",
 							"size": 1,
-							"subtype": "uint8_t",
+							"subtype": "u8",
 							"type": "number"
 						},
-						{ "id": 6, "max": 255, "min": 0, "name": "security", "size": 1, "subtype": "uint8_t", "type": "number" }
+						{ "id": 6, "max": 255, "min": 0, "name": "security", "size": 1, "subtype": "u8", "type": "number" }
 					],
 					"repeat": "k",
 					"repeat_ref": 3
@@ -2986,15 +2986,15 @@
 		},
 		"0xd6": {
 			"fields": [
-				{ "id": 3, "name": "opclass_count", "ref": 8, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 3, "name": "opclass_count", "ref": 8, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 8,
 					"name": "opclasses",
 					"numfields": 4,
 					"fields": [
-						{ "id": 4, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 5, "name": "channels_count", "ref": 6, "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 6, "name": "channels", "size": 0, "size_ref": 5, "subtype": "uint8_t", "type": "array" },
+						{ "id": 4, "name": "opclass", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 5, "name": "channels_count", "ref": 6, "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 6, "name": "channels", "size": 0, "size_ref": 5, "subtype": "u8", "type": "array" },
 						{ "id": 7, "name": "reserved", "size": 4, "subtype": "string", "type": "void" }
 					],
 					"repeat": "m",
@@ -3007,24 +3007,24 @@
 		},
 		"0xd7": {
 			"fields": [
-				{ "id": 3, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 4, "name": "channel", "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 3, "name": "opclass", "size": 1, "subtype": "u8", "type": "number" },
+				{ "id": 4, "name": "channel", "size": 1, "subtype": "u8", "type": "number" },
 				{ "id": 5, "name": "reference_bssid", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 6, "name": "usage_entries_count", "ref": 17, "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 7, "name": "burst_start_time", "size": 4, "subtype": "uint32_t", "type": "number" },
+				{ "id": 6, "name": "usage_entries_count", "ref": 17, "size": 1, "subtype": "u8", "type": "number" },
+				{ "id": 7, "name": "burst_start_time", "size": 4, "subtype": "u32", "type": "number" },
 				{
 					"id": 17,
 					"name": "usage_entries",
 					"numfields": 9,
 					"fields": [
-						{ "id": 8, "name": "burst_length", "size": 4, "subtype": "uint32_t", "type": "number" },
-						{ "id": 9, "name": "repetitions_count", "size": 4, "subtype": "uint32_t", "type": "number" },
-						{ "id": 10, "name": "burst_interval", "size": 4, "subtype": "uint32_t", "type": "number" },
-						{ "id": 11, "name": "ru_bitmask_length", "ref": 12, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 8, "name": "burst_length", "size": 4, "subtype": "u32", "type": "number" },
+						{ "id": 9, "name": "repetitions_count", "size": 4, "subtype": "u32", "type": "number" },
+						{ "id": 10, "name": "burst_interval", "size": 4, "subtype": "u32", "type": "number" },
+						{ "id": 11, "name": "ru_bitmask_length", "ref": 12, "size": 1, "subtype": "u8", "type": "number" },
 						{ "id": 12, "name": "ru_bitmask", "size": 0, "size_ref": 11, "subtype": "string", "type": "string" },
 						{ "id": 13, "name": "transmitter_identifier", "size": 6, "subtype": "mac", "type": "string" },
-						{ "id": 14, "name": "power_level", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 15, "name": "channel_usage_reason", "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 14, "name": "power_level", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 15, "name": "channel_usage_reason", "size": 1, "subtype": "u8", "type": "number" },
 						{ "id": 16, "name": "reserved", "size": 4, "subtype": "string", "type": "void" }
 					],
 					"repeat": "n",
@@ -3046,11 +3046,11 @@
 				{ "id": 9, "name": "non_srg_offset_valid", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 10, "name": "reserved3", "size": 0.125, "subtype": "bitfield", "suffix": "3", "type": "void" },
 				{ "id": 11, "name": "psr_disallowed", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
-				{ "id": 12, "name": "non_srg_obsspd_max_offset", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 13, "name": "srg_obsspd_min_offset", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 14, "name": "srg_obsspd_max_offset", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 15, "name": "srg_bss_color_bitmap", "size": 8, "subtype": "uint64_t", "type": "number" },
-				{ "id": 16, "name": "srg_partial_bssid_bitmap", "size": 8, "subtype": "uint64_t", "type": "number" },
+				{ "id": 12, "name": "non_srg_obsspd_max_offset", "size": 1, "subtype": "u8", "type": "number" },
+				{ "id": 13, "name": "srg_obsspd_min_offset", "size": 1, "subtype": "u8", "type": "number" },
+				{ "id": 14, "name": "srg_obsspd_max_offset", "size": 1, "subtype": "u8", "type": "number" },
+				{ "id": 15, "name": "srg_bss_color_bitmap", "size": 8, "subtype": "u64", "type": "number" },
+				{ "id": 16, "name": "srg_partial_bssid_bitmap", "size": 8, "subtype": "u64", "type": "number" },
 				{ "id": 17, "name": "reserved4", "size": 2, "subtype": "string", "suffix": "4", "type": "void" }
 			],
 			"name": "Spatial Reuse Request",
@@ -3069,12 +3069,12 @@
 				{ "id": 10, "name": "non_srg_offset_valid", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 11, "name": "reserved3", "size": 0.125, "subtype": "bitfield", "suffix": "3", "type": "void" },
 				{ "id": 12, "name": "psr_disallowed", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
-				{ "id": 13, "name": "non_srg_obsspd_max_offset", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 14, "name": "srg_obsspd_min_offset", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 15, "name": "srg_obsspd_max_offset", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 16, "name": "srg_bss_color_bitmap", "size": 8, "subtype": "uint64_t", "type": "number" },
-				{ "id": 17, "name": "srg_partial_bssid_bitmap", "size": 8, "subtype": "uint64_t", "type": "number" },
-				{ "id": 18, "name": "used_neighbor_bss_colors", "size": 8, "subtype": "uint64_t", "type": "number" },
+				{ "id": 13, "name": "non_srg_obsspd_max_offset", "size": 1, "subtype": "u8", "type": "number" },
+				{ "id": 14, "name": "srg_obsspd_min_offset", "size": 1, "subtype": "u8", "type": "number" },
+				{ "id": 15, "name": "srg_obsspd_max_offset", "size": 1, "subtype": "u8", "type": "number" },
+				{ "id": 16, "name": "srg_bss_color_bitmap", "size": 8, "subtype": "u64", "type": "number" },
+				{ "id": 17, "name": "srg_partial_bssid_bitmap", "size": 8, "subtype": "u64", "type": "number" },
+				{ "id": 18, "name": "used_neighbor_bss_colors", "size": 8, "subtype": "u64", "type": "number" },
 				{ "id": 19, "name": "reserved4", "size": 2, "subtype": "string", "suffix": "4", "type": "void" }
 			],
 			"name": "Spatial Reuse Report",
@@ -3089,7 +3089,7 @@
 					"id": 3,
 					"name": "response_code",
 					"size": 1,
-					"subtype": "uint8_t",
+					"subtype": "u8",
 					"type": "number"
 				}
 			],
@@ -3099,7 +3099,7 @@
 		},
 		"0xdb": {
 			"fields": [
-				{ "id": 3, "name": "mscs_disallowed_sta_count", "ref": 5, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 3, "name": "mscs_disallowed_sta_count", "ref": 5, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 5,
 					"name": "mscs_disallowed_sta",
@@ -3110,7 +3110,7 @@
 					"repeat": "numMSCSDisallowed",
 					"repeat_ref": 3
 				},
-				{ "id": 6, "name": "scs_disallowed_sta_count", "ref": 8, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 6, "name": "scs_disallowed_sta_count", "ref": 8, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 8,
 					"name": "scs_disallowed_sta",
@@ -3129,7 +3129,7 @@
 		},
 		"0xdc": {
 			"fields": [
-				{ "id": 3, "name": "qmid", "size": 2, "subtype": "uint16_t", "type": "number" },
+				{ "id": 3, "name": "qmid", "size": 2, "subtype": "u16", "type": "number" },
 				{ "id": 4, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
 				{ "id": 5, "name": "client_mac", "size": 6, "subtype": "mac", "type": "string" },
 				{ "id": 6, "name": "descriptor_element", "size_ref": -1, "subtype": "string", "type": "string" }
@@ -3152,7 +3152,7 @@
 		"0xde0001": {
 			"fields": [
 				{ "id": 3, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 4, "name": "max_vbss", "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 4, "name": "max_vbss", "size": 1, "subtype": "u8", "type": "number" },
 				{ "id": 5, "name": "vbsss_subtract", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 6, "name": "vbssid_restrictions", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 7, "name": "vbssid_match_mask_restrictions", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
@@ -3170,20 +3170,20 @@
 			"fields": [
 				{ "id": 3, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
 				{ "id": 4, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 5, "name": "ssid_length", "ref": 6, "size": 2, "subtype": "uint16_t", "type": "number" },
+				{ "id": 5, "name": "ssid_length", "ref": 6, "size": 2, "subtype": "u16", "type": "number" },
 				{ "id": 6, "name": "ssid", "size": 0, "size_ref": 5, "subtype": "string", "type": "string" },
-				{ "id": 7, "name": "pass_length", "ref": 8, "size": 2, "subtype": "uint16_t", "type": "number" },
+				{ "id": 7, "name": "pass_length", "ref": 8, "size": 2, "subtype": "u16", "type": "number" },
 				{ "id": 8, "name": "pass", "size": 0, "size_ref": 7, "subtype": "string", "type": "string" },
-				{ "id": 9, "name": "dpp_connector_length", "ref": 10, "size": 2, "subtype": "uint16_t", "type": "number" },
+				{ "id": 9, "name": "dpp_connector_length", "ref": 10, "size": 2, "subtype": "u16", "type": "number" },
 				{ "id": 10, "name": "dpp_connector", "size": 0, "size_ref": 9, "subtype": "string", "type": "string" },
 				{ "id": 11, "name": "client_mac", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 12, "name": "client_assoc", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 14, "name": "key_length", "ref": 15, "size": 2, "subtype": "uint16_t", "type": "number" },
+				{ "id": 12, "name": "client_assoc", "size": 1, "subtype": "u8", "type": "number" },
+				{ "id": 14, "name": "key_length", "ref": 15, "size": 2, "subtype": "u16", "type": "number" },
 				{ "id": 15, "name": "key", "size": 0, "size_ref": 14, "subtype": "string", "type": "string" },
-				{ "id": 16, "name": "tx_packet_number", "size": 8, "subtype": "uint64_t", "type": "number" },
-				{ "id": 17, "name": "group_key_length", "ref": 18, "size": 2, "subtype": "uint16_t", "type": "number" },
+				{ "id": 16, "name": "tx_packet_number", "size": 8, "subtype": "u64", "type": "number" },
+				{ "id": 17, "name": "group_key_length", "ref": 18, "size": 2, "subtype": "u16", "type": "number" },
 				{ "id": 18, "name": "group_key", "size": 0, "size_ref": 17, "subtype": "string", "type": "string" },
-				{ "id": 19, "name": "group_tx_packet_number", "size": 8, "subtype": "uint64_t", "type": "number" }
+				{ "id": 19, "name": "group_tx_packet_number", "size": 8, "subtype": "u64", "type": "number" }
 			],
 			"name": "Virtual BSS Creation",
 			"standard": "Wi-Fi EasyMesh",
@@ -3194,7 +3194,7 @@
 			"fields": [
 				{ "id": 4, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
 				{ "id": 5, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 6, "name": "disassociate_client", "size": 1, "subtype": "uint8_t", "type": "number" }
+				{ "id": 6, "name": "disassociate_client", "size": 1, "subtype": "u8", "type": "number" }
 			],
 			"name": "Virtual BSS Destruction",
 			"standard": "Wi-Fi EasyMesh",
@@ -3204,7 +3204,7 @@
 		"0xde0004": {
 			"fields": [
 				{ "id": 4, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 5, "name": "success", "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 5, "name": "success", "size": 1, "subtype": "u8", "type": "number" },
 				{ "id": 6, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" }
 			],
 			"name": "Virtual BSS Event",
@@ -3216,12 +3216,12 @@
 			"fields": [
 				{ "id": 4, "name": "client_connected", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 5, "name": "reserved", "size": 0.875, "subtype": "bitfield", "type": "void" },
-				{ "id": 6, "name": "key_length", "ref": 7, "size": 2, "subtype": "uint16_t", "type": "number" },
+				{ "id": 6, "name": "key_length", "ref": 7, "size": 2, "subtype": "u16", "type": "number" },
 				{ "id": 7, "name": "key", "size": 0, "size_ref": 6, "subtype": "string", "type": "string" },
-				{ "id": 8, "name": "tx_packet_number", "size": 8, "subtype": "uint64_t", "type": "number" },
-				{ "id": 9, "name": "group_key_length", "ref": 10, "size": 2, "subtype": "uint16_t", "type": "number" },
+				{ "id": 8, "name": "tx_packet_number", "size": 8, "subtype": "u64", "type": "number" },
+				{ "id": 9, "name": "group_key_length", "ref": 10, "size": 2, "subtype": "u16", "type": "number" },
 				{ "id": 10, "name": "group_key", "size": 0, "size_ref": 9, "subtype": "string", "type": "string" },
-				{ "id": 11, "name": "group_tx_packet_number", "size": 8, "subtype": "uint64_t", "type": "number" }
+				{ "id": 11, "name": "group_tx_packet_number", "size": 8, "subtype": "u64", "type": "number" }
 			],
 			"name": "Client Security Context",
 			"standard": "Wi-Fi EasyMesh",
@@ -3230,8 +3230,8 @@
 		},
 		"0xde0006": {
 			"fields": [
-				{ "id": 4, "name": "csa_channel", "size": 1, "subtype": "uint8_t", "type": "number" },
-				{ "id": 5, "name": "op_class", "size": 1, "subtype": "uint8_t", "type": "number" }
+				{ "id": 4, "name": "csa_channel", "size": 1, "subtype": "u8", "type": "number" },
+				{ "id": 5, "name": "op_class", "size": 1, "subtype": "u8", "type": "number" }
 			],
 			"name": "Trigger Channel Switch Announcement",
 			"standard": "Wi-Fi EasyMesh",
@@ -3240,21 +3240,21 @@
 		},
 		"0xde0007": {
 			"fields": [
-				{ "id": 4, "name": "radios_count", "ref": 11, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 4, "name": "radios_count", "ref": 11, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 11,
 					"name": "radios",
 					"numfields": 5,
 					"fields": [
 						{ "id": 5, "name": "radio_unique_identifier", "size": 6, "subtype": "mac", "type": "string" },
-						{ "id": 6, "name": "vbss_count", "ref": 10, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 6, "name": "vbss_count", "ref": 10, "size": 1, "subtype": "u8", "type": "number" },
 						{
 							"id": 10,
 							"name": "vbss",
 							"numfields": 3,
 							"fields": [
 								{ "id": 7, "name": "bssid", "size": 6, "subtype": "mac", "type": "string" },
-								{ "id": 8, "name": "ssid_length", "ref": 9, "size": 1, "subtype": "uint8_t", "type": "number" },
+								{ "id": 8, "name": "ssid_length", "ref": 9, "size": 1, "subtype": "u8", "type": "number" },
 								{ "id": 9, "name": "ssid", "size": 0, "size_ref": 8, "subtype": "string", "type": "string" }
 							],
 							"repeat": "m",

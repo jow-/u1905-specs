@@ -268,7 +268,7 @@
 		"0x03": {
 			"fields": [
 				{ "id": 2, "name": "al_mac_address", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 3, "name": "local_interfaces_count", "ref": 7.1, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 3, "name": "local_interfaces_count", "ref": 7.1, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 7.1,
 					"name": "local_interfaces",
@@ -296,10 +296,10 @@
 							"id": 5,
 							"name": "media_type",
 							"size": 2,
-							"subtype": "uint16_t",
+							"subtype": "u16",
 							"type": "number"
 						},
-						{ "id": 6, "name": "octets_count", "ref": 7, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 6, "name": "octets_count", "ref": 7, "size": 1, "subtype": "u8", "type": "number" },
 						{ "id": 7, "name": "media_specific_information", "size": 0, "size_ref": 6, "subtype": "string", "type": "string" }
 					],
 					"repeat": "k",
@@ -312,7 +312,7 @@
 		},
 		"0x04": {
 			"fields": [
-				{ "id": 2, "name": "bridging_tuples_count", "ref": 4.2, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 2, "name": "bridging_tuples_count", "ref": 4.2, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 4.2,
 					"name": "bridging_tuples",
@@ -386,7 +386,7 @@
 					"id": 2,
 					"name": "query_type",
 					"size": 1,
-					"subtype": "uint8_t",
+					"subtype": "u8",
 					"type": "number"
 				},
 				{
@@ -408,7 +408,7 @@
 					"id": 4,
 					"name": "link_metrics_requested",
 					"size": 1,
-					"subtype": "uint8_t",
+					"subtype": "u8",
 					"type": "number"
 				}
 			],
@@ -448,15 +448,15 @@
 							"id": 7,
 							"name": "media_type",
 							"size": 2,
-							"subtype": "uint16_t",
+							"subtype": "u16",
 							"type": "number"
 						},
 						{ "id": 8, "name": "bridges_present", "size": 1, "subtype": "boolean", "type": "boolean" },
-						{ "id": 9, "name": "packet_errors", "size": 4, "subtype": "uint32_t", "type": "number" },
-						{ "id": 10, "name": "transmitted_packets", "size": 4, "subtype": "uint32_t", "type": "number" },
-						{ "id": 11, "name": "mac_throughput_capacity", "size": 2, "subtype": "uint16_t", "type": "number" },
-						{ "id": 12, "name": "link_availability", "size": 2, "subtype": "uint16_t", "type": "number" },
-						{ "id": 13, "name": "phy_rate", "size": 2, "subtype": "uint16_t", "type": "number" }
+						{ "id": 9, "name": "packet_errors", "size": 4, "subtype": "u32", "type": "number" },
+						{ "id": 10, "name": "transmitted_packets", "size": 4, "subtype": "u32", "type": "number" },
+						{ "id": 11, "name": "mac_throughput_capacity", "size": 2, "subtype": "u16", "type": "number" },
+						{ "id": 12, "name": "link_availability", "size": 2, "subtype": "u16", "type": "number" },
+						{ "id": 13, "name": "phy_rate", "size": 2, "subtype": "u16", "type": "number" }
 					],
 					"repeat": "shall be repeated for each connected interface pair",
 					"repeat_ref": -1
@@ -498,12 +498,12 @@
 							"id": 7,
 							"name": "media_type",
 							"size": 2,
-							"subtype": "uint16_t",
+							"subtype": "u16",
 							"type": "number"
 						},
-						{ "id": 8, "name": "packet_errors", "size": 4, "subtype": "uint32_t", "type": "number" },
-						{ "id": 9, "name": "received_packets", "size": 4, "subtype": "uint32_t", "type": "number" },
-						{ "id": 10, "name": "rssi", "size": 1, "subtype": "uint8_t", "type": "number" }
+						{ "id": 8, "name": "packet_errors", "size": 4, "subtype": "u32", "type": "number" },
+						{ "id": 9, "name": "received_packets", "size": 4, "subtype": "u32", "type": "number" },
+						{ "id": 10, "name": "rssi", "size": 1, "subtype": "u8", "type": "number" }
 					],
 					"repeat": "shall be repeated for each connected interface pair",
 					"repeat_ref": -1
@@ -532,7 +532,7 @@
 					"id": 2,
 					"name": "result_code",
 					"size": 1,
-					"subtype": "uint8_t",
+					"subtype": "u8",
 					"type": "number"
 				}
 			],
@@ -550,7 +550,7 @@
 					"id": 2,
 					"name": "role",
 					"size": 1,
-					"subtype": "uint8_t",
+					"subtype": "u8",
 					"type": "number"
 				}
 			],
@@ -570,7 +570,7 @@
 					"id": 2,
 					"name": "frequency_band",
 					"size": 1,
-					"subtype": "uint8_t",
+					"subtype": "u8",
 					"type": "number"
 				}
 			],
@@ -588,7 +588,7 @@
 					"id": 2,
 					"name": "role",
 					"size": 1,
-					"subtype": "uint8_t",
+					"subtype": "u8",
 					"type": "number"
 				}
 			],
@@ -608,7 +608,7 @@
 					"id": 2,
 					"name": "frequency_band",
 					"size": 1,
-					"subtype": "uint8_t",
+					"subtype": "u8",
 					"type": "number"
 				}
 			],
@@ -626,7 +626,7 @@
 		},
 		"0x12": {
 			"fields": [
-				{ "id": 2, "name": "media_types_count", "ref": 5.1, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 2, "name": "media_types_count", "ref": 5.1, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 5.1,
 					"name": "media_types",
@@ -653,10 +653,10 @@
 							"id": 3,
 							"name": "media_type",
 							"size": 2,
-							"subtype": "uint16_t",
+							"subtype": "u16",
 							"type": "number"
 						},
-						{ "id": 4, "name": "octets_count", "ref": 5, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 4, "name": "octets_count", "ref": 5, "size": 1, "subtype": "u8", "type": "number" },
 						{ "id": 5, "name": "media_specific_information", "size": 0, "size_ref": 4, "subtype": "string", "type": "string" }
 					],
 					"repeat": "n",
@@ -670,7 +670,7 @@
 		"0x13": {
 			"fields": [
 				{ "id": 2, "name": "al_id", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 3, "name": "message_identifier", "size": 2, "subtype": "uint16_t", "type": "number" },
+				{ "id": 3, "name": "message_identifier", "size": 2, "subtype": "u16", "type": "number" },
 				{ "id": 4, "name": "transmitter_if_mac_address", "size": 6, "subtype": "mac", "type": "string" },
 				{ "id": 5, "name": "neighbor_if_mac_address", "size": 6, "subtype": "mac", "type": "string" }
 			],
@@ -681,7 +681,7 @@
 		"0x14": {
 			"fields": [
 				{ "id": 1, "name": "al_mac_address", "size": 6, "subtype": "mac", "type": "string" },
-				{ "id": 2, "name": "local_interfaces_count", "ref": 3, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 2, "name": "local_interfaces_count", "ref": 3, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 3,
 					"name": "local_interfaces",
@@ -689,10 +689,10 @@
 					"fields": [
 						{ "id": 4, "name": "local_if_mac_address", "size": 6, "subtype": "mac", "type": "string" },
 						{ "id": 5, "name": "phy_oui", "size": 3, "subtype": "string", "type": "string" },
-						{ "id": 6, "name": "phy_variant", "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 6, "name": "phy_variant", "size": 1, "subtype": "u8", "type": "number" },
 						{ "id": 7, "name": "phy_variant_name", "size": 32, "subtype": "string", "type": "string" },
-						{ "id": 8, "name": "phy_description_url_length", "ref": 10, "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 9, "name": "media_specific_information_length", "ref": 11, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 8, "name": "phy_description_url_length", "ref": 10, "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 9, "name": "media_specific_information_length", "ref": 11, "size": 1, "subtype": "u8", "type": "number" },
 						{ "id": 10, "name": "phy_description_url", "size": 0, "size_ref": 8, "subtype": "string", "type": "string" },
 						{ "id": 11, "name": "media_specific_information", "size": 0, "size_ref": 9, "subtype": "string", "type": "string" }
 					],
@@ -724,14 +724,14 @@
 		},
 		"0x17": {
 			"fields": [
-				{ "id": 1, "name": "num_interfaces", "ref": 2, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 1, "name": "num_interfaces", "ref": 2, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 2,
 					"name": "interfaces",
 					"numfields": 3,
 					"fields": [
 						{ "id": 3, "name": "if_mac_address", "size": 6, "subtype": "mac", "type": "string" },
-						{ "id": 4, "max": 15, "name": "addresses_count", "ref": 5, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 4, "max": 15, "name": "addresses_count", "ref": 5, "size": 1, "subtype": "u8", "type": "number" },
 						{
 							"id": 5,
 							"name": "addresses",
@@ -747,7 +747,7 @@
 									"id": 6,
 									"name": "ipv4addr_type",
 									"size": 1,
-									"subtype": "uint8_t",
+									"subtype": "u8",
 									"type": "number"
 								},
 								{ "id": 7, "name": "address", "size": 4, "subtype": "ipv4", "type": "string" },
@@ -767,7 +767,7 @@
 		},
 		"0x18": {
 			"fields": [
-				{ "id": 1, "name": "num_interfaces", "ref": 2, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 1, "name": "num_interfaces", "ref": 2, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 2,
 					"name": "interfaces",
@@ -775,7 +775,7 @@
 					"fields": [
 						{ "id": 3, "name": "if_mac_address", "size": 6, "subtype": "mac", "type": "string" },
 						{ "id": 4, "name": "linklocal_address", "size": 16, "subtype": "ipv6", "type": "string" },
-						{ "id": 5, "max": 15, "name": "other_addresses_count", "ref": 6, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 5, "max": 15, "name": "other_addresses_count", "ref": 6, "size": 1, "subtype": "u8", "type": "number" },
 						{
 							"id": 6,
 							"name": "other_addresses",
@@ -791,7 +791,7 @@
 									"id": 7,
 									"name": "ipv6addr_type",
 									"size": 1,
-									"subtype": "uint8_t",
+									"subtype": "u8",
 									"type": "number"
 								},
 								{ "id": 8, "name": "address", "size": 16, "subtype": "ipv6", "type": "string" },
@@ -811,15 +811,15 @@
 		},
 		"0x19": {
 			"fields": [
-				{ "id": 1, "name": "num_phy_media_types", "ref": 2, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 1, "name": "num_phy_media_types", "ref": 2, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 2,
 					"name": "phy_media_types",
 					"numfields": 4,
 					"fields": [
 						{ "id": 3, "name": "phy_oui", "size": 3, "subtype": "string", "type": "string" },
-						{ "id": 4, "name": "phy_variant", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 5, "name": "media_specific_information_length", "ref": 6, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 4, "name": "phy_variant", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 5, "name": "media_specific_information_length", "ref": 6, "size": 1, "subtype": "u8", "type": "number" },
 						{ "id": 6, "name": "media_specific_information", "size": 0, "size_ref": 5, "subtype": "string", "type": "string" }
 					],
 					"repeat": "n",
@@ -840,7 +840,7 @@
 					"id": 1,
 					"name": "ieee1905_profile",
 					"size": 1,
-					"subtype": "uint8_t",
+					"subtype": "u8",
 					"type": "number"
 				}
 			],
@@ -850,7 +850,7 @@
 		},
 		"0x1b": {
 			"fields": [
-				{ "id": 1, "name": "interface_count", "ref": 2, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 1, "name": "interface_count", "ref": 2, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 2,
 					"name": "interfaces",
@@ -879,12 +879,12 @@
 							"name": "media_type",
 							"size": 2,
 							"subtype":
-							"uint16_t",
+							"u16",
 							"type": "number"
 						},
 						{ "id": 5, "name": "phy_oui", "size": 3, "subtype": "string", "type": "string" },
-						{ "id": 6, "name": "phy_variant", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 6, "name": "media_specific_information_length", "ref": 7, "size": 1, "subtype": "uint8_t", "type": "number" },
+						{ "id": 6, "name": "phy_variant", "size": 1, "subtype": "u8", "type": "number" },
+						{ "id": 6, "name": "media_specific_information_length", "ref": 7, "size": 1, "subtype": "u8", "type": "number" },
 						{ "id": 7, "name": "media_specific_information", "size": 0, "size_ref": 6, "subtype": "string", "type": "string" }
 					],
 					"repeat": "k",
@@ -897,7 +897,7 @@
 		},
 		"0x1c": {
 			"fields": [
-				{ "id": 1, "name": "interface_count", "ref": 2, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 1, "name": "interface_count", "ref": 2, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 2,
 					"name": "interfaces",
@@ -913,7 +913,7 @@
 							"id": 4,
 							"name": "power_state",
 							"size": 1,
-							"subtype": "uint8_t",
+							"subtype": "u8",
 							"type": "number"
 						}
 					],
@@ -927,7 +927,7 @@
 		},
 		"0x1d": {
 			"fields": [
-				{ "id": 1, "name": "interface_count", "ref": 2, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 1, "name": "interface_count", "ref": 2, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 2,
 					"name": "interfaces",
@@ -943,7 +943,7 @@
 							"id": 4,
 							"name": "change_state",
 							"size": 1,
-							"subtype": "uint8_t",
+							"subtype": "u8",
 							"type": "number"
 						}
 					],
@@ -957,21 +957,21 @@
 		},
 		"0x1e": {
 			"fields": [
-				{ "id": 1, "name": "interface_count", "ref": 2, "size": 1, "subtype": "uint8_t", "type": "number" },
+				{ "id": 1, "name": "interface_count", "ref": 2, "size": 1, "subtype": "u8", "type": "number" },
 				{
 					"id": 2,
 					"name": "interfaces",
 					"numfields": 3,
 					"fields": [
 						{ "id": 3, "name": "if_mac_address", "size": 6, "subtype": "mac", "type": "string" },
-						{ "id": 4, "name": "neighbor_count", "ref": 5, "size": 2, "subtype": "uint16_t", "type": "number" },
+						{ "id": 4, "name": "neighbor_count", "ref": 5, "size": 2, "subtype": "u16", "type": "number" },
 						{
 						"id": 5,
 							"name": "neighbors",
 							"numfields": 3,
 							"fields": [
 								{ "id": 6, "name": "neighbor_mac_address", "size": 6, "subtype": "mac", "type": "string" },
-								{ "id": 7, "name": "behind_mac_address_count", "ref": 8, "size": 2, "subtype": "uint16_t", "type": "number" },
+								{ "id": 7, "name": "behind_mac_address_count", "ref": 8, "size": 2, "subtype": "u16", "type": "number" },
 								{
 									"id": 8,
 									"name": "behind_mac_addresses",

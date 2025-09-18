@@ -160,7 +160,7 @@ function gen_decode_prop_lowlevel(indent, field, optional) {
 	let m;
 
 	if (field.type === 'array') {
-		if ((m = match(field.subtype, /^uint(8|16|24|32|48|64)_t$/)) == null)
+		if ((m = match(field.subtype, /^u(8|16|24|32|48|64)$/)) == null)
 			die(`Unexpected array subtype for field ${field}`);
 
 		assert(field.size_field != null, `No related array length field for field ${field}`);
@@ -179,7 +179,7 @@ function gen_decode_prop_lowlevel(indent, field, optional) {
 		//println(indent, "	return null;");
 		//println(indent, "%s%s = buf.read(`${%s}B`);", decl, field.name, field.size_field.name);
 	}
-	else if (field.type in ['number', 'boolean'] && (m = match(field.subtype, /^(uint(8|16|24|32|48|64)_t|boolean)$/)) != null) {
+	else if (field.type in ['number', 'boolean'] && (m = match(field.subtype, /^(u(8|16|24|32|48|64)|boolean)$/)) != null) {
 		if (m[1] == 'boolean')
 			println(indent, "%s%s = buf.get('?');", decl, field.name);
 		else
@@ -227,12 +227,12 @@ function gen_decode_prop_lowlevel(indent, field, optional) {
 		let smax = sprintf('%02x', field.max);
 		let smin = sprintf('%0*x', length(field.max), field.min);
 		let tmax = {
-			'uint8_t': 0xff,
-			'uint16_t': 0xffff,
-			'uint24_t': 0xffffff,
-			'uint32_t': 0xffffffff,
-			'uint48_t': 0xffffffffffff,
-			'uint64_t': 0xffffffffffffffff
+			'u8': 0xff,
+			'u16': 0xffff,
+			'u24': 0xffffff,
+			'u32': 0xffffffff,
+			'u48': 0xffffffffffff,
+			'u64': 0xffffffffffffffff
 		}[field.type] || 0;
 
 		if (field.min > 0 && (!tmax || field.max < tmax)) {
@@ -456,7 +456,7 @@ function gen_validate_prop(indent, val, field) {
 		println(indent, 'if (!(%s%s in [ %s ]))', val, field.name, join(', ', sort(keys(field.enum))));
 		println(indent, '	return null;');
 	}
-	else if ((m = match(field.type, /^uint(8|16|24|32|48|64)_t$/)) != null) {
+	else if ((m = match(field.type, /^u(8|16|24|32|48|64)$/)) != null) {
 		println(indent, 'if (type(%s%s) != "int" || %s%s < 0 || %s%s > %s)', val, field.name, val, field.name, val, field.name, limit[m[1] / 8]);
 		println(indent, '	return null;');
 	}
@@ -497,7 +497,7 @@ function size_expr(prefix, ref_fields) {
 	let fields = type(ref_fields) === 'array' ? ref_fields : [ref_fields];
 	for (let field in fields) {
 		if (field.type === 'array' && field.subtype !== 'array') {
-			assert(field.subtype == 'uint8_t', 'Unexpected array subtype');
+			assert(field.subtype == 'u8', 'Unexpected array subtype');
 			push(exprs, sprintf('length(%s%s)', prefix, field.name));
 		}
 		else if (field.type === 'array' && !('repeat_ref' in field)) {
@@ -597,7 +597,7 @@ function gen_encode_prop_lowlevel(indent, val, field, depth, bitoff) {
 		}
 	}
 	else if (field.type === 'array') {
-		assert(field.subtype == 'uint8_t', 'Unexpected array subtype');
+		assert(field.subtype == 'u8', 'Unexpected array subtype');
 
 		let itemvar = sprintf('item%s', depth || '');
 
@@ -632,7 +632,7 @@ function gen_encode_prop_lowlevel(indent, val, field, depth, bitoff) {
 			println(indent, ');');
 		}
 	}
-	else if (field.type in ['number', 'boolean'] && match(field.subtype, /^(uint8_t|uint16_t|uint24_t|uint32_t|uint48_t|uint64_t|boolean)$/)) {
+	else if (field.type in ['number', 'boolean'] && match(field.subtype, /^(u8|u16|u24|u32|u48|u64|boolean)$/)) {
 		let ref = val + field.name;
 		let ref_field = field.value_field || field.array_field;
 
