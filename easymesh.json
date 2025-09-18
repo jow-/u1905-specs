@@ -1586,7 +1586,7 @@
 					"numfields": 3,
 					"fields": [
 						{ "id": 4, "name": "channel", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 5, "name": "sta_mac_addresses_count", "ref": 7, "size": 1, "subtype": "mac", "type": "string" },
+						{ "id": 5, "name": "sta_mac_addresses_count", "ref": 7, "size": 1, "subtype": "uint8_t", "type": "number" },
 						{
 							"id": 7,
 							"name": "sta_mac_addresses",
@@ -1702,7 +1702,7 @@
 					"repeat": "k",
 					"repeat_ref": 9
 				},
-				{ "id": 12, "name": "target_bssid_list_count", "ref": 16, "size": 1, "subtype": "mac", "type": "string" },
+				{ "id": 12, "name": "target_bssid_list_count", "ref": 16, "size": 1, "subtype": "uint8_t", "type": "number" },
 				{
 					"id": 16,
 					"name": "target_bssid_list",
@@ -2135,7 +2135,7 @@
 				{ "id": 3, "name": "gtk_key_id", "size": 0.25, "subtype": "bitfield", "type": "number" },
 				{ "id": 4, "name": "mic_version", "size": 0.25, "subtype": "bitfield", "type": "number" },
 				{ "id": 5, "name": "reserved", "size": 0.5, "subtype": "bitfield", "type": "void" },
-				{ "id": 6, "name": "integrity_transmission_counter", "size": 6, "subtype": "string", "type": "string" },
+				{ "id": 6, "name": "integrity_transmission_counter", "size": 6, "subtype": "uint48_t", "type": "number" },
 				{ "id": 7, "name": "source_1905_al_mac_address", "size": 6, "subtype": "mac", "type": "string" },
 				{ "id": 8, "name": "mic_length", "ref": 9, "size": 2, "subtype": "uint16_t", "type": "number" },
 				{ "id": 9, "name": "mic", "size": 0, "size_ref": 8, "subtype": "string", "type": "string" }
@@ -2146,7 +2146,7 @@
 		},
 		"0xac": {
 			"fields": [
-				{ "id": 3, "name": "encryption_transmission_counter", "size": 6, "subtype": "string", "type": "string" },
+				{ "id": 3, "name": "encryption_transmission_counter", "size": 6, "subtype": "uint48_t", "type": "number" },
 				{ "id": 4, "name": "source_1905_al_mac_address", "size": 6, "subtype": "mac", "type": "string" },
 				{ "id": 5, "name": "destination_1905_al_mac_address", "size": 6, "subtype": "mac", "type": "string" },
 				{ "id": 6, "name": "aes_siv_length", "ref": 7, "size": 2, "subtype": "uint16_t", "type": "number" },
@@ -2303,7 +2303,7 @@
 					"fields": [
 						{ "id": 13, "name": "opclass", "size": 1, "subtype": "uint8_t", "type": "number" },
 						{ "id": 14, "name": "channel", "size": 1, "subtype": "uint8_t", "type": "number" },
-						{ "id": 15, "name": "countdown", "size": 3, "subtype": "string", "type": "string" }
+						{ "id": 15, "name": "countdown", "size": 3, "subtype": "uint24_t", "type": "number" }
 					],
 					"repeat": "c",
 					"repeat_ref": 12
@@ -2337,7 +2337,7 @@
 									"subtype": "uint8_t",
 									"type": "number"
 								},
-								{ "id": 7, "name": "duration", "size": 3, "subtype": "string", "type": "string" },
+								{ "id": 7, "name": "duration", "size": 3, "subtype": "uint24_t", "type": "number" },
 								{ "id": 8, "name": "opclass_count", "ref": 13, "size": 1, "subtype": "uint8_t", "type": "number" },
 								{
 									"id": 13,
@@ -2697,7 +2697,7 @@
 					"repeat": "k",
 					"repeat_ref": 9
 				},
-				{ "id": 12, "name": "target_bssid_count", "ref": 17, "size": 1, "subtype": "mac", "type": "string" },
+				{ "id": 12, "name": "target_bssid_count", "ref": 17, "size": 1, "subtype": "uint8_t", "type": "number" },
 				{
 					"id": 17,
 					"name": "target_bssids",
@@ -2852,7 +2852,7 @@
 		},
 		"0xcd": {
 			"fields": [
-				{ "id": 3, "name": "enrollee_mac_address_present", "size": 0.125, "subtype": "mac", "type": "string" },
+				{ "id": 3, "name": "enrollee_mac_address_present", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 4, "name": "reserved", "size": 0.125, "subtype": "bitfield", "type": "void" },
 				{ "id": 5, "name": "dpp_frame_indicator", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 6, "name": "reserved2", "size": 0.625, "subtype": "bitfield", "suffix": "2", "type": "void" },
@@ -2920,7 +2920,7 @@
 		},
 		"0xd3": {
 			"fields": [
-				{ "id": 3, "name": "enrollee_mac_address_present", "size": 0.125, "subtype": "mac", "type": "string" },
+				{ "id": 3, "name": "enrollee_mac_address_present", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 4, "name": "hash_validity", "size": 0.125, "subtype": "bitfield", "type": "boolean" },
 				{ "id": 5, "name": "reserved", "size": 0.75, "subtype": "bitfield", "type": "void" },
 				{ "id": 6, "name": "destination_sta_mac_address", "size": 6, "subtype": "mac", "type": "string" },
@@ -3050,7 +3050,7 @@
 				{ "id": 13, "name": "srg_obsspd_min_offset", "size": 1, "subtype": "uint8_t", "type": "number" },
 				{ "id": 14, "name": "srg_obsspd_max_offset", "size": 1, "subtype": "uint8_t", "type": "number" },
 				{ "id": 15, "name": "srg_bss_color_bitmap", "size": 8, "subtype": "uint64_t", "type": "number" },
-				{ "id": 16, "name": "srg_partial_bssid_bitmap", "size": 8, "subtype": "mac", "type": "string" },
+				{ "id": 16, "name": "srg_partial_bssid_bitmap", "size": 8, "subtype": "uint64_t", "type": "number" },
 				{ "id": 17, "name": "reserved4", "size": 2, "subtype": "string", "suffix": "4", "type": "void" }
 			],
 			"name": "Spatial Reuse Request",
@@ -3073,7 +3073,7 @@
 				{ "id": 14, "name": "srg_obsspd_min_offset", "size": 1, "subtype": "uint8_t", "type": "number" },
 				{ "id": 15, "name": "srg_obsspd_max_offset", "size": 1, "subtype": "uint8_t", "type": "number" },
 				{ "id": 16, "name": "srg_bss_color_bitmap", "size": 8, "subtype": "uint64_t", "type": "number" },
-				{ "id": 17, "name": "srg_partial_bssid_bitmap", "size": 8, "subtype": "mac", "type": "string" },
+				{ "id": 17, "name": "srg_partial_bssid_bitmap", "size": 8, "subtype": "uint64_t", "type": "number" },
 				{ "id": 18, "name": "used_neighbor_bss_colors", "size": 8, "subtype": "uint64_t", "type": "number" },
 				{ "id": 19, "name": "reserved4", "size": 2, "subtype": "string", "suffix": "4", "type": "void" }
 			],
