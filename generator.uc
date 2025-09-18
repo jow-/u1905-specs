@@ -143,13 +143,24 @@ function gen_decode_bitfield(indent, counter, members, optional) {
 	println(0, '');
 }
 
+function gen_unpack_uint(width)
+{
+	switch (width) {
+	case 1: return `buf.get('B')`;
+	case 2: return `buf.get('!H')`;
+	case 3: return `((buf.get('B') << 16) | buf.get('!H'))`;
+	case 4: return `buf.get('!L')`;
+	case 6: return `((buf.get('!H') << 32) | buf.get('!L'))`;
+	case 8: return `buf.get('!Q')`;
+	}
+}
+
 function gen_decode_prop_lowlevel(indent, field, optional) {
 	let decl = optional ? '' : 'const ';
-	const int_fmts = [null, 'B', '!H', null, '!L', null, null, null, '!Q'];
 	let m;
 
 	if (field.type === 'array') {
-		if ((m = match(field.subtype, /^uint(8|16|32|64)_t$/)) == null)
+		if ((m = match(field.subtype, /^uint(8|16|24|32|48|64)_t$/)) == null)
 			die(`Unexpected array subtype for field ${field}`);
 
 		assert(field.size_field != null, `No related array length field for field ${field}`);
@@ -161,16 +172,18 @@ function gen_decode_prop_lowlevel(indent, field, optional) {
 		println(indent, "for (let %s = 0; %s < %s; %s++) {", itervar, itervar, field.size_field.name, itervar);
 		println(indent, "	if (buf.pos() + %d > end)", m[1] / 8);
 		println(indent, "		return null;");
-		println(indent, "	push(%s, buf.get('%s'));", field.name, int_fmts[m[1] / 8]);
+		println(indent, "	push(%s, %s);", field.name, gen_unpack_uint(m[1] / 8));
 		println(indent, "}");
 
 		//println(indent, "if (buf.pos() + %s > end)", field.size_field.name);
 		//println(indent, "	return null;");
 		//println(indent, "%s%s = buf.read(`${%s}B`);", decl, field.name, field.size_field.name);
 	}
-	else if (field.type in ['number', 'boolean'] && (m = match(field.subtype, /^(uint(8|16|32|64)_t|boolean)$/)) != null) {
-		const fmt = (m[1] == 'boolean') ? '?' : (m[2] ? int_fmts[m[2] / 8] : 'B');
-		println(indent, "%s%s = buf.get('%s');", decl, field.name, fmt);
+	else if (field.type in ['number', 'boolean'] && (m = match(field.subtype, /^(uint(8|16|24|32|48|64)_t|boolean)$/)) != null) {
+		if (m[1] == 'boolean')
+			println(indent, "%s%s = buf.get('?');", decl, field.name);
+		else
+			println(indent, "%s%s = %s;", decl, field.name, gen_unpack_uint(m[2] / 8));
 	}
 	else if (field.type === 'string') {
 		if (field.subtype === 'mac') {
@@ -216,7 +229,9 @@ function gen_decode_prop_lowlevel(indent, field, optional) {
 		let tmax = {
 			'uint8_t': 0xff,
 			'uint16_t': 0xffff,
+			'uint24_t': 0xffffff,
 			'uint32_t': 0xffffffff,
+			'uint48_t': 0xffffffffffff,
 			'uint64_t': 0xffffffffffffffff
 		}[field.type] || 0;
 
@@ -382,7 +397,7 @@ function gen_decode(indent, fields) {
 }
 
 function gen_validate_prop(indent, val, field) {
-	let limit = [null, '0xff', '0xffff', null, '0xffffffff', null, null, null, '0xffffffffffffffff'];
+	let limit = [null, '0xff', '0xffff', '0xffffff', '0xffffffff', null, '0xffffffffffff', null, '0xffffffffffffffff'];
 	let m;
 
 	if (field.type === 'array') {
@@ -441,7 +456,7 @@ function gen_validate_prop(indent, val, field) {
 		println(indent, 'if (!(%s%s in [ %s ]))', val, field.name, join(', ', sort(keys(field.enum))));
 		println(indent, '	return null;');
 	}
-	else if ((m = match(field.type, /^uint(8|16|32|64)_t$/)) != null) {
+	else if ((m = match(field.type, /^uint(8|16|24|32|48|64)_t$/)) != null) {
 		println(indent, 'if (type(%s%s) != "int" || %s%s < 0 || %s%s > %s)', val, field.name, val, field.name, val, field.name, limit[m[1] / 8]);
 		println(indent, '	return null;');
 	}
@@ -522,9 +537,19 @@ function gen_default_prop(indent, val, field) {
 	}
 }
 
+function gen_pack_uint(width, val) {
+	switch (width) {
+	case 1: return `buf.put('B', ${val})`;
+	case 2: return `buf.put('!H', ${val})`;
+	case 3: return `buf.put('!BH', ${val} >> 16, ${val} & 0xffff)`;
+	case 4: return `buf.put('!L', ${val})`;
+	case 6: return `buf.put('!HL', ${val} >> 32, ${val} & 0xffffffff)`;
+	case 8: return `buf.put('!Q', ${val})`;
+	}
+}
+
 function gen_encode_prop_lowlevel(indent, val, field, depth, bitoff) {
-	let pack_fmt = [null, 'B', '!H', null, '!L', null, null, null, '!Q'];
-	let limit = [null, '0xff', '0xffff', null, '0xffffffff', null, null, null, '0xffffffffffffffff'];
+	let limit = [null, '0xff', '0xffff', '0xffffff', '0xffffffff', null, '0xffffffffffff', null, '0xffffffffffffffff'];
 	let m;
 
 	if (type(field.fields) === 'array') {
@@ -607,24 +632,31 @@ function gen_encode_prop_lowlevel(indent, val, field, depth, bitoff) {
 			println(indent, ');');
 		}
 	}
-	else if (field.type in ['number', 'boolean'] && match(field.subtype, /^(uint8_t|uint16_t|uint32_t|uint64_t|boolean)$/)) {
+	else if (field.type in ['number', 'boolean'] && match(field.subtype, /^(uint8_t|uint16_t|uint24_t|uint32_t|uint48_t|uint64_t|boolean)$/)) {
 		let ref = val + field.name;
 		let ref_field = field.value_field || field.array_field;
-		const fmt = (field.type === 'boolean') ? '?' : pack_fmt[field.size];
 
-		if (ref_field) {
+		if (ref_field)
 			ref = size_expr(val, ref_field);
-		}
 
-		println(indent, "buf.put('%s', %s);", fmt, ref);
+		if (field.type === 'boolean')
+			println(indent, "buf.put('?', %s);", ref);
+		else
+			println(indent, "%s;", gen_pack_uint(field.size, ref));
 	}
 	else if (field.value_field) {
-		let fmt = pack_fmt[field.size] || sprintf('%us', field.size);
-		println(indent, "buf.put('%s', %s);", fmt, size_expr(val, field.value_field));
+		let expr = gen_pack_uint(field.size, size_expr(val, field.value_field));
+		if (expr)
+			println(indent, "%s;", expr);
+		else
+			println(indent, "buf.put('%us', %s);", field.size, size_expr(val, field.value_field));
 	}
 	else if (field.array_field) {
-		let fmt = pack_fmt[field.size] || sprintf('%us', field.size);
-		println(indent, "buf.put('%s', %s);", fmt, size_expr(val, field.array_field));
+		let expr = gen_pack_uint(field.size, size_expr(val, field.array_field));
+		if (expr)
+			println(indent, "%s;", expr);
+		else
+			println(indent, "buf.put('%us', %s);", field.size, size_expr(val, field.array_field));
 	}
 	else if (field.subtype === 'mac') {
 		let var_name = (val ? '' : '_') + field.name;
