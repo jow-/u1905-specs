@@ -194,21 +194,31 @@ function gen_decode_prop_lowlevel(indent, field, optional) {
 			println(indent, "%s%s = arrtoip(buf.read('%dB'));", decl, field.name, len);
 		}
 		else if (field.size_ref < 0) {
-			println(indent, "%s%s = buf.get('*');", decl, field.name);
+			const fmt = (field.subtype == 'binary') ? 'Z' : '*';
+			println(indent, "%s%s = buf.get('%s');", decl, field.name, fmt);
 			return true; // no more fields
 		}
 		else if (field.size_field && field.size < 0) {
 			println(indent, "if (buf.pos() + %s - %d > end)", field.size_field.name, -field.size);
 			println(indent, "	return null;");
-			println(indent, "%s%s = buf.get(%s - %d);", decl, field.name, field.size_field.name, -field.size);
+			if (field.subtype == 'binary')
+				println(indent, "%s%s = buf.get(`${%s - %d}Z`);", decl, field.name, field.size_field.name, -field.size);
+			else
+				println(indent, "%s%s = buf.get(%s - %d);", decl, field.name, field.size_field.name, -field.size);
 		}
 		else if (field.size_field) {
 			println(indent, "if (buf.pos() + %s > end)", field.size_field.name);
 			println(indent, "	return null;");
-			println(indent, "%s%s = buf.get(%s);", decl, field.name, field.size_field.name);
+			if (field.subtype == 'binary')
+				println(indent, "%s%s = buf.get(`${%s}Z`);", decl, field.name, field.size_field.name);
+			else
+				println(indent, "%s%s = buf.get(%s);", decl, field.name, field.size_field.name);
 		}
 		else if (field.size > 0) {
-			println(indent, "%s%s = buf.get(%d);", decl, field.name, field.size);
+			if (field.subtype == 'binary')
+				println(indent, "%s%s = buf.get(`${%d}Z`);", decl, field.name, field.size);
+			else
+				println(indent, "%s%s = buf.get(%d);", decl, field.name, field.size);
 		}
 	}
 	else if (field.type === 'void') {
@@ -668,10 +678,14 @@ function gen_encode_prop_lowlevel(indent, val, field, depth, bitoff) {
 		println(indent, "buf.put('%dB', ...%s);", len, var_name);
 	}
 	else if (field.type === 'string') {
-		if (field.size === '*' || field.size <= 0)
-			println(indent, "buf.put('*', %s%s);", val, field.name);
-		else
-			println(indent, "buf.put('%us', %s%s);", field.size, val, field.name);
+		if (field.size === '*' || field.size <= 0) {
+			const fmt = (field.subtype == 'binary') ? 'Z' : '*';
+			println(indent, "buf.put('%s', %s%s);", fmt, val, field.name);
+		}
+		else {
+			const fmt = (field.subtype == 'binary') ? 'Z' : 's';
+			println(indent, "buf.put('%u%s', %s%s);", field.size, fmt, val, field.name);
+		}
 	}
 	else if (field.type === 'void' && field.size > 0) {
 		println(indent, "buf.put('%dx');", field.size);
