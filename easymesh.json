@@ -1453,7 +1453,7 @@
 						"2": [ 0 ]
 					},
 					"size_ref": -1,
-					"subtype": "string",
+					"subtype": "binary",
 					"type": "string"
 				}
 			],
@@ -2671,7 +2671,7 @@
 		},
 		"0xc2": {
 			"fields": [
-				{ "id": 2, "name": "request_frame_body", "size_ref": -1, "subtype": "string", "type": "string" }
+				{ "id": 2, "name": "request_frame_body", "size_ref": -1, "subtype": "binary", "type": "string" }
 			],
 			"name": "Tunneled",
 			"standard": "Wi-Fi EasyMesh",
@@ -2859,7 +2859,7 @@
 				{ "id": 7, "name": "destination_sta_mac_address", "size": 6, "subtype": "mac", "type": "string" },
 				{ "id": 8, "name": "frame_type", "size": 1, "subtype": "u8", "type": "number" },
 				{ "id": 9, "name": "encapsulated_frame_length", "ref": 10, "size": 2, "subtype": "u16", "type": "number" },
-				{ "id": 10, "name": "encapsulated_frame", "size": 0, "size_ref": 9, "subtype": "string", "type": "string" }
+				{ "id": 10, "name": "encapsulated_frame", "size": 0, "size_ref": 9, "subtype": "binary", "type": "string" }
 			],
 			"name": "1905 Encap DPP",
 			"standard": "Wi-Fi EasyMesh",
@@ -2867,7 +2867,7 @@
 		},
 		"0xce": {
 			"fields": [
-				{ "id": 3, "name": "eapol_frame_payload", "size_ref": -1, "subtype": "string", "type": "string" }
+				{ "id": 3, "name": "eapol_frame_payload", "size_ref": -1, "subtype": "binary", "type": "string" }
 			],
 			"name": "1905 Encap EAPOL",
 			"standard": "Wi-Fi EasyMesh",
@@ -2897,7 +2897,7 @@
 		},
 		"0xd1": {
 			"fields": [
-				{ "id": 3, "name": "dpp_frame", "size_ref": -1, "subtype": "bitfield", "type": "number" }
+				{ "id": 3, "name": "dpp_frame", "size_ref": -1, "subtype": "binary", "type": "string" }
 			],
 			"name": "DPP Message",
 			"standard": "Wi-Fi EasyMesh",
