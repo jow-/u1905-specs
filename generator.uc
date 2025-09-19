@@ -466,7 +466,7 @@ function gen_validate_prop(indent, val, field) {
 		println(indent, 'if (!(%s%s in [ %s ]))', val, field.name, join(', ', sort(keys(field.enum))));
 		println(indent, '	return null;');
 	}
-	else if ((m = match(field.type, /^u(8|16|24|32|48|64)$/)) != null) {
+	else if ((m = match(field.subtype, /^u(8|16|24|32|48|64)$/)) != null) {
 		println(indent, 'if (type(%s%s) != "int" || %s%s < 0 || %s%s > %s)', val, field.name, val, field.name, val, field.name, limit[m[1] / 8]);
 		println(indent, '	return null;');
 	}
@@ -612,7 +612,7 @@ function gen_encode_prop_lowlevel(indent, val, field, depth, bitoff) {
 		let itemvar = sprintf('item%s', depth || '');
 
 		println(indent, 'for (let %s in %s%s) {', itemvar, val, field.name);
-		gen_validate_prop(indent + 1, '', { name: itemvar, type: field.subtype });
+		gen_validate_prop(indent + 1, '', { name: itemvar, type: 'number', subtype: field.subtype });
 		println(indent, "	buf.put('B', %s);", itemvar);
 		println(indent, '}');
 	}
